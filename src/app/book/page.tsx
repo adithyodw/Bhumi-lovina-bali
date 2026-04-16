@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { site, whatsappLink } from "@/lib/site";
+import { HERO_BOOK } from "@/lib/images";
 import OTAButtons from "@/components/OTAButtons";
 
 export const metadata: Metadata = {
@@ -16,7 +17,7 @@ export default function BookPage() {
       {/* Hero */}
       <header className="relative h-[60svh] md:h-[75svh] w-full overflow-hidden flex items-end">
         <Image
-          src="/images/hero/book-hero.webp"
+          src={HERO_BOOK}
           alt="Bhumi Lovina Residence — private pool at dusk, ready for arrival"
           fill
           priority

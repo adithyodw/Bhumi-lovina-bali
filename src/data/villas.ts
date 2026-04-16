@@ -1,3 +1,15 @@
+import {
+  VILLA_LILI,
+  VILLA_LOTUS,
+  VILLA_MONSTERA,
+  VILLA_KRISNA,
+  VILLA_TUNJUNG,
+  VILLA_ASHOKA,
+  VILLA_BOUGAINVILLE,
+  VILLA_KAYU,
+  galleryFor,
+} from "@/lib/images";
+
 export type VillaCategory = "deluxe" | "suite" | "executive";
 
 export type Villa = {
@@ -15,19 +27,6 @@ export type Villa = {
   heroImage: string;
   gallery: string[];
 };
-
-/**
- * Image paths follow the convention:
- *   /images/villas/<category>/<slug>/lovina-villa-<category>-<slug>-XX.webp
- *
- * Drop the real photos into /public/images/villas/... after they are
- * downloaded from the Google Drive asset folder.
- */
-const img = (category: VillaCategory, slug: string, i: number) =>
-  `/images/villas/${category}/${slug}/lovina-villa-${category}-${slug}-${String(i).padStart(2, "0")}.webp`;
-
-const gallery = (category: VillaCategory, slug: string, n: number) =>
-  Array.from({ length: n }, (_, i) => img(category, slug, i + 1));
 
 export const villas: Villa[] = [
   {
@@ -57,8 +56,8 @@ export const villas: Villa[] = [
       "Daily housekeeping",
       "Breakfast included",
     ],
-    heroImage: img("deluxe", "lili", 1),
-    gallery: gallery("deluxe", "lili", 6),
+    heroImage: VILLA_LILI,
+    gallery: galleryFor(VILLA_LILI, 6),
   },
   {
     slug: "lotus",
@@ -86,8 +85,8 @@ export const villas: Villa[] = [
       "Daily housekeeping",
       "Breakfast included",
     ],
-    heroImage: img("deluxe", "lotus", 1),
-    gallery: gallery("deluxe", "lotus", 6),
+    heroImage: VILLA_LOTUS,
+    gallery: galleryFor(VILLA_LOTUS, 6),
   },
   {
     slug: "monstera",
@@ -115,8 +114,8 @@ export const villas: Villa[] = [
       "Mini-bar",
       "Breakfast included",
     ],
-    heroImage: img("deluxe", "monstera", 1),
-    gallery: gallery("deluxe", "monstera", 6),
+    heroImage: VILLA_MONSTERA,
+    gallery: galleryFor(VILLA_MONSTERA, 6),
   },
   {
     slug: "krisna",
@@ -143,8 +142,8 @@ export const villas: Villa[] = [
       "Safe & mini-bar",
       "Breakfast included",
     ],
-    heroImage: img("deluxe", "krisna", 1),
-    gallery: gallery("deluxe", "krisna", 6),
+    heroImage: VILLA_KRISNA,
+    gallery: galleryFor(VILLA_KRISNA, 6),
   },
   {
     slug: "tunjung",
@@ -171,8 +170,8 @@ export const villas: Villa[] = [
       "Safe & mini-bar",
       "Breakfast included",
     ],
-    heroImage: img("deluxe", "tunjung", 1),
-    gallery: gallery("deluxe", "tunjung", 6),
+    heroImage: VILLA_TUNJUNG,
+    gallery: galleryFor(VILLA_TUNJUNG, 6),
   },
   {
     slug: "ashoka",
@@ -201,8 +200,8 @@ export const villas: Villa[] = [
       "Daily housekeeping",
       "Breakfast included",
     ],
-    heroImage: img("suite", "ashoka", 1),
-    gallery: gallery("suite", "ashoka", 8),
+    heroImage: VILLA_ASHOKA,
+    gallery: galleryFor(VILLA_ASHOKA, 8),
   },
   {
     slug: "bougainville",
@@ -230,8 +229,8 @@ export const villas: Villa[] = [
       "Safe & mini-bar",
       "Breakfast included",
     ],
-    heroImage: img("suite", "bougainville", 1),
-    gallery: gallery("suite", "bougainville", 8),
+    heroImage: VILLA_BOUGAINVILLE,
+    gallery: galleryFor(VILLA_BOUGAINVILLE, 8),
   },
   {
     slug: "kayu",
@@ -261,8 +260,8 @@ export const villas: Villa[] = [
       "Safe & mini-bar",
       "Breakfast included",
     ],
-    heroImage: img("executive", "kayu", 1),
-    gallery: gallery("executive", "kayu", 10),
+    heroImage: VILLA_KAYU,
+    gallery: galleryFor(VILLA_KAYU, 10),
   },
 ];
 

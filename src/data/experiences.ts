@@ -1,3 +1,11 @@
+import {
+  EXP_DOLPHIN,
+  EXP_SNORKELING,
+  EXP_WATERFALL,
+  EXP_TEMPLE,
+  EXP_HOTSPRINGS,
+} from "@/lib/images";
+
 export type Experience = {
   slug: string;
   category: "Nature" | "Adventure" | "Culture" | "Wellness" | "Culinary";
@@ -17,7 +25,7 @@ export const experiences: Experience[] = [
       "A private, ethical dolphin-watching journey on a traditional Balinese jukung at first light.",
     description:
       "Lovina is the only coast in Bali where wild spinner and bottlenose dolphins greet the dawn by the hundreds. Our private dolphin tour begins at 5:30 AM, a short walk from your villa, aboard a traditional jukung crewed by a local fisherman. We keep a respectful distance, ask that engines are cut early, and time the trip to avoid the crowded main pod.",
-    image: "/images/experiences/lovina-dolphin-tour-01.webp",
+    image: EXP_DOLPHIN,
     keywords: [
       "lovina dolphin tour",
       "dolphin watching bali",
@@ -33,7 +41,7 @@ export const experiences: Experience[] = [
       "Private snorkeling and diving trips to the quiet reefs of Lovina and Menjangan Island.",
     description:
       "The reef off Lovina is one of North Bali's quietest. Unlike the crowded south, here you can still drift alone above staghorn coral and clouds of butterflyfish. We offer guided half-day snorkeling trips to the house reef and full-day private boats to Menjangan Island, a protected marine national park.",
-    image: "/images/experiences/snorkeling-lovina-01.webp",
+    image: EXP_SNORKELING,
     keywords: [
       "snorkeling lovina",
       "menjangan island snorkeling",
@@ -48,7 +56,7 @@ export const experiences: Experience[] = [
       "Gitgit, Sekumpul and the seven-tier Aling-Aling — guided waterfall journeys with a private driver.",
     description:
       "North Bali's waterfalls are its best-kept secret. Gitgit is the classic — a single 40 m ribbon of white water in a jungle amphitheatre. Sekumpul, an hour inland, is often called the most beautiful in Indonesia — seven cascades fed by a volcanic river. Aling-Aling rewards the brave with natural rock slides and leaps into deep, cold pools.",
-    image: "/images/experiences/sekumpul-waterfall-01.webp",
+    image: EXP_WATERFALL,
     keywords: [
       "waterfalls in north bali",
       "gitgit waterfall",
@@ -64,7 +72,7 @@ export const experiences: Experience[] = [
       "Ulun Danu Beratan, Brahma Vihara Arama and the quiet village temples of Buleleng.",
     description:
       "North Bali is home to some of the island's most photogenic temples. Pura Ulun Danu Beratan floats on the edge of a crater lake. Brahma Vihara Arama, the island's largest Buddhist monastery, is a study in silence. We arrange private, respectful visits with a temple sash, a sarong, and a guide from the village.",
-    image: "/images/experiences/ulun-danu-temple-01.webp",
+    image: EXP_TEMPLE,
     keywords: ["ulun danu beratan", "north bali temples", "brahma vihara"],
   },
   {
@@ -75,7 +83,7 @@ export const experiences: Experience[] = [
       "Mineral-rich volcanic hot springs set in a jungle garden, 20 minutes from the estate.",
     description:
       "Air Panas Banjar is a trio of sulphur-rich natural hot-spring pools fed from deep beneath the Munduk volcano. A short drive inland, the springs sit in a quiet walled garden of frangipani and stone-carved nagas, and are best visited in the cool early evening.",
-    image: "/images/experiences/banjar-hot-springs-01.webp",
+    image: EXP_HOTSPRINGS,
     keywords: ["banjar hot springs", "bali hot springs", "wellness bali"],
   },
 ];

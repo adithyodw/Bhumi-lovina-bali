@@ -3,6 +3,7 @@ import Link from "next/link";
 import { villas } from "@/data/villas";
 import { experiences, nearbyPlaces } from "@/data/experiences";
 import { site } from "@/lib/site";
+import { HERO_ESTATE, NEARBY_CAFE, NEARBY_RESTAURANT } from "@/lib/images";
 import VillaCard from "@/components/VillaCard";
 import YouTubeEmbed from "@/components/YouTubeEmbed";
 import InstagramGrid from "@/components/InstagramGrid";
@@ -22,7 +23,7 @@ export default function HomePage() {
       <header className="relative h-[100svh] w-full overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/hero/estate-hero.webp"
+            src={HERO_ESTATE}
             alt="Private infinity pool overlooking the Bali Sea at dawn, Bhumi Lovina Residence"
             fill
             priority
@@ -274,7 +275,7 @@ export default function HomePage() {
           <div className="relative">
             <div className="aspect-square overflow-hidden rounded-xl shadow-botanical">
               <Image
-                src="/images/nearby/lovina-cafe-01.webp"
+                src={NEARBY_CAFE}
                 alt="Beachfront cafe in Lovina at dusk with bamboo furniture"
                 width={900}
                 height={900}
@@ -284,7 +285,7 @@ export default function HomePage() {
             </div>
             <div className="absolute -bottom-10 -right-10 w-1/2 aspect-square overflow-hidden rounded-xl shadow-botanical border-8 border-surface hidden md:block">
               <Image
-                src="/images/nearby/lovina-restaurant-01.webp"
+                src={NEARBY_RESTAURANT}
                 alt="Gourmet seafood platter at an upscale Lovina restaurant"
                 width={600}
                 height={600}

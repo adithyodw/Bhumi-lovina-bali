@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { experiences, nearbyPlaces } from "@/data/experiences";
 import Reveal from "@/components/Reveal";
+import { EXP_HERO } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Experiences — Things to do in North Bali | Bhumi Lovina",
@@ -50,7 +51,7 @@ export default function ExperiencesPage() {
       {/* Hero */}
       <header className="relative h-[70svh] md:h-[85svh] w-full overflow-hidden flex items-end">
         <Image
-          src={experiences[0].image}
+          src={EXP_HERO}
           alt="Dolphins at sunrise off Lovina beach, North Bali"
           fill
           priority

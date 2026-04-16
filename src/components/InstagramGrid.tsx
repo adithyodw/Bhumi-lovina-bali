@@ -1,8 +1,9 @@
 import Image from "next/image";
 import { site } from "@/lib/site";
+import { INSTAGRAM_POSTS } from "@/lib/images";
 
-const posts = Array.from({ length: 8 }, (_, i) => ({
-  src: `/images/instagram/post-${String(i + 1).padStart(2, "0")}.webp`,
+const posts = INSTAGRAM_POSTS.map((src, i) => ({
+  src,
   alt: `Moment from Bhumi Lovina Residence — post ${i + 1}`,
 }));
 
