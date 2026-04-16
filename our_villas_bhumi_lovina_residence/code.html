@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300;400;700&amp;family=Manrope:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "background": "#faf9f5",
+                        "surface-variant": "#e3e2df",
+                        "primary-container": "#00334e",
+                        "on-background": "#1b1c1a",
+                        "tertiary-fixed-dim": "#f4bb92",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "outline-variant": "#c2c7ce",
+                        "secondary-fixed-dim": "#e1c299",
+                        "on-secondary-fixed": "#281801",
+                        "surface-tint": "#3b627f",
+                        "secondary-container": "#fbdbb0",
+                        "outline": "#72787e",
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#f2f1ed",
+                        "surface-container": "#efeeea",
+                        "inverse-primary": "#a4cbec",
+                        "on-tertiary-fixed-variant": "#653d1e",
+                        "primary-fixed": "#cae6ff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#759cbb",
+                        "secondary": "#725a39",
+                        "on-tertiary-container": "#c08d67",
+                        "surface-bright": "#faf9f5",
+                        "tertiary-fixed": "#ffdcc5",
+                        "tertiary-container": "#4a2709",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#584324",
+                        "on-tertiary-fixed": "#301400",
+                        "secondary-fixed": "#feddb3",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f4f4f0",
+                        "primary": "#001d2f",
+                        "surface-container-highest": "#e3e2df",
+                        "surface-container-high": "#e9e8e4",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#42474d",
+                        "inverse-surface": "#2f312e",
+                        "primary-fixed-dim": "#a4cbec",
+                        "on-surface": "#1b1c1a",
+                        "on-secondary-container": "#765f3d",
+                        "on-primary-fixed-variant": "#214a66",
+                        "on-primary-fixed": "#001e30",
+                        "tertiary": "#2f1400",
+                        "surface-dim": "#dbdad6",
+                        "surface": "#faf9f5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-shadow {
+            box-shadow: 0px 20px 40px rgba(27, 28, 26, 0.04);
+        }
+        .ghost-border {
+            border: 1px solid rgba(114, 120, 126, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-slate-950/80 backdrop-blur-xl flex justify-between items-center px-12 py-6 max-w-[1920px] mx-auto">
+<div class="font-serif text-2xl font-light tracking-[0.2em] text-[#001d2f] dark:text-white uppercase">BHUMI LOVINA</div>
+<div class="hidden md:flex gap-10">
+<a class="font-serif tracking-tight text-lg text-[#001d2f] dark:text-slate-300 hover:text-[#725a39] transition-colors duration-500" href="#">The Estate</a>
+<a class="font-serif tracking-tight text-lg text-[#725a39] border-b border-[#725a39] pb-1 hover:text-[#725a39] transition-colors duration-500" href="#">Villas</a>
+<a class="font-serif tracking-tight text-lg text-[#001d2f] dark:text-slate-300 hover:text-[#725a39] transition-colors duration-500" href="#">Wellness</a>
+<a class="font-serif tracking-tight text-lg text-[#001d2f] dark:text-slate-300 hover:text-[#725a39] transition-colors duration-500" href="#">Experiences</a>
+<a class="font-serif tracking-tight text-lg text-[#001d2f] dark:text-slate-300 hover:text-[#725a39] transition-colors duration-500" href="#">Journal</a>
+</div>
+<button class="bg-primary text-on-primary px-8 py-3 rounded-lg font-label uppercase tracking-widest text-sm hover:bg-primary-container transition-all duration-300">Enquire</button>
+</nav>
+<main class="pt-32">
+<!-- Hero Section -->
+<header class="px-12 mb-32 max-w-[1920px] mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
+<div class="md:col-span-7">
+<h1 class="font-headline text-7xl md:text-9xl text-primary leading-tight mb-8">The Private Collections</h1>
+<p class="font-body text-xl text-on-surface-variant max-w-xl leading-relaxed">
+                        Discover an ensemble of meticulously designed sanctuaries, where Balinese craftsmanship meets contemporary minimalism. Each villa is a tribute to the quiet luxury of Lovina.
+                    </p>
+</div>
+<div class="md:col-span-5 flex flex-col items-end">
+<span class="font-label text-xs tracking-[0.3em] uppercase text-secondary mb-4">Refining Sanctuary</span>
+<div class="h-[1px] w-32 bg-secondary/30"></div>
+</div>
+</div>
+</header>
+<!-- Executive Section -->
+<section class="mb-48 px-12 max-w-[1920px] mx-auto">
+<div class="flex items-center gap-4 mb-12">
+<span class="font-label text-xs tracking-widest uppercase text-secondary">The Executive Residence</span>
+<div class="flex-grow h-[1px] bg-surface-variant"></div>
+</div>
+<div class="relative group overflow-hidden rounded-xl h-[819px]">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="luxury sprawling executive villa at sunset with infinity pool reflecting warm orange sky and tropical gardens" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAukEgByeBvreTdTIP4KSvd7B05QxmnzaoYWhN0bpRuQUbihAg_jNCKnv0mpWrgi8VjYtbsWuIQiBldrIuM2k1sRGP0Wvv_ZoNLJrknfjXdk4ebuoppsuYTLuOU6W2y9q44rNuDf6l5mvEz4MMXLzbToF0wlzdJYPnYbnSXOmVNqsnfRjiZOMELPSHKqfvosOv9QmL-efXBWJ2TIJsesTCBMX1fuu5oChmwB-iOMnHEaczoHMxf4EQw3vzro5DrGjW9nEjqmU6SU8mc"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60"></div>
+<div class="absolute bottom-0 left-0 p-16 w-full flex justify-between items-end">
+<div class="text-on-primary">
+<h2 class="font-headline text-6xl mb-4">Kayu</h2>
+<p class="font-body text-lg max-w-md opacity-90 mb-8 leading-relaxed">A sprawling masterpiece of teak wood and stone, offering the ultimate horizon view for those who seek the extraordinary.</p>
+<div class="flex gap-8 font-label text-sm uppercase tracking-widest">
+<span>4 Bedrooms</span>
+<span>Infinity Pool</span>
+<span>Private Chef</span>
+</div>
+</div>
+<button class="bg-background text-primary px-12 py-5 rounded-lg font-label uppercase tracking-widest text-sm hover:bg-secondary hover:text-white transition-all duration-500 shadow-xl">Reserve Executive</button>
+</div>
+</div>
+</section>
+<!-- Suites Section (Asymmetric Bento Grid) -->
+<section class="mb-48 px-12 max-w-[1920px] mx-auto">
+<div class="flex items-center gap-4 mb-12">
+<div class="flex-grow h-[1px] bg-surface-variant"></div>
+<span class="font-label text-xs tracking-widest uppercase text-secondary">The Suite Collection</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-24">
+<!-- Ashoka -->
+<div class="space-y-8">
+<div class="overflow-hidden rounded-xl aspect-[4/5] ghost-border group">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" data-alt="serene modern bedroom with large glass doors opening to a private garden and lotus pond with soft morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpvYGVHE9ATGLkVg4yiLfrIsCGgdsbz9SKJcKWdn4myW5qLNETdjWrxUxHf0dxIfjKgRiR_xGp_X_vPsg8e1e1dUtpdKv65cBGRuY6HPQkA9HJs6bDOA4FbxhrBz8eTCK-zy5Z8jysiYvTyhOuSXo5OTA4fvb696Vh1OOM5hBXyauQOsSUK-To8hnXNd_wg966nmtdoRtfeoE-V3E_4pnOp962V6efXfkrnZaQSm38ntFcV8Ie4CQceNXmOHAAlNZdQ2Z_CPexfm3Z"/>
+</div>
+<div class="px-4">
+<h3 class="font-headline text-4xl text-primary mb-4">Ashoka</h3>
+<p class="font-body text-on-surface-variant mb-8 leading-relaxed">A sanctuary of balance and light, Ashoka features an open-concept living space that dissolves the boundary between nature and home.</p>
+<a class="inline-flex items-center gap-2 font-label text-sm uppercase tracking-widest text-secondary hover:translate-x-2 transition-transform duration-300" href="#">
+                            View Ashoka <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Bougainville -->
+<div class="space-y-8 md:mt-32">
+<div class="overflow-hidden rounded-xl aspect-[4/5] ghost-border group">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" data-alt="minimalist architectural villa with white walls vibrant purple bougainvillea flowers and a turquoise plunge pool" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1o7ElEa86IKqNjqOdLNtzcJ15qPYY0UVBwhFMiPESwBCXL7PGw_DT9NnUUXjwp6_17nvs-mNtEOSFWNgIMkHmgVdAE9O8GvaPGYhMZZiV34rBb1KJ_eA98_OnO_bEtfPUI0QNO-JGrX1C-4UCt3-5fKLTopvkyBt1m9WhfFTxasDthUDXi-B-oWdVBv1rCyF3xtpt9E3c3rkaa3zFWFe800Gr4u3sSWWBWDG2UvMGUERWMRN13tWq3V5bwNAQHIHppEfHX4aQ1Gmu"/>
+</div>
+<div class="px-4">
+<h3 class="font-headline text-4xl text-primary mb-4">Bougainville</h3>
+<p class="font-body text-on-surface-variant mb-8 leading-relaxed">Wrapped in vibrant floral landscapes, this suite offers a vibrant yet secluded escape for intimate retreats.</p>
+<a class="inline-flex items-center gap-2 font-label text-sm uppercase tracking-widest text-secondary hover:translate-x-2 transition-transform duration-300" href="#">
+                            View Bougainville <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Deluxe Grid -->
+<section class="bg-surface-container-low py-32 px-12">
+<div class="max-w-[1920px] mx-auto">
+<div class="mb-20 text-center">
+<span class="font-label text-xs tracking-[0.4em] uppercase text-secondary mb-4 block">Our Heritage</span>
+<h2 class="font-headline text-5xl text-primary">The Deluxe Villas</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
+<!-- Lili -->
+<div class="group cursor-pointer">
+<div class="aspect-square rounded-xl overflow-hidden mb-6 editorial-shadow">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="close up of luxury resort detail with tropical foliage and a stone carved wall fountain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOlTSvDIRwqZLaQadRhLBGKfQBs7RFPBqlbwiZDMPtiOy4VnASK3SZFf4NpvfvK-v-TkLO-L3bcb4DnK_gbqUcK3rzS-Qi1EQk8QMQFCRkWSf2OGDjXAXNYutKNTkhJYITx65OKAdXJY8Yd01K2jffV2GOhO6UgoFFjmR5J_HnngcFsG7Q23G5SlwVEhAJ0L_nH1oigK18KUwlQZEEni7HNj0PKWYmA_oJHJLaG3cCpswvqJ-pF7R_JoO6DHFZ7oKrnYa30U0NjgIG"/>
+</div>
+<h4 class="font-headline text-2xl text-primary mb-1">Lili</h4>
+<p class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant opacity-60">Garden Sanctuary</p>
+</div>
+<!-- Lotus -->
+<div class="group cursor-pointer">
+<div class="aspect-square rounded-xl overflow-hidden mb-6 editorial-shadow">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="reflection of luxury villa in a still water lily pond at dawn with soft blue lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDA8Z9EZ9oSVdlNULM_uNWPpu-WMf5d6xlEvcW0wnQe5fxL58P9HdoZesePF1JcVvlQWJK8L1aRng_S4RLMjUzG2RJVNJmkfV_DWrAOvmyNpSSgPNtPG4ZSehXp1_M_hUHtdzLEvlJgmEC9ug1rvuBTaFNCf6WcNK9LMFmr68ipT0Curvdvx3_AuNfQawlk25QMaXdeEXtYRXIuoye8D9Bp_t9HBH-Uwj_TBHj3hxnShdafyzNdKqrAaNKXxsg2w_BNlUXN017wJn5q"/>
+</div>
+<h4 class="font-headline text-2xl text-primary mb-1">Lotus</h4>
+<p class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant opacity-60">Overwater Studio</p>
+</div>
+<!-- Monstera -->
+<div class="group cursor-pointer">
+<div class="aspect-square rounded-xl overflow-hidden mb-6 editorial-shadow">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="modern villa interior with large monstera leaves in an ceramic vase and minimalist wooden furniture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCy1zo2cFOnCGyNUVy-0ROvKYEmOygiZpumgSoAW-u_07bNX4vpvFTM_-8aHkYvTcaIs5KGm5LtffxzA547LcpNi80-Dl4mdA7ln7no3Vj1qUM-4ikxnqmvDGtXJbUCIK-7EUtwrqOblnQ_FYWIBOCRUPq8ScPd0NVVK05vpYtpZmqKpDs1e-T2IVtcCDdvmA13sjOxaguARpk50SYMFr2cqfK67vihsgJKG3UnCz4wjsZ6217YDiUzWK7KlpBi9jjkMoGpZf1fuJCi"/>
+</div>
+<h4 class="font-headline text-2xl text-primary mb-1">Monstera</h4>
+<p class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant opacity-60">The Jungle Loft</p>
+</div>
+<!-- Krisna -->
+<div class="group cursor-pointer">
+<div class="aspect-square rounded-xl overflow-hidden mb-6 editorial-shadow">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="traditional Balinese gate leading to a modern luxury villa path with morning mist" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKiQrd7SXbALYhHBjxwHD7HVotXcSADXtqxgQxzCkYCHEVov_tDXbP6I05hQfj0uOnNsjyGoOwRDP-BAJQN6EVvWSyE54-kzPF_x0SjaReCcETdn3nwSIonW2XVdWL-awWOX8I503yKhL-L622veXjr_I05Ot4jI66yTK-n-jZRM3GWq-cHGtMsm_BCw-fNmb1gwE4XtrWZn1nn7hbm_kWRTtpEfq5WNxnS3-74jYnjsQ5BGd2IMGVnq5muMqLn49hRBik3TAuqBfU"/>
+</div>
+<h4 class="font-headline text-2xl text-primary mb-1">Krisna</h4>
+<p class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant opacity-60">Cultural Haven</p>
+</div>
+<!-- Tunjung -->
+<div class="group cursor-pointer">
+<div class="aspect-square rounded-xl overflow-hidden mb-6 editorial-shadow">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="luxury hotel room with white linens large window showing ocean view at high noon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCure2JqfgK9nKCztYbsbLoEgMnpeX9xrmWEQTSeBbkbuIxcbdUBaZVV_wDhlNOoQyc-96QN0WgFAedzEbC5GmtLUOrhAmZz5Bc6o6MpVLo5vbJRYd8rkHhcPOxCgVhMx9g51JzGtthEOwT9AfvJeOFgwUVIfFc8gZl4xIwVEW3ujpABWz0E94xMGOTWNKUT1GagCtXoLuPku09M3qUunomKlOExWw5nG1jHa5jSoKrI1l23kxR58Ba7silynaLvbwNDkWcZ1U-nWwF"/>
+</div>
+<h4 class="font-headline text-2xl text-primary mb-1">Tunjung</h4>
+<p class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant opacity-60">Horizon Suite</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-24 bg-[#001d2f] dark:bg-black text-[#faf9f5]">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-20 max-w-[1920px] mx-auto">
+<div class="md:col-span-1">
+<div class="text-3xl font-serif mb-8 text-[#faf9f5]">BHUMI LOVINA</div>
+<p class="font-serif font-light tracking-wide text-slate-400 max-w-xs">An escape into the silence of nature, designed for the conscious traveler.</p>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="font-label text-sm uppercase tracking-widest mb-4">Quick Links</h5>
+<a class="font-serif font-light tracking-wide text-slate-400 hover:text-[#725a39] transition-colors" href="#">The Estate</a>
+<a class="font-serif font-light tracking-wide text-white underline" href="#">Villas</a>
+<a class="font-serif font-light tracking-wide text-slate-400 hover:text-[#725a39] transition-colors" href="#">Sustainability</a>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="font-label text-sm uppercase tracking-widest mb-4">Support</h5>
+<a class="font-serif font-light tracking-wide text-slate-400 hover:text-[#725a39] transition-colors" href="#">Privacy Policy</a>
+<a class="font-serif font-light tracking-wide text-slate-400 hover:text-[#725a39] transition-colors" href="#">Contact Us</a>
+<a class="font-serif font-light tracking-wide text-slate-400 hover:text-[#725a39] transition-colors" href="#">Careers</a>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="font-label text-sm uppercase tracking-widest mb-4">Social</h5>
+<a class="font-serif font-light tracking-wide text-slate-400 hover:text-[#725a39] transition-colors" href="#">Instagram</a>
+<a class="font-serif font-light tracking-wide text-slate-400 hover:text-[#725a39] transition-colors" href="#">Journal</a>
+<a class="font-serif font-light tracking-wide text-slate-400 hover:text-[#725a39] transition-colors" href="#">Press Kit</a>
+</div>
+</div>
+<div class="border-t border-white/5 px-12 py-8 flex justify-between items-center max-w-[1920px] mx-auto">
+<p class="font-label text-[10px] tracking-widest uppercase opacity-50">© 2024 BHUMI LOVINA RESIDENCE. ALL RIGHTS RESERVED.</p>
+<div class="flex gap-8">
+<span class="material-symbols-outlined text-white/50 hover:text-white cursor-pointer transition-colors">public</span>
+<span class="material-symbols-outlined text-white/50 hover:text-white cursor-pointer transition-colors">favorite</span>
+</div>
+</div>
+</footer>
+<!-- Bottom Navigation (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-6 pt-3 pb-8 bg-[#faf9f5]/90 dark:bg-slate-900/90 backdrop-blur-2xl z-50 rounded-t-3xl border-t border-[#001d2f]/5 shadow-[0px_-10px_30px_rgba(0,0,0,0.03)]">
+<a class="flex flex-col items-center justify-center text-slate-500 opacity-70 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined mb-1">explore</span>
+<span class="font-sans text-[10px] tracking-widest uppercase">Explore</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#725a39] font-bold active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined mb-1">villa</span>
+<span class="font-sans text-[10px] tracking-widest uppercase">Villas</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 opacity-70 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined mb-1">calendar_month</span>
+<span class="font-sans text-[10px] tracking-widest uppercase">Book</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 opacity-70 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined mb-1">chat</span>
+<span class="font-sans text-[10px] tracking-widest uppercase">WhatsApp</span>
+</a>
+</nav>
+<!-- Floating Concierge (Contextual FAB) -->
+<div class="fixed right-12 bottom-12 z-40 hidden md:block">
+<button class="bg-surface-container-lowest ghost-border editorial-shadow px-8 py-4 rounded-full flex items-center gap-3 hover:bg-surface-container transition-all group">
+<span class="material-symbols-outlined text-secondary">doorbell</span>
+<span class="font-label text-xs tracking-widest uppercase text-primary">Chat with Estate Manager</span>
+</button>
+</div>
+</body></html>

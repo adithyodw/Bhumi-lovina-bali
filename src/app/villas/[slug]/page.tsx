@@ -1,0 +1,288 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import Image from "next/image";
+import Link from "next/link";
+import { villas, villaBySlug } from "@/data/villas";
+import { site, whatsappLink } from "@/lib/site";
+import OTAButtons from "@/components/OTAButtons";
+import Reveal from "@/components/Reveal";
+
+type Params = { slug: string };
+
+export async function generateStaticParams(): Promise<Params[]> {
+  return villas.map((v) => ({ slug: v.slug }));
+}
+
+export async function generateMetadata(props: {
+  params: Promise<Params>;
+}): Promise<Metadata> {
+  const { slug } = await props.params;
+  const v = villaBySlug(slug);
+  if (!v) return {};
+  const title = `${v.name} — ${v.categoryLabel}, Lovina North Bali`;
+  return {
+    title,
+    description: v.intro,
+    alternates: { canonical: `/villas/${v.slug}` },
+    openGraph: {
+      title,
+      description: v.intro,
+      images: [{ url: v.heroImage }],
+    },
+  };
+}
+
+export default async function VillaDetailPage(props: {
+  params: Promise<Params>;
+}) {
+  const { slug } = await props.params;
+  const villa = villaBySlug(slug);
+  if (!villa) notFound();
+
+  const others = villas.filter((v) => v.slug !== villa.slug).slice(0, 3);
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+    name: `${villa.name} — Bhumi Lovina Residence`,
+    description: villa.intro,
+    url: `${site.url}/villas/${villa.slug}`,
+    image: `${site.url}${villa.heroImage}`,
+    starRating: { "@type": "Rating", ratingValue: "5" },
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: site.location.address,
+      addressLocality: "Lovina",
+      addressRegion: site.location.region,
+      addressCountry: site.location.country,
+    },
+    numberOfRooms: villa.bedrooms,
+    amenityFeature: villa.amenities.map((a) => ({
+      "@type": "LocationFeatureSpecification",
+      name: a,
+      value: true,
+    })),
+  };
+
+  const prefill = `Hi, I would like to book ${villa.name} at Bhumi Lovina Residence`;
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
+      {/* Hero */}
+      <header className="relative h-[80svh] md:h-[95svh] w-full overflow-hidden flex items-end">
+        <Image
+          src={villa.heroImage}
+          alt={`${villa.name} — ${villa.tagline}`}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/10 to-primary/20" />
+        <div className="relative z-10 max-w-[1440px] mx-auto px-6 md:px-12 pb-20 md:pb-28 w-full">
+          <span className="font-sans tracking-[0.4em] uppercase text-xs text-on-primary/80 mb-6 block">
+            {villa.categoryLabel}
+          </span>
+          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-light text-on-primary max-w-3xl leading-[1.05] text-balance">
+            {villa.name}
+          </h1>
+          <p className="mt-6 text-on-primary/90 text-lg md:text-xl font-light max-w-2xl text-pretty">
+            {villa.tagline}
+          </p>
+        </div>
+      </header>
+
+      {/* Overview */}
+      <section className="py-20 md:py-28 px-6 md:px-12 max-w-[1200px] mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+          <div className="lg:col-span-8">
+            <span className="font-sans tracking-[0.4em] uppercase text-xs text-secondary mb-6 block">
+              The Villa
+            </span>
+            {villa.description.map((p, i) => (
+              <p
+                key={i}
+                className="text-on-surface text-lg md:text-xl font-light leading-[1.75] mb-6 text-pretty"
+              >
+                {p}
+              </p>
+            ))}
+          </div>
+          <aside className="lg:col-span-4">
+            <div className="bg-surface-container-low rounded-xl p-8 shadow-botanical">
+              <dl className="grid grid-cols-2 gap-y-6">
+                <div>
+                  <dt className="font-sans tracking-widest uppercase text-[10px] text-secondary mb-1">
+                    Bedrooms
+                  </dt>
+                  <dd className="font-serif text-xl font-light">
+                    {villa.bedrooms}
+                  </dd>
+                </div>
+                <div>
+                  <dt className="font-sans tracking-widest uppercase text-[10px] text-secondary mb-1">
+                    Guests
+                  </dt>
+                  <dd className="font-serif text-xl font-light">
+                    {villa.maxGuests}
+                  </dd>
+                </div>
+                <div>
+                  <dt className="font-sans tracking-widest uppercase text-[10px] text-secondary mb-1">
+                    Size
+                  </dt>
+                  <dd className="font-serif text-xl font-light">
+                    {villa.sizeSqm} m²
+                  </dd>
+                </div>
+                <div>
+                  <dt className="font-sans tracking-widest uppercase text-[10px] text-secondary mb-1">
+                    Category
+                  </dt>
+                  <dd className="font-serif text-xl font-light">
+                    {villa.categoryLabel}
+                  </dd>
+                </div>
+              </dl>
+
+              <a
+                href={whatsappLink(prefill)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 block w-full text-center bg-primary text-on-primary px-8 py-4 rounded-md font-sans tracking-widest uppercase text-xs hover:bg-primary-container transition-all"
+              >
+                Book {villa.name}
+              </a>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      {/* Gallery */}
+      <section className="pb-20 md:pb-28 px-6 md:px-12 max-w-[1600px] mx-auto">
+        <span className="font-sans tracking-[0.4em] uppercase text-xs text-secondary mb-6 block">
+          Gallery
+        </span>
+        <h2 className="font-serif text-3xl md:text-4xl font-light leading-tight mb-12 text-balance">
+          Inside {villa.name}
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-4 md:gap-6">
+          {villa.gallery.map((src, i) => {
+            const span =
+              i % 5 === 0
+                ? "md:col-span-4 aspect-[16/10]"
+                : i % 5 === 1
+                  ? "md:col-span-2 aspect-[3/4]"
+                  : i % 5 === 2
+                    ? "md:col-span-3 aspect-[4/3]"
+                    : i % 5 === 3
+                      ? "md:col-span-3 aspect-[4/3]"
+                      : "md:col-span-6 aspect-[21/9]";
+            return (
+              <Reveal
+                key={src}
+                delay={i * 60}
+                className={`relative overflow-hidden rounded-xl ${span}`}
+              >
+                <Image
+                  src={src}
+                  alt={`${villa.name} interior photograph ${i + 1}`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </Reveal>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Amenities */}
+      <section className="bg-surface-container-low py-20 md:py-28 px-6 md:px-12">
+        <div className="max-w-[1200px] mx-auto">
+          <span className="font-sans tracking-[0.4em] uppercase text-xs text-secondary mb-6 block">
+            Amenities
+          </span>
+          <h2 className="font-serif text-3xl md:text-4xl font-light leading-tight mb-12 text-balance">
+            Every comfort, quietly present.
+          </h2>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-10 gap-y-5">
+            {villa.amenities.map((a) => (
+              <li
+                key={a}
+                className="font-light text-on-surface pb-4 border-b border-outline/10"
+              >
+                {a}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Book CTA */}
+      <section className="py-20 md:py-28 px-6 md:px-12 max-w-[1100px] mx-auto text-center">
+        <span className="font-sans tracking-[0.4em] uppercase text-xs text-secondary mb-6 block">
+          Reserve
+        </span>
+        <h2 className="font-serif text-3xl md:text-5xl font-light mb-8 leading-tight text-balance">
+          Book {villa.name}
+        </h2>
+        <p className="text-on-surface-variant text-lg font-light leading-relaxed mb-12 text-pretty">
+          For the best rate and a personal reply, message us directly on
+          WhatsApp. You can also reserve through our trusted partners below.
+        </p>
+        <div className="flex flex-col items-center gap-8">
+          <a
+            href={whatsappLink(prefill)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-primary text-on-primary px-12 py-4 rounded-md font-sans tracking-widest uppercase text-xs hover:bg-primary-container transition-all"
+          >
+            Message on WhatsApp
+          </a>
+          <div className="w-full">
+            <OTAButtons />
+          </div>
+        </div>
+      </section>
+
+      {/* Other villas */}
+      <section className="pb-24 md:pb-32 px-6 md:px-12 max-w-[1440px] mx-auto">
+        <span className="font-sans tracking-[0.4em] uppercase text-xs text-secondary mb-6 block">
+          Also in the Estate
+        </span>
+        <h2 className="font-serif text-3xl md:text-4xl font-light leading-tight mb-12 text-balance">
+          Other villas you may love
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {others.map((v) => (
+            <Link
+              key={v.slug}
+              href={`/villas/${v.slug}`}
+              className="group block"
+            >
+              <div className="relative aspect-[4/5] overflow-hidden rounded-xl mb-6">
+                <Image
+                  src={v.heroImage}
+                  alt={`${v.name} — ${v.tagline}`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                />
+              </div>
+              <h3 className="font-serif text-2xl font-light mb-1">{v.name}</h3>
+              <p className="text-sm text-on-surface-variant font-light">
+                {v.tagline}
+              </p>
+            </Link>
+          ))}
+        </div>
+      </section>
+    </>
+  );
+}
