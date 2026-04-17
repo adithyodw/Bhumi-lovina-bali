@@ -8,6 +8,7 @@ const links = [
   { href: "/", label: "The Estate" },
   { href: "/villas", label: "Villas" },
   { href: "/experiences", label: "Experiences" },
+  { href: "/info", label: "Info" },
   { href: "/book", label: "Book" },
 ];
 
