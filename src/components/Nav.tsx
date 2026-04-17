@@ -2,17 +2,20 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 import { whatsappLink } from "@/lib/site";
+import LanguageSwitcher from "./LanguageSwitcher";
 
-const links = [
-  { href: "/", label: "The Estate" },
-  { href: "/villas", label: "Villas" },
-  { href: "/experiences", label: "Experiences" },
-  { href: "/info", label: "Info" },
-  { href: "/book", label: "Book" },
-];
+const linkDefs = [
+  { href: "/", key: "estate" },
+  { href: "/villas", key: "villas" },
+  { href: "/experiences", key: "experiences" },
+  { href: "/info", key: "info" },
+  { href: "/book", key: "book" },
+] as const;
 
 export default function Nav() {
+  const t = useTranslations("nav");
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -42,7 +45,7 @@ export default function Nav() {
         </Link>
 
         <ul className="hidden md:flex items-center gap-10 lg:gap-12">
-          {links.map((l) => (
+          {linkDefs.map((l) => (
             <li key={l.href}>
               <Link
                 href={l.href}
@@ -50,20 +53,27 @@ export default function Nav() {
                   scrolled ? "text-primary" : "text-on-primary/90"
                 }`}
               >
-                {l.label}
+                {t(l.key)}
               </Link>
             </li>
           ))}
         </ul>
 
-        <a
-          href={whatsappLink()}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-primary text-on-primary px-5 md:px-8 py-2.5 md:py-3 rounded-md font-sans tracking-widest uppercase text-[10px] md:text-xs hover:bg-primary-container transition-all duration-300"
-        >
-          Enquire
-        </a>
+        <div className="flex items-center gap-4 md:gap-5">
+          <LanguageSwitcher
+            className={`font-sans tracking-widest uppercase text-[10px] transition-opacity hover:opacity-100 ${
+              scrolled ? "text-primary opacity-50" : "text-on-primary opacity-60"
+            }`}
+          />
+          <a
+            href={whatsappLink()}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-primary text-on-primary px-5 md:px-8 py-2.5 md:py-3 rounded-md font-sans tracking-widest uppercase text-[10px] md:text-xs hover:bg-primary-container transition-all duration-300"
+          >
+            {t("enquire")}
+          </a>
+        </div>
       </div>
     </nav>
   );

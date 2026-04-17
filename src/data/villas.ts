@@ -12,6 +12,14 @@ import {
 
 export type VillaCategory = "deluxe" | "suite" | "executive";
 
+type VillaTranslation = {
+  categoryLabel: string;
+  tagline: string;
+  intro: string;
+  description: string[];
+  amenities: string[];
+};
+
 export type Villa = {
   slug: string;
   name: string;
@@ -26,7 +34,13 @@ export type Villa = {
   amenities: string[];
   heroImage: string;
   gallery: string[];
+  translations?: { id: VillaTranslation };
 };
+
+export function villaLocale(v: Villa, locale: string): Villa {
+  if (locale !== "id" || !v.translations?.id) return v;
+  return { ...v, ...v.translations.id };
+}
 
 export const villas: Villa[] = [
   {
@@ -58,6 +72,29 @@ export const villas: Villa[] = [
     ],
     heroImage: VILLA_LILI,
     gallery: galleryFor(VILLA_LILI, 6),
+    translations: {
+      id: {
+        categoryLabel: "Vila Deluxe",
+        tagline: "Mekar tenang di atas Laut Bali.",
+        intro: "Retret deluxe yang tenang, dibalut kayu keras Bali, dengan kolam rendam pribadi terbuka ke langit.",
+        description: [
+          "Villa Lili adalah yang paling lembut di koleksi deluxe. Satu kamar tidur terbuka melalui pintu kaca lebar ke kolam rendam pribadi, dikelilingi bunga kamboja dan hamparan laut bebas.",
+          "Di dalamnya, ranjang jati berukir tangan menghadap cakrawala. Kamar mandi adalah taman pribadi dari batu sungai dan bambu, diterangi seberkas cahaya pagi dari atas.",
+        ],
+        amenities: [
+          "Kolam rendam pribadi",
+          "Tempat tidur king",
+          "Pancuran hujan outdoor",
+          "AC & kipas langit-langit",
+          "Smart TV & Wi-Fi",
+          "Audio Bluetooth",
+          "Brankas villa",
+          "Mini-bar gratis",
+          "Kamar dibersihkan setiap hari",
+          "Sarapan sudah termasuk",
+        ],
+      },
+    },
   },
   {
     slug: "lotus",
@@ -87,6 +124,28 @@ export const villas: Villa[] = [
     ],
     heroImage: VILLA_LOTUS,
     gallery: galleryFor(VILLA_LOTUS, 6),
+    translations: {
+      id: {
+        categoryLabel: "Vila Deluxe",
+        tagline: "Kolam hening di jantung kawasan.",
+        intro: "Vila deluxe dikelilingi kolam teratai dan dinaungi kamboja purba, dirancang untuk perenungan yang tenang.",
+        description: [
+          "Villa Lotus berdiri di jantung kawasan, dikelilingi kolam teratai dan napas lambat kamboja. Bathtub terrazzo tuang tangan terbuka ke taman pribadi.",
+          "Pagi dimulai dengan kicau burung dan buah segar di teras terbuka. Malam ditutup dengan rendam lilin di bawah langit berbintang.",
+        ],
+        amenities: [
+          "Kolam rendam pribadi",
+          "Tempat tidur king",
+          "Bathtub terrazzo",
+          "AC",
+          "Smart TV & Wi-Fi",
+          "Brankas villa",
+          "Mini-bar",
+          "Kamar dibersihkan setiap hari",
+          "Sarapan sudah termasuk",
+        ],
+      },
+    },
   },
   {
     slug: "monstera",
@@ -116,6 +175,28 @@ export const villas: Villa[] = [
     ],
     heroImage: VILLA_MONSTERA,
     gallery: galleryFor(VILLA_MONSTERA, 6),
+    translations: {
+      id: {
+        categoryLabel: "Vila Deluxe",
+        tagline: "Kanopi hijau, kolam langit biru.",
+        intro: "Vila deluxe di tepi hutan, tempat daun monstera liar bertemu kolam rendam bercermin.",
+        description: [
+          "Villa Monstera diselimuti taman hijau yang rimbun. Kolam rendam pribadi memantulkan langit dan mengubahnya menjadi lukisan terbalik.",
+          "Interior memadukan batu vulkanik mentah dengan linen gading lembut dan teak hangat — ketenangan tropis dalam kesederhanaan.",
+        ],
+        amenities: [
+          "Kolam rendam pribadi",
+          "Tempat tidur king",
+          "Pancuran hujan outdoor",
+          "Tempat tidur siang di taman",
+          "AC",
+          "Wi-Fi & audio Bluetooth",
+          "Brankas villa",
+          "Mini-bar",
+          "Sarapan sudah termasuk",
+        ],
+      },
+    },
   },
   {
     slug: "krisna",
@@ -144,6 +225,27 @@ export const villas: Villa[] = [
     ],
     heroImage: VILLA_KRISNA,
     gallery: galleryFor(VILLA_KRISNA, 6),
+    translations: {
+      id: {
+        categoryLabel: "Vila Deluxe",
+        tagline: "Bab warisan yang sunyi.",
+        intro: "Detail warisan Bali dan beranda tertutup yang luas menjadikan Villa Krisna berbeda dari yang lain.",
+        description: [
+          "Villa Krisna merayakan tradisi kerajinan Bali Utara — batu kapur ukiran tangan, langit-langit pandan anyaman, dan ranjang yang dipahat dari satu pohon reklamasi.",
+          "Beranda yang luas, terlindung dari terik siang, terbuka ke kolam rendam pribadi dan dek matahari bertegel untuk sore-sore yang santai.",
+        ],
+        amenities: [
+          "Kolam rendam pribadi",
+          "Tempat tidur king",
+          "Beranda tertutup",
+          "Pancuran outdoor",
+          "AC",
+          "Smart TV & Wi-Fi",
+          "Brankas & mini-bar",
+          "Sarapan sudah termasuk",
+        ],
+      },
+    },
   },
   {
     slug: "tunjung",
@@ -172,6 +274,27 @@ export const villas: Villa[] = [
     ],
     heroImage: VILLA_TUNJUNG,
     gallery: galleryFor(VILLA_TUNJUNG, 6),
+    translations: {
+      id: {
+        categoryLabel: "Vila Deluxe",
+        tagline: "Teratai yang mekar saat senja.",
+        intro: "Vila deluxe bernama dari teratai yang mekar di malam hari — hangat, temaram, dan sungguh pribadi.",
+        description: [
+          "Villa Tunjung adalah yang paling hangat di antara vila deluxe, diselesaikan dalam teak mengkilap dan rotan asap. Di malam hari, pencahayaan tersembunyi mengubah kolam rendam menjadi genangan cahaya amber.",
+          "Sudut baca yang tersembunyi dan tempat tidur siang outdoor yang lapang menjadikan ini yang paling hening di antara kelimanya.",
+        ],
+        amenities: [
+          "Kolam rendam pribadi",
+          "Tempat tidur king",
+          "Tempat tidur siang outdoor",
+          "Sudut baca",
+          "AC",
+          "Wi-Fi & Bluetooth",
+          "Brankas & mini-bar",
+          "Sarapan sudah termasuk",
+        ],
+      },
+    },
   },
   {
     slug: "ashoka",
@@ -202,6 +325,29 @@ export const villas: Villa[] = [
     ],
     heroImage: VILLA_ASHOKA,
     gallery: galleryFor(VILLA_ASHOKA, 8),
+    translations: {
+      id: {
+        categoryLabel: "Suite Vila",
+        tagline: "Serangkaian kamar, satu pemandangan.",
+        intro: "Vila suite dua kamar dengan kolam renang pribadi dan paviliun tamu terbuka penuh.",
+        description: [
+          "Villa Ashoka dirancang sebagai kompleks kecil: dua paviliun kamar tidur, paviliun ruang tamu, dan dapur outdoor, semuanya tersusun di sekitar kolam renang pribadi yang tenang.",
+          "Ideal untuk keluarga atau dua pasangan yang bepergian bersama, dengan cukup ruang untuk berbagi sore hari dan menarik diri dalam keintiman.",
+        ],
+        amenities: [
+          "Kolam renang pribadi",
+          "Dua kamar king",
+          "Paviliun tamu terbuka",
+          "Dapur outdoor",
+          "Dua kamar mandi dalam kamar",
+          "AC di seluruh villa",
+          "Smart TV & Wi-Fi",
+          "Brankas villa",
+          "Kamar dibersihkan setiap hari",
+          "Sarapan sudah termasuk",
+        ],
+      },
+    },
   },
   {
     slug: "bougainville",
@@ -231,6 +377,28 @@ export const villas: Villa[] = [
     ],
     heroImage: VILLA_BOUGAINVILLE,
     gallery: galleryFor(VILLA_BOUGAINVILLE, 8),
+    translations: {
+      id: {
+        categoryLabel: "Suite Vila",
+        tagline: "Dua kamar, taman bunga merah membara.",
+        intro: "Vila suite yang diselimuti bougainvillea, dengan taman pribadi berukir dan kolam renang panjang penuh.",
+        description: [
+          "Villa Bougainville adalah yang paling lapang di antara suite. Kolam renang persegi panjang membentang sepanjang taman, dikelilingi bougainvillea merah membara dan dek matahari terrazzo buatan tangan.",
+          "Kedua kamar tidur langsung terbuka ke taman, dengan bathtub celup dalam dan pancuran outdoor pribadi.",
+        ],
+        amenities: [
+          "Kolam renang pribadi 15 m",
+          "Dua kamar king",
+          "Dua kamar mandi dalam kamar",
+          "Pancuran outdoor",
+          "Paviliun ruang tamu & makan",
+          "AC",
+          "Smart TV & Wi-Fi",
+          "Brankas & mini-bar",
+          "Sarapan sudah termasuk",
+        ],
+      },
+    },
   },
   {
     slug: "kayu",
@@ -262,6 +430,30 @@ export const villas: Villa[] = [
     ],
     heroImage: VILLA_KAYU,
     gallery: galleryFor(VILLA_KAYU, 10),
+    translations: {
+      id: {
+        categoryLabel: "Hunian Eksekutif",
+        tagline: "Hunian unggulan kawasan.",
+        intro: "Hunian eksekutif pilihan — tiga kamar tidur, kolam renang infinity pribadi, dan pemandangan Laut Bali yang tak terputus.",
+        description: [
+          "Villa Kayu adalah hunian unggulan Bhumi Lovina. Kolam renang infinity panjang menjangkau ke arah laut, hanya dipisahkan deretan kamboja. Tiga suite kamar tidur yang lapang tersusun di dua paviliun, masing-masing dengan kamar mandi terbuka.",
+          "Dapur chef lengkap, paviliun makan tersendiri, dan pantri butler yang diskrit menjadikan Villa Kayu ideal untuk keluarga, sahabat karib, atau retret pribadi.",
+          "Transfer bandara pribadi, host villa khusus, dan itinerary pengalaman yang dirancang khusus sudah termasuk.",
+        ],
+        amenities: [
+          "Kolam renang infinity pribadi",
+          "Tiga kamar king",
+          "Tiga kamar mandi dalam kamar",
+          "Paviliun ruang tamu & makan terbuka",
+          "Dapur chef lengkap",
+          "Host villa khusus",
+          "Transfer bandara pribadi",
+          "Smart TV & Wi-Fi",
+          "Brankas & mini-bar",
+          "Sarapan sudah termasuk",
+        ],
+      },
+    },
   },
 ];
 

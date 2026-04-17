@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { villas, villasByCategory } from "@/data/villas";
+import { getTranslations, getLocale } from "next-intl/server";
+import { villas, villasByCategory, villaLocale } from "@/data/villas";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
@@ -11,28 +12,28 @@ export const metadata: Metadata = {
   alternates: { canonical: "/villas" },
 };
 
-const sections = [
-  {
-    key: "deluxe" as const,
-    label: "Deluxe Villas",
-    intro:
-      "One bedroom. One plunge pool. A single, considered line between your bed and the Bali Sea.",
-  },
-  {
-    key: "suite" as const,
-    label: "Suite Villas",
-    intro:
-      "Two bedrooms arranged around a private pool — ideal for two couples or a small family.",
-  },
-  {
-    key: "executive" as const,
-    label: "Executive Residence",
-    intro:
-      "Three bedrooms, a private infinity pool, a dedicated villa host — the estate's signature residence.",
-  },
-];
+export default async function VillasPage() {
+  const t = await getTranslations("villas");
+  const locale = await getLocale();
 
-export default function VillasPage() {
+  const sections = [
+    {
+      key: "deluxe" as const,
+      label: t("deluxeLabel"),
+      intro: t("deluxeIntro"),
+    },
+    {
+      key: "suite" as const,
+      label: t("suiteLabel"),
+      intro: t("suiteIntro"),
+    },
+    {
+      key: "executive" as const,
+      label: t("execLabel"),
+      intro: t("execIntro"),
+    },
+  ];
+
   return (
     <>
       {/* Hero */}
@@ -48,10 +49,10 @@ export default function VillasPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-primary/20" />
         <div className="relative z-10 max-w-[1440px] mx-auto px-6 md:px-12 pb-20 md:pb-28 w-full">
           <span className="font-sans tracking-[0.4em] uppercase text-xs text-on-primary/80 mb-6 block">
-            Our Villas
+            {t("badge")}
           </span>
           <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-light text-on-primary max-w-3xl leading-[1.05] text-balance">
-            Eight villas. One quiet estate.
+            {t("headline")}
           </h1>
         </div>
       </header>
@@ -67,7 +68,7 @@ export default function VillasPage() {
             <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-12 md:mb-16 border-b border-outline/10 pb-10">
               <div className="max-w-2xl">
                 <span className="font-sans tracking-[0.4em] uppercase text-xs text-secondary mb-4 block">
-                  {section.key === "executive" ? "Signature" : "Collection"}
+                  {section.key === "executive" ? t("signature") : t("collection")}
                 </span>
                 <h2 className="font-serif text-3xl md:text-5xl font-light leading-tight text-balance">
                   {section.label}
@@ -77,42 +78,45 @@ export default function VillasPage() {
                 </p>
               </div>
               <span className="font-sans tracking-widest uppercase text-xs text-secondary">
-                {list.length} {list.length === 1 ? "villa" : "villas"}
+                {t("villaCount", { count: list.length })}
               </span>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-              {list.map((v, i) => (
-                <Reveal key={v.slug} delay={i * 80}>
-                  <Link
-                    href={`/villas/${v.slug}`}
-                    className="group block"
-                  >
-                    <div className="relative aspect-[4/5] overflow-hidden rounded-xl mb-6">
-                      <Image
-                        src={v.heroImage}
-                        alt={`${v.name} — ${v.tagline}`}
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-                      />
-                    </div>
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <h3 className="font-serif text-2xl font-light mb-1">
-                          {v.name}
-                        </h3>
-                        <p className="text-sm text-on-surface-variant font-light">
-                          {v.tagline}
-                        </p>
+              {list.map((v, i) => {
+                const lv = villaLocale(v, locale);
+                return (
+                  <Reveal key={v.slug} delay={i * 80}>
+                    <Link
+                      href={`/villas/${v.slug}`}
+                      className="group block"
+                    >
+                      <div className="relative aspect-[4/5] overflow-hidden rounded-xl mb-6">
+                        <Image
+                          src={v.heroImage}
+                          alt={`${v.name} — ${lv.tagline}`}
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                        />
                       </div>
-                      <span className="font-sans tracking-widest uppercase text-[10px] text-secondary whitespace-nowrap pt-2">
-                        {v.bedrooms} BR · {v.sizeSqm} m²
-                      </span>
-                    </div>
-                  </Link>
-                </Reveal>
-              ))}
+                      <div className="flex items-start justify-between gap-4">
+                        <div>
+                          <h3 className="font-serif text-2xl font-light mb-1">
+                            {v.name}
+                          </h3>
+                          <p className="text-sm text-on-surface-variant font-light">
+                            {lv.tagline}
+                          </p>
+                        </div>
+                        <span className="font-sans tracking-widest uppercase text-[10px] text-secondary whitespace-nowrap pt-2">
+                          {v.bedrooms} BR · {v.sizeSqm} m²
+                        </span>
+                      </div>
+                    </Link>
+                  </Reveal>
+                );
+              })}
             </div>
           </section>
         );

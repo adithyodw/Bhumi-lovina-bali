@@ -1,7 +1,10 @@
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import { site, whatsappLink } from "@/lib/site";
 
-export default function Footer() {
+export default async function Footer() {
+  const t = await getTranslations("footer");
+
   return (
     <footer className="bg-primary text-surface pt-24 pb-32 md:pb-12 px-6 md:px-12 mt-24">
       <div className="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
@@ -10,8 +13,7 @@ export default function Footer() {
             Bhumi Lovina
           </div>
           <p className="font-serif font-light tracking-wide text-surface/60 max-w-sm mb-10 leading-relaxed">
-            An enclave of tranquility in the quiet north of Bali, dedicated to
-            the art of slowing down.
+            {t("tagline")}
           </p>
           <address className="not-italic text-sm text-surface/70 leading-relaxed space-y-1">
             <div>{site.location.address}</div>
@@ -43,22 +45,22 @@ export default function Footer() {
 
         <div className="flex flex-col gap-4">
           <span className="font-sans tracking-widest uppercase text-[10px] text-surface/40 mb-2">
-            Explore
+            {t("explore")}
           </span>
           <Link href="/villas" className="font-serif font-light text-surface/70 hover:text-secondary-fixed-dim transition-colors">
-            Villas
+            {t("villas")}
           </Link>
           <Link href="/experiences" className="font-serif font-light text-surface/70 hover:text-secondary-fixed-dim transition-colors">
-            Experiences
+            {t("experiences")}
           </Link>
           <Link href="/book" className="font-serif font-light text-surface/70 hover:text-secondary-fixed-dim transition-colors">
-            Book Your Stay
+            {t("bookStay")}
           </Link>
         </div>
 
         <div className="flex flex-col gap-4">
           <span className="font-sans tracking-widest uppercase text-[10px] text-surface/40 mb-2">
-            Reserve
+            {t("reserve")}
           </span>
           <a href={site.ota.traveloka} target="_blank" rel="noopener noreferrer" className="font-serif font-light text-surface/70 hover:text-secondary-fixed-dim transition-colors">
             Traveloka
@@ -74,10 +76,10 @@ export default function Footer() {
 
       <div className="max-w-[1440px] mx-auto border-t border-surface/10 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
         <p className="font-sans tracking-widest uppercase text-[10px] text-surface/40">
-          © {new Date().getFullYear()} Bhumi Lovina Residence. All rights reserved.
+          {t("copyright", { year: new Date().getFullYear() })}
         </p>
         <p className="font-sans tracking-widest uppercase text-[10px] text-surface/40">
-          Crafted in Bali
+          {t("crafted")}
         </p>
       </div>
     </footer>

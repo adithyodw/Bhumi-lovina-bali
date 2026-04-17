@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope, Noto_Serif } from "next/font/google";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getMessages } from "next-intl/server";
 import { site } from "@/lib/site";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -159,14 +161,17 @@ const jsonLd = {
   ],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const locale = await getLocale();
+  const messages = await getMessages();
+
   return (
     <html
-      lang="en"
+      lang={locale}
       className={`${manrope.variable} ${notoSerif.variable} scroll-smooth`}
     >
       <body className="bg-background text-on-background">
@@ -174,11 +179,13 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <Nav />
-        <main>{children}</main>
-        <Footer />
-        <WhatsAppButton />
-        <MobileBottomNav />
+        <NextIntlClientProvider messages={messages}>
+          <Nav />
+          <main>{children}</main>
+          <Footer />
+          <WhatsAppButton />
+          <MobileBottomNav />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

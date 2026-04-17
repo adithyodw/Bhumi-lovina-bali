@@ -2,17 +2,19 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { whatsappLink } from "@/lib/site";
 
 const items = [
-  { href: "/", label: "Estate" },
-  { href: "/villas", label: "Villas" },
-  { href: "/info", label: "Info" },
-  { href: "/book", label: "Book" },
-];
+  { href: "/", key: "estate" },
+  { href: "/villas", key: "villas" },
+  { href: "/info", key: "info" },
+  { href: "/book", key: "book" },
+] as const;
 
 export default function MobileBottomNav() {
   const pathname = usePathname();
+  const t = useTranslations("nav");
 
   return (
     <nav
@@ -29,7 +31,7 @@ export default function MobileBottomNav() {
               active ? "text-secondary font-semibold" : "text-primary/60"
             }`}
           >
-            {item.label}
+            {t(item.key)}
           </Link>
         );
       })}

@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { villas } from "@/data/villas";
-import { experiences, nearbyPlaces } from "@/data/experiences";
+import { getTranslations, getLocale } from "next-intl/server";
+import { villas, villaLocale } from "@/data/villas";
+import { experiences, nearbyPlaces, experienceLocale, nearbyPlaceLocale } from "@/data/experiences";
 import { site } from "@/lib/site";
 import { HERO_ESTATE, NEARBY_CAFE, NEARBY_RESTAURANT } from "@/lib/images";
 import VillaCard from "@/components/VillaCard";
@@ -10,13 +11,18 @@ import InstagramGrid from "@/components/InstagramGrid";
 import OTAButtons from "@/components/OTAButtons";
 import Reveal from "@/components/Reveal";
 
-const featuredVillas = [
-  villas.find((v) => v.slug === "kayu")!,
-  villas.find((v) => v.slug === "ashoka")!,
-  villas.find((v) => v.slug === "lili")!,
-];
+export default async function HomePage() {
+  const t = await getTranslations("home");
+  const locale = await getLocale();
 
-export default function HomePage() {
+  const featuredVillas = [
+    villaLocale(villas.find((v) => v.slug === "kayu")!, locale),
+    villaLocale(villas.find((v) => v.slug === "ashoka")!, locale),
+    villaLocale(villas.find((v) => v.slug === "lili")!, locale),
+  ];
+
+  const tv = await getTranslations("villa");
+
   return (
     <>
       {/* Hero */}
@@ -36,28 +42,26 @@ export default function HomePage() {
 
         <div className="relative z-10 text-center px-6 max-w-5xl">
           <span className="text-on-primary font-sans tracking-[0.4em] uppercase text-xs mb-6 block opacity-90">
-            North Bali · Est. 2024
+            {t("badge")}
           </span>
           <h1 className="text-on-primary font-serif text-5xl md:text-7xl lg:text-8xl font-light mb-8 leading-[1.05] text-balance">
-            A Private Sanctuary in North Bali
+            {t("hero")}
           </h1>
           <p className="text-on-primary/90 text-base md:text-lg font-light max-w-2xl mx-auto mb-10 leading-relaxed text-pretty">
-            Eight villas carved into the quiet coastline of Lovina — a slow,
-            considered retreat between the Bali Sea and the island&rsquo;s oldest
-            mountains.
+            {t("heroCopy")}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
               href="/villas"
               className="bg-on-primary text-primary px-10 py-4 rounded-md font-sans tracking-widest uppercase text-xs hover:bg-surface-container transition-all"
             >
-              View Our Villas
+              {t("viewVillas")}
             </Link>
             <Link
               href="/book"
               className="border border-on-primary/40 text-on-primary backdrop-blur-sm px-10 py-4 rounded-md font-sans tracking-widest uppercase text-xs hover:bg-on-primary/10 transition-all"
             >
-              Reserve
+              {t("reserve")}
             </Link>
           </div>
         </div>
@@ -73,16 +77,13 @@ export default function HomePage() {
       <section className="py-24 md:py-40 px-6 md:px-12 max-w-[1100px] mx-auto text-center">
         <Reveal>
           <span className="font-sans tracking-[0.4em] uppercase text-xs text-secondary mb-6 block">
-            The Estate
+            {t("estateLabel")}
           </span>
           <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl font-light leading-[1.15] text-balance mb-10">
-            Eight villas. One quiet stretch of North Bali. A slower kind of luxury.
+            {t("estateHeadline")}
           </h2>
           <p className="text-on-surface-variant text-lg font-light leading-relaxed max-w-2xl mx-auto text-pretty">
-            Bhumi Lovina is a private estate of five Deluxe Villas, two Suite
-            Villas, and a signature Executive Residence. Each villa is its own
-            world — a still pool, a hand-carved bed, a shaded verandah — held
-            together by the sound of the Bali Sea.
+            {t("estateCopy")}
           </p>
         </Reveal>
       </section>
@@ -92,29 +93,29 @@ export default function HomePage() {
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 md:mb-20 gap-6">
           <div className="max-w-2xl">
             <span className="font-sans tracking-[0.4em] uppercase text-xs text-secondary mb-6 block">
-              Our Villas
+              {t("ourVillasLabel")}
             </span>
             <h2 className="font-serif text-3xl md:text-5xl font-light leading-tight text-balance">
-              Spaces designed for a single, quiet breath.
+              {t("villaHeadline")}
             </h2>
           </div>
           <Link
             href="/villas"
             className="font-sans tracking-widest uppercase text-xs text-secondary border-b border-secondary/30 pb-2 hover:border-secondary transition-all"
           >
-            View all eight
+            {t("viewAll")}
           </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
           <Reveal className="md:col-span-8">
-            <VillaCard villa={featuredVillas[0]} size="wide" priority />
+            <VillaCard villa={featuredVillas[0]} size="wide" priority discoverLabel={tv("discover")} />
           </Reveal>
           <Reveal className="md:col-span-4" delay={120}>
-            <VillaCard villa={featuredVillas[1]} size="tall" />
+            <VillaCard villa={featuredVillas[1]} size="tall" discoverLabel={tv("discover")} />
           </Reveal>
           <Reveal className="md:col-span-12" delay={60}>
-            <VillaCard villa={featuredVillas[2]} size="wide" />
+            <VillaCard villa={featuredVillas[2]} size="wide" discoverLabel={tv("discover")} />
           </Reveal>
         </div>
       </section>
@@ -124,10 +125,10 @@ export default function HomePage() {
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <span className="font-sans tracking-[0.4em] uppercase text-xs text-secondary-fixed-dim mb-6 block">
-              A Short Film
+              {t("videoLabel")}
             </span>
             <h2 className="font-serif text-3xl md:text-5xl font-light leading-tight text-balance">
-              Watch the Estate
+              {t("watchEstate")}
             </h2>
           </div>
           <Reveal>
@@ -141,22 +142,20 @@ export default function HomePage() {
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 md:mb-20 gap-6">
           <div className="max-w-2xl">
             <span className="font-sans tracking-[0.4em] uppercase text-xs text-secondary mb-6 block">
-              Experiences
+              {t("expLabel")}
             </span>
             <h2 className="font-serif text-3xl md:text-5xl font-light leading-tight mb-6 text-balance">
-              The Soul of North Bali
+              {t("expHeadline")}
             </h2>
             <p className="text-on-surface-variant text-lg font-light leading-relaxed text-pretty">
-              From the rhythmic dance of dolphins at dawn to the hidden whispers
-              of jungle waterfalls, we curate moments that transcend the
-              ordinary.
+              {t("expCopy")}
             </p>
           </div>
           <Link
             href="/experiences"
             className="hidden md:inline-block font-sans tracking-widest uppercase text-xs text-secondary border-b border-secondary/30 pb-2 hover:border-secondary transition-all"
           >
-            All Experiences
+            {t("allExperiences")}
           </Link>
         </div>
 
@@ -176,14 +175,13 @@ export default function HomePage() {
             <span className="absolute inset-0 bg-gradient-to-t from-primary/70 to-transparent" />
             <div className="absolute bottom-10 left-8 md:left-10 text-on-primary">
               <span className="font-sans tracking-[0.2em] uppercase text-[10px] mb-2 block opacity-80">
-                Nature
+                {t("natureLabel")}
               </span>
               <h3 className="font-serif text-2xl md:text-3xl font-light mb-2">
-                Sunrise Dolphin Tour
+                {t("dolphinTitle")}
               </h3>
               <p className="text-sm opacity-90 max-w-md font-light">
-                A private, ethical journey on a traditional Balinese boat at
-                first light.
+                {t("dolphinCopy")}
               </p>
             </div>
           </Link>
@@ -203,14 +201,13 @@ export default function HomePage() {
             <span className="absolute inset-0 bg-gradient-to-t from-primary/70 to-transparent" />
             <div className="absolute bottom-10 left-8 md:left-10 text-on-primary">
               <span className="font-sans tracking-[0.2em] uppercase text-[10px] mb-2 block opacity-80">
-                Adventure
+                {t("adventureLabel")}
               </span>
               <h3 className="font-serif text-2xl md:text-3xl font-light mb-2">
-                Waterfalls of the North
+                {t("waterfallTitle")}
               </h3>
               <p className="text-sm opacity-90 font-light">
-                Gitgit, Sekumpul, Aling-Aling — the island&rsquo;s best-kept
-                secrets.
+                {t("waterfallCopy")}
               </p>
             </div>
           </Link>
@@ -230,13 +227,13 @@ export default function HomePage() {
             <span className="absolute inset-0 bg-gradient-to-t from-primary/70 to-transparent" />
             <div className="absolute bottom-10 left-8 md:left-10 text-on-primary">
               <span className="font-sans tracking-[0.2em] uppercase text-[10px] mb-2 block opacity-80">
-                Discovery
+                {t("discoveryLabel")}
               </span>
               <h3 className="font-serif text-2xl font-light mb-1">
-                Coral Gardens
+                {t("snorkelTitle")}
               </h3>
               <p className="text-sm opacity-90 font-light">
-                Private snorkeling trips to the pristine reefs of Menjangan.
+                {t("snorkelCopy")}
               </p>
             </div>
           </Link>
@@ -256,13 +253,13 @@ export default function HomePage() {
             <span className="absolute inset-0 bg-gradient-to-t from-primary/70 to-transparent" />
             <div className="absolute bottom-10 left-8 md:left-10 text-on-primary">
               <span className="font-sans tracking-[0.2em] uppercase text-[10px] mb-2 block opacity-80">
-                Culture
+                {t("cultureLabel")}
               </span>
               <h3 className="font-serif text-2xl font-light mb-1">
-                Temples &amp; Heritage
+                {t("templeTitle")}
               </h3>
               <p className="text-sm opacity-90 font-light">
-                Ulun Danu Beratan and the quiet village temples of Buleleng.
+                {t("templeCopy")}
               </p>
             </div>
           </Link>
@@ -296,35 +293,36 @@ export default function HomePage() {
           </div>
           <div>
             <span className="font-sans tracking-[0.4em] uppercase text-xs text-secondary mb-6 block">
-              The Neighborhood
+              {t("neighborhoodLabel")}
             </span>
             <h2 className="font-serif text-3xl md:text-5xl font-light mb-8 leading-tight text-balance">
-              The best restaurants in Lovina, a short walk away.
+              {t("neighborhoodHeadline")}
             </h2>
             <p className="text-on-surface-variant text-lg font-light leading-relaxed mb-12 text-pretty">
-              Where to eat in North Bali — a curated short-list of the cafes,
-              seafood restaurants, and markets we send our guests to, walking
-              distance or a short drive from the estate.
+              {t("neighborhoodCopy")}
             </p>
             <ul className="space-y-6 border-t border-outline/10 pt-10">
-              {nearbyPlaces.slice(0, 5).map((p) => (
-                <li
-                  key={p.name}
-                  className="flex justify-between items-start gap-6"
-                >
-                  <div>
-                    <h3 className="font-serif text-xl font-light mb-1">
-                      {p.name}
-                    </h3>
-                    <p className="text-sm text-on-surface-variant">
-                      {p.category} · {p.summary}
-                    </p>
-                  </div>
-                  <span className="text-xs font-sans tracking-widest uppercase text-secondary whitespace-nowrap">
-                    {p.distanceKm.toFixed(1)} km
-                  </span>
-                </li>
-              ))}
+              {nearbyPlaces.slice(0, 5).map((p) => {
+                const lp = nearbyPlaceLocale(p, locale);
+                return (
+                  <li
+                    key={p.name}
+                    className="flex justify-between items-start gap-6"
+                  >
+                    <div>
+                      <h3 className="font-serif text-xl font-light mb-1">
+                        {p.name}
+                      </h3>
+                      <p className="text-sm text-on-surface-variant">
+                        {p.category} · {lp.summary}
+                      </p>
+                    </div>
+                    <span className="text-xs font-sans tracking-widest uppercase text-secondary whitespace-nowrap">
+                      {p.distanceKm.toFixed(1)} km
+                    </span>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>
@@ -335,20 +333,18 @@ export default function HomePage() {
         <div className="max-w-[1920px] mx-auto flex flex-col md:flex-row min-h-[560px]">
           <div className="w-full md:w-1/3 p-10 md:p-16 lg:p-24 flex flex-col justify-center bg-primary text-on-primary">
             <span className="font-sans tracking-[0.4em] uppercase text-xs text-secondary-fixed-dim mb-6 block">
-              Arriving
+              {t("arrivingLabel")}
             </span>
             <h2 className="font-serif text-3xl md:text-4xl font-light mb-8 leading-tight text-balance">
-              Arriving at Sanctuary
+              {t("arrivingHeadline")}
             </h2>
             <p className="text-on-primary/80 leading-relaxed mb-10 font-light text-pretty">
-              Nestled on the slopes overlooking the Bali Sea, Bhumi Lovina
-              offers a secluded escape while remaining connected to the
-              island&rsquo;s natural wonders.
+              {t("arrivingCopy")}
             </p>
             <div className="space-y-5 text-sm font-light">
               <div>
                 <div className="tracking-widest uppercase text-[10px] text-secondary-fixed-dim mb-1">
-                  Address
+                  {t("addressLabel")}
                 </div>
                 <div>
                   {site.location.address}, {site.location.region},{" "}
@@ -357,9 +353,9 @@ export default function HomePage() {
               </div>
               <div>
                 <div className="tracking-widest uppercase text-[10px] text-secondary-fixed-dim mb-1">
-                  Airport
+                  {t("airportLabel")}
                 </div>
-                <div>3 hours from Ngurah Rai (DPS)</div>
+                <div>{t("airportValue")}</div>
               </div>
             </div>
           </div>
@@ -377,20 +373,20 @@ export default function HomePage() {
       {/* Booking CTA */}
       <section className="py-24 md:py-32 px-6 md:px-12 max-w-[1100px] mx-auto text-center">
         <span className="font-sans tracking-[0.4em] uppercase text-xs text-secondary mb-6 block">
-          Book Your Stay
+          {t("bookLabel")}
         </span>
         <h2 className="font-serif text-3xl md:text-5xl font-light mb-8 leading-tight text-balance">
-          Reserve directly, or through our trusted partners.
+          {t("bookHeadline")}
         </h2>
         <p className="text-on-surface-variant text-lg font-light leading-relaxed mb-12 text-pretty">
-          The best rate is always on WhatsApp, direct with our villa host.
+          {t("bookCopy")}
         </p>
         <div className="flex flex-col items-center gap-8">
           <Link
             href="/book"
             className="bg-primary text-on-primary px-12 py-4 rounded-md font-sans tracking-widest uppercase text-xs hover:bg-primary-container transition-all"
           >
-            Book on WhatsApp
+            {t("bookWhatsApp")}
           </Link>
           <div className="w-full">
             <OTAButtons />

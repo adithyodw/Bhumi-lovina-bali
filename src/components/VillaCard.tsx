@@ -6,6 +6,7 @@ type Props = {
   villa: Villa;
   size?: "wide" | "tall" | "square";
   priority?: boolean;
+  discoverLabel?: string;
 };
 
 const aspect = {
@@ -14,7 +15,7 @@ const aspect = {
   square: "aspect-square",
 } as const;
 
-export default function VillaCard({ villa, size = "wide", priority }: Props) {
+export default function VillaCard({ villa, size = "wide", priority, discoverLabel = "Discover" }: Props) {
   return (
     <Link
       href={`/villas/${villa.slug}`}
@@ -44,7 +45,7 @@ export default function VillaCard({ villa, size = "wide", priority }: Props) {
           {villa.tagline}
         </p>
         <span className="mt-4 inline-block font-sans tracking-widest uppercase text-[10px] border-b border-on-primary/40 pb-1 group-hover:border-on-primary transition-all">
-          Discover
+          {discoverLabel}
         </span>
       </div>
     </Link>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 import Reveal from "@/components/Reveal";
 import { whatsappLink } from "@/lib/site";
 import { HERO_BOOK, VILLA_KAYU } from "@/lib/images";
@@ -12,65 +13,55 @@ export const metadata: Metadata = {
   alternates: { canonical: "/info" },
 };
 
-const facilities = [
-  "2-bedroom villa with private pool",
-  "Private WiFi",
-  "Fully equipped kitchen",
-  "Refrigerator",
-  "Dining set",
-  "Television",
-  "Water heater",
-  "Air conditioning in every room",
-  "Balcony",
-  "Bathroom amenities (soap, shampoo, 2 towels)",
-];
+export default async function InfoPage() {
+  const t = await getTranslations("info");
+  const tv = await getTranslations("villas");
 
-const villaTypes = [
-  {
-    name: "Deluxe Villa",
-    count: "5 units",
-    note: "All standard facilities",
-    max: "5 adults · or · 4 adults + 2 children",
-  },
-  {
-    name: "Suite Villa",
-    count: "2 units",
-    note: "Standard facilities + gallon water dispenser",
-    max: "5 adults · or · 4 adults + 2 children",
-  },
-  {
-    name: "Executive Villa",
-    count: "1 unit",
-    note: "All standard facilities",
-    max: "Strictly 5 persons — no exceptions",
-    strict: true,
-  },
-];
+  const facilities = [
+    t("facilityPool"),
+    t("facilityWifi"),
+    t("facilityKitchen"),
+    t("facilityFridge"),
+    t("facilityDining"),
+    t("facilityTv"),
+    t("facilityHeater"),
+    t("facilityAc"),
+    t("facilityBalcony"),
+    t("facilityBathroom"),
+  ];
 
-const rules = [
-  {
-    heading: "Late Check-Out",
-    body: "Charged at IDR 55,000 per hour beyond the 11:00 check-out time.",
-  },
-  {
-    heading: "Damages",
-    body: "Any damage caused by guests will be assessed and charged accordingly.",
-  },
-  {
-    heading: "Lost Items",
-    body: "Bhumi Lovina Residence & Villas is not responsible for items lost or missing during your stay.",
-  },
-  {
-    heading: "Villa Upgrades",
-    body: "Room type upgrades must be confirmed directly with our reservations team before arrival.",
-  },
-  {
-    heading: "Noise Policy",
-    body: "Please keep music at a considerate volume so as not to disturb other guests across the estate.",
-  },
-];
+  const villaTypes = [
+    {
+      name: tv("deluxeLabel"),
+      count: t("deluxeCount"),
+      note: t("deluxeNote"),
+      max: t("deluxeMax"),
+      strict: false,
+    },
+    {
+      name: tv("suiteLabel"),
+      count: t("suiteCount"),
+      note: t("suiteNote"),
+      max: t("suiteMax"),
+      strict: false,
+    },
+    {
+      name: tv("execLabel"),
+      count: t("execCount"),
+      note: t("execNote"),
+      max: t("execMax"),
+      strict: true,
+    },
+  ];
 
-export default function InfoPage() {
+  const rules = [
+    { heading: t("lateCheckout"), body: t("lateCheckoutBody") },
+    { heading: t("damages"), body: t("damagesBody") },
+    { heading: t("lostItems"), body: t("lostItemsBody") },
+    { heading: t("villaUpgrades"), body: t("villaUpgradesBody") },
+    { heading: t("noisePolicy"), body: t("noisePolicyBody") },
+  ];
+
   return (
     <>
       {/* Hero */}
@@ -86,14 +77,13 @@ export default function InfoPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-primary/20" />
         <div className="relative z-10 max-w-[1440px] mx-auto px-6 md:px-12 pb-20 md:pb-28 w-full">
           <span className="font-sans tracking-[0.4em] uppercase text-xs text-on-primary/70 mb-6 block">
-            Villa Information
+            {t("badge")}
           </span>
           <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-light text-on-primary max-w-3xl leading-[1.05] text-balance">
-            Everything you need to know.
+            {t("headline")}
           </h1>
           <p className="mt-6 text-on-primary/80 text-base md:text-lg font-light max-w-xl text-pretty">
-            Facilities, policies, check-in details, and house rules — all in
-            one place so you can arrive with ease.
+            {t("heroCopy")}
           </p>
         </div>
       </header>
@@ -103,10 +93,10 @@ export default function InfoPage() {
         <section className="py-16 md:py-24 px-6 md:px-12 bg-surface-container-low">
           <div className="max-w-[1200px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             {[
-              { value: "8", label: "Private Villa Units" },
-              { value: "2", label: "Bedrooms Per Villa" },
-              { value: "14:00", label: "Check-In" },
-              { value: "11:00", label: "Check-Out" },
+              { value: "8", label: t("villaUnits") },
+              { value: "2", label: t("bedroomsPerVilla") },
+              { value: "14:00", label: t("checkin") },
+              { value: "11:00", label: t("checkout") },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
                 <div className="font-serif text-4xl md:text-5xl font-light text-primary mb-2">
@@ -135,24 +125,21 @@ export default function InfoPage() {
           </div>
           <Reveal>
             <span className="font-sans tracking-[0.4em] uppercase text-xs text-secondary mb-6 block">
-              About the Villa
+              {t("aboutLabel")}
             </span>
             <h2 className="font-serif text-3xl md:text-5xl font-light leading-tight mb-8 text-balance">
-              Eight private villas. One uninterrupted sea.
+              {t("aboutHeadline")}
             </h2>
             <p className="text-on-surface-variant text-lg font-light leading-relaxed mb-10 text-pretty">
-              Each of our eight villas is an entirely self-contained retreat —
-              two bedrooms, a private pool, and a fully equipped kitchen. No
-              shared corridors, no lobby distractions. Just the sound of water
-              and the Bali Sea beyond the palms.
+              {t("aboutCopy")}
             </p>
             <dl className="space-y-4 border-t border-outline/10 pt-8">
               {[
-                ["Bedrooms per villa", "2 bedrooms, 1 bathroom"],
-                ["Maximum occupancy", "5 adults · or · 4 adults + 2 children"],
-                ["Extra adult", "IDR 110,000 / person"],
-                ["Extra child", "IDR 55,000 / person"],
-                ["Bathroom amenities", "Soap, shampoo, 2 towels included"],
+                [t("bedroomsTerm"), t("bedroomsDetail")],
+                [t("occupancyTerm"), t("occupancyDetail")],
+                [t("extraAdultTerm"), t("extraAdultDetail")],
+                [t("extraChildTerm"), t("extraChildDetail")],
+                [t("bathroomTerm"), t("bathroomDetail")],
               ].map(([term, detail]) => (
                 <div key={term} className="flex justify-between gap-8 text-sm">
                   <dt className="text-on-surface-variant font-light">{term}</dt>
@@ -171,14 +158,13 @@ export default function InfoPage() {
         <div className="max-w-[1200px] mx-auto">
           <Reveal>
             <span className="font-sans tracking-[0.4em] uppercase text-xs text-secondary-fixed-dim mb-6 block">
-              Facilities
+              {t("facilitiesLabel")}
             </span>
             <h2 className="font-serif text-3xl md:text-5xl font-light mb-4 text-balance">
-              What's included in every villa.
+              {t("facilitiesHeadline")}
             </h2>
             <p className="text-on-primary/70 font-light mb-14 max-w-xl text-pretty">
-              All villa types share the same core facilities. The only
-              distinction between types is noted below.
+              {t("facilitiesCopy")}
             </p>
           </Reveal>
 
@@ -216,7 +202,7 @@ export default function InfoPage() {
                   </p>
                   <div className="border-t border-on-primary/10 pt-4">
                     <span className="font-sans tracking-[0.2em] uppercase text-[10px] text-secondary-fixed-dim block mb-1">
-                      Max Occupancy
+                      {t("maxOccupancy")}
                     </span>
                     <p className={`text-sm font-light ${type.strict ? "text-tertiary-fixed-dim" : "text-on-primary/80"}`}>
                       {type.max}
@@ -233,10 +219,10 @@ export default function InfoPage() {
       <section className="py-20 md:py-32 px-6 md:px-12 max-w-[1000px] mx-auto">
         <Reveal>
           <span className="font-sans tracking-[0.4em] uppercase text-xs text-secondary mb-6 block">
-            House Rules
+            {t("rulesLabel")}
           </span>
           <h2 className="font-serif text-3xl md:text-5xl font-light mb-12 text-balance">
-            A few things to keep in mind.
+            {t("rulesHeadline")}
           </h2>
         </Reveal>
 
@@ -261,10 +247,10 @@ export default function InfoPage() {
         <div className="max-w-[1000px] mx-auto">
           <Reveal>
             <span className="font-sans tracking-[0.4em] uppercase text-xs text-secondary mb-6 block">
-              Terms & Cancellation
+              {t("termsLabel")}
             </span>
             <h2 className="font-serif text-3xl md:text-5xl font-light mb-10 text-balance">
-              Reservation policy.
+              {t("termsHeadline")}
             </h2>
           </Reveal>
 
@@ -272,28 +258,25 @@ export default function InfoPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-surface rounded-xl p-8 border border-outline/10">
                 <div className="font-sans tracking-[0.3em] uppercase text-[10px] text-secondary mb-3">
-                  Rescheduling
+                  {t("reschedulingLabel")}
                 </div>
                 <p className="font-serif text-xl font-light mb-3">
-                  7 days prior notice
+                  {t("reschedulingValue")}
                 </p>
                 <p className="text-sm text-on-surface-variant font-light leading-relaxed">
-                  Rescheduling requests must be submitted at least 7 days
-                  before your scheduled arrival date. Requests made within 7
-                  days cannot be accommodated.
+                  {t("reschedulingBody")}
                 </p>
               </div>
 
               <div className="bg-surface rounded-xl p-8 border border-outline/10">
                 <div className="font-sans tracking-[0.3em] uppercase text-[10px] text-secondary mb-3">
-                  Cancellations
+                  {t("cancellationLabel")}
                 </div>
                 <p className="font-serif text-xl font-light mb-3">
-                  Non-refundable
+                  {t("cancellationValue")}
                 </p>
                 <p className="text-sm text-on-surface-variant font-light leading-relaxed">
-                  All reservations are non-refundable. We recommend arranging
-                  travel insurance to protect against unforeseen circumstances.
+                  {t("cancellationBody")}
                 </p>
               </div>
             </div>
@@ -305,29 +288,28 @@ export default function InfoPage() {
       <section className="py-20 md:py-32 px-6 md:px-12 max-w-[900px] mx-auto text-center">
         <Reveal>
           <span className="font-sans tracking-[0.4em] uppercase text-xs text-secondary mb-6 block">
-            Ready to Book
+            {t("ctaLabel")}
           </span>
           <h2 className="font-serif text-3xl md:text-5xl font-light mb-6 text-balance">
-            Questions? Our team is on WhatsApp.
+            {t("ctaHeadline")}
           </h2>
           <p className="text-on-surface-variant text-lg font-light mb-10 max-w-lg mx-auto text-pretty">
-            The best rate is always direct. Reach our villa host for
-            availability, custom requests, or anything not covered here.
+            {t("ctaCopy")}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href={whatsappLink("Hi, I have a question about Bhumi Lovina Residence")}
+              href={whatsappLink(t("ctaPrefill"))}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-primary text-on-primary px-10 py-4 rounded-md font-sans tracking-widest uppercase text-xs hover:bg-primary-container transition-all"
             >
-              Chat on WhatsApp
+              {t("ctaWhatsApp")}
             </a>
             <Link
               href="/book"
               className="border border-primary/20 text-primary px-10 py-4 rounded-md font-sans tracking-widest uppercase text-xs hover:bg-surface-container transition-all"
             >
-              View Booking Options
+              {t("ctaBook")}
             </Link>
           </div>
         </Reveal>
