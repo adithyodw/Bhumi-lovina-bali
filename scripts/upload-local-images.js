@@ -55,14 +55,19 @@ async function processAndUpload() {
     console.log(`\n🏠 Processing ${villa}...`);
 
     const files = fs.readdirSync(villaPath)
-      .filter(f => f.endsWith('.jpg'))
-      .sort();
+      .filter(f => f.endsWith('.jpg') || f.endsWith('.png'))
+      .map(f => {
+        const filePath = path.join(villaPath, f);
+        const stats = fs.statSync(filePath);
+        return { name: f, size: stats.size };
+      })
+      .sort((a, b) => b.size - a.size); // Sort by file size (largest first = usually best quality)
 
     console.log(`Found ${files.length} images`);
 
-    // Select best images: use first one as hero, next 7 as gallery
-    const heroFile = files[0];
-    const galleryFiles = files.slice(1, 8); // 7 images for gallery
+    // Select best images: use largest file as hero (best quality), next 7 as gallery
+    const heroFile = files[0].name;
+    const galleryFiles = files.slice(1, 8).map(f => f.name); // 7 images for gallery
 
     // Process hero
     console.log(`⬆️ Uploading hero: ${heroFile}`);
