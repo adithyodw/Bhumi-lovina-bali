@@ -1,7 +1,8 @@
+import { GALLERY_POOL as VILLA_GALLERY_POOL } from './villa-images';
+
 /**
- * Reference design images from Google Stitch.
- * Replace individual entries with production photos when available.
- * All URLs are served from lh3.googleusercontent.com (whitelisted in next.config.ts).
+ * Reference design images from Google Stitch and Vercel Blob.
+ * All URLs are served from their respective CDNs (whitelisted in next.config.ts).
  */
 
 const GH = "https://lh3.googleusercontent.com/aida-public/";
@@ -51,61 +52,36 @@ export const NEARBY_RESTAURANT =
 
 // ── Villas ───────────────────────────────────────────────────────────────────
 export const VILLA_KAYU =
-  GH +
-  "AB6AXuAukEgByeBvreTdTIP4KSvd7B05QxmnzaoYWhN0bpRuQUbihAg_jNCKnv0mpWrgi8VjYtbsWuIQiBldrIuM2k1sRGP0Wvv_ZoNLJrknfjXdk4ebuoppsuYTLuOU6W2y9q44rNuDf6l5mvEz4MMXLzbToF0wlzdJYPnYbnSXOmVNqsnfRjiZOMELPSHKqfvosOv9QmL-efXBWJ2TIJsesTCBMX1fuu5oChmwB-iOMnHEaczoHMxf4EQw3vzro5DrGjW9nEjqmU6SU8mc";
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/kayu/hero.webp";
 
 export const VILLA_LOTUS =
-  GH +
-  "AB6AXuBpvYGVHE9ATGLkVg4yiLfrIsCGgdsbz9SKJcKWdn4myW5qLNETdjWrxUxHf0dxIfjKgRiR_xGp_X_vPsg8e1e1dUtpdKv65cBGRuY6HPQkA9HJs6bDOA4FbxhrBz8eTCK-zy5Z8jysiYvTyhOuSXo5OTA4fvb696Vh1OOM5hBXyauQOsSUK-To8hnXNd_wg966nmtdoRtfeoE-V3E_4pnOp962V6efXfkrnZaQSm38ntFcV8Ie4CQceNXmOHAAlNZdQ2Z_CPexfm3Z";
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/lotus/hero.webp";
 
 export const VILLA_BOUGAINVILLE =
   "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/bougainville/hero.webp";
 
 export const VILLA_LILI =
-  GH +
-  "AB6AXuBOlTSvDIRwqZLaQadRhLBGKfQBs7RFPBqlbwiZDMPtiOy4VnASK3SZFf4NpvfvK-v-TkLO-L3bcb4DnK_gbqUcK3rzS-Qi1EQk8QMQFCRkWSf2OGDjXAXNYutKNTkhJYITx65OKAdXJY8Yd01K2jffV2GOhO6UgoFFjmR5J_HnngcFsG7Q23G5SlwVEhAJ0L_nH1oigK18KUwlQZEEni7HNj0PKWYmA_oJHJLaG3cCpswvqJ-pF7R_JoO6DHFZ7oKrnYa30U0NjgIG";
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/lily/hero.webp";
 
 export const VILLA_ASHOKA =
   "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/ashoka/hero.webp";
 
 export const VILLA_MONSTERA =
-  GH +
-  "AB6AXuCy1zo2cFOnCGyNUVy-0ROvKYEmOygiZpumgSoAW-u_07bNX4vpvFTM_-8aHkYvTcaIs5KGm5LtffxzA547LcpNi80-Dl4mdA7ln7no3Vj1qUM-4ikxnqmvDGtXJbUCIK-7EUtwrqOblnQ_FYWIBOCRUPq8ScPd0NVVK05vpYtpZmqKpDs1e-T2IVtcCDdvmA13sjOxaguARpk50SYMFr2cqfK67vihsgJKG3UnCz4wjsZ6217YDiUzWK7KlpBi9jjkMoGpZf1fuJCi";
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/monstera/hero.webp";
 
 export const VILLA_KRISNA =
-  GH +
-  "AB6AXuBKiQrd7SXbALYhHBjxwHD7HVotXcSADXtqxgQxzCkYCHEVov_tDXbP6I05hQfj0uOnNsjyGoOwRDP-BAJQN6EVvWSyE54-kzPF_x0SjaReCcETdn3nwSIonW2XVdWL-awWOX8I503yKhL-L622veXjr_I05Ot4jI66yTK-n-jZRM3GWq-cHGtMsm_BCw-fNmb1gwE4XtrWZn1nn7hbm_kWRTtpEfq5WNxnS3-74jYnjsQ5BGd2IMGVnq5muMqLn49hRBik3TAuqBfU";
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/krisna/hero.webp";
 
 export const VILLA_TUNJUNG =
-  GH +
-  "AB6AXuCure2JqfgK9nKCztYbsbLoEgMnpeX9xrmWEQTSeBbkbuIxcbdUBaZVV_wDhlNOoQyc-96QN0WgFAedzEbC5GmtLUOrhAmZz5Bc6o6MpVLo5vbJRYd8rkHhcPOxCgVhMx9g51JzGtthEOwT9AfvJeOFgwUVIfFc8gZl4xIwVEW3ujpABWz0E94xMGOTWNKUT1GagCtXoLuPku09M3qUunomKlOExWw5nG1jHa5jSoKrI1l23kxR58Ba7silynaLvbwNDkWcZ1U-nWwF";
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/tunjung/hero.webp";
+
+export const VILLA_MAIN =
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/main/hero.webp";
 
 // ── Gallery pool (for villa detail pages) ────────────────────────────────────
-// Cycling through all available images to fill gallery slots.
+// Real photos from all 9 villas (from Vercel Blob) + fallback placeholder images
 export const GALLERY_POOL = [
-  // Villa Ashoka Gallery (real photos from Vercel Blob)
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/ashoka/gallery-1.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/ashoka/gallery-2.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/ashoka/gallery-3.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/ashoka/gallery-4.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/ashoka/gallery-5.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/ashoka/gallery-6.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/ashoka/gallery-7.webp",
-  // Villa Bougainville Gallery (real photos from Vercel Blob)
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/bougainville/gallery-1.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/bougainville/gallery-2.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/bougainville/gallery-3.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/bougainville/gallery-4.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/bougainville/gallery-5.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/bougainville/gallery-6.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/bougainville/gallery-7.webp",
-  // Placeholder images for other villas
-  VILLA_KAYU,
-  VILLA_LOTUS,
-  VILLA_LILI,
-  VILLA_MONSTERA,
-  VILLA_KRISNA,
-  VILLA_TUNJUNG,
+  ...VILLA_GALLERY_POOL,
   HERO_ESTATE,
   EXP_DOLPHIN,
   EXP_WATERFALL,
