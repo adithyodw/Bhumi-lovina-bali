@@ -72,6 +72,7 @@
     "routeVisualWaypoint": "Gitgit Waterfall",
     "routeVisualDestination": "Bhumi Lovina Residence",
     "routeVisualAvoid": "Avoid shortcuts",
+    "routeVisualImageAlt": "Map showing the easy main-road driving route to Bhumi Lovina Residence via Gitgit Waterfall",
     "interactiveMapLabel": "Interactive Map",
     "mapButton": "Open Interactive Map",
     "routeButton": "Get Directions via Gitgit",

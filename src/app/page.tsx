@@ -431,6 +431,7 @@ export default async function HomePage() {
                     waypointLabel={t("routeVisualWaypoint")}
                     destinationLabel={t("routeVisualDestination")}
                     avoidLabel={t("routeVisualAvoid")}
+                    imageAlt={t("routeVisualImageAlt")}
                   />
                 </div>
               </Reveal>
