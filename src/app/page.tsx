@@ -3,11 +3,10 @@ import Link from "next/link";
 import { getTranslations, getLocale } from "next-intl/server";
 import { villas, villaLocale } from "@/data/villas";
 import { experiences, nearbyPlaces, experienceLocale, nearbyPlaceLocale } from "@/data/experiences";
-import { googleMapsDirectionsUrl, googleMapsEmbedUrl, site } from "@/lib/site";
+import { googleMapsDirectionsUrl, site } from "@/lib/site";
 import { HERO_ESTATE, NEARBY_CAFE, NEARBY_RESTAURANT } from "@/lib/images";
 import VillaCard from "@/components/VillaCard";
 import YouTubeEmbed from "@/components/YouTubeEmbed";
-import InstagramGrid from "@/components/InstagramGrid";
 import OTAButtons from "@/components/OTAButtons";
 import Reveal from "@/components/Reveal";
 import RouteIllustration from "@/components/RouteIllustration";
@@ -24,7 +23,6 @@ export default async function HomePage() {
 
   const tv = await getTranslations("villa");
   const routeUrl = googleMapsDirectionsUrl();
-  const mapEmbedUrl = googleMapsEmbedUrl();
   const guestReviews = [
     { title: t("review1Title"), body: t("review1Body") },
     { title: t("review2Title"), body: t("review2Body") },
@@ -379,24 +377,14 @@ export default async function HomePage() {
                 <div>{t("airportValue")}</div>
               </div>
             </div>
-            <div className="flex flex-col sm:flex-row xl:flex-col gap-4 mb-10">
-              <a
-                href={site.location.mapsShareUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-md bg-on-primary text-primary px-8 py-4 font-sans tracking-widest uppercase text-xs transition-all hover:bg-surface-container"
-              >
-                {t("mapButton")}
-              </a>
-              <a
-                href={routeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-md border border-on-primary/20 px-8 py-4 font-sans tracking-widest uppercase text-xs text-on-primary transition-all hover:bg-on-primary/10"
-              >
-                {t("routeButton")}
-              </a>
-            </div>
+            <a
+              href={routeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mb-10 inline-flex items-center justify-center rounded-md border border-on-primary/20 px-8 py-4 font-sans tracking-widest uppercase text-xs text-on-primary transition-all hover:bg-on-primary/10"
+            >
+              {t("routeButton")}
+            </a>
             <div className="space-y-4">
               <div className="rounded-2xl border border-on-primary/10 bg-on-primary/5 p-5">
                 <div className="text-[10px] font-sans uppercase tracking-[0.3em] text-secondary-fixed-dim mb-2">
@@ -425,7 +413,7 @@ export default async function HomePage() {
             </div>
           </div>
           <div className="flex-grow bg-surface-container-low p-6 md:p-8 lg:p-10">
-            <div className="grid grid-cols-1 2xl:grid-cols-2 gap-6 h-full">
+            <div className="grid grid-cols-1 gap-6 h-full">
               <Reveal className="h-full">
                 <div className="h-full rounded-[32px] border border-outline/10 bg-surface p-6 md:p-8">
                   <div className="mb-6">
@@ -445,20 +433,6 @@ export default async function HomePage() {
                     destinationLabel={t("routeVisualDestination")}
                     avoidLabel={t("routeVisualAvoid")}
                     imageAlt={t("routeVisualImageAlt")}
-                  />
-                </div>
-              </Reveal>
-
-              <Reveal className="h-full" delay={120}>
-                <div className="relative min-h-[420px] h-full overflow-hidden rounded-[32px] border border-outline/10 bg-surface shadow-botanical">
-                  <div className="absolute left-6 top-6 z-10 rounded-full bg-surface/90 px-4 py-2 text-[10px] font-sans uppercase tracking-[0.3em] text-secondary shadow-sm">
-                    {t("interactiveMapLabel")}
-                  </div>
-                  <iframe
-                    title="Bhumi Lovina interactive map"
-                    src={mapEmbedUrl}
-                    loading="lazy"
-                    className="absolute inset-0 h-full w-full"
                   />
                 </div>
               </Reveal>
@@ -560,8 +534,6 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Instagram */}
-      <InstagramGrid />
     </>
   );
 }

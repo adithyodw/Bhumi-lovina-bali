@@ -5,7 +5,6 @@ import { getLocale, getMessages } from "next-intl/server";
 import { site } from "@/lib/site";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import MobileBottomNav from "@/components/MobileBottomNav";
 import "./globals.css";
 
@@ -185,7 +184,6 @@ export default async function RootLayout({
           <Nav />
           <main>{children}</main>
           <Footer />
-          <WhatsAppButton />
           <MobileBottomNav />
         </NextIntlClientProvider>
       </body>

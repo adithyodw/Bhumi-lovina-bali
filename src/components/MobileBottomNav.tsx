@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { whatsappLink } from "@/lib/site";
 
 const items = [
   { href: "/", key: "estate" },
@@ -35,14 +34,6 @@ export default function MobileBottomNav() {
           </Link>
         );
       })}
-      <a
-        href={whatsappLink()}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex flex-col items-center justify-center font-sans tracking-widest uppercase text-[10px] text-primary/60"
-      >
-        WhatsApp
-      </a>
     </nav>
   );
 }

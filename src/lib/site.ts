@@ -19,8 +19,8 @@ export const site = {
     mapsShareUrl: "https://share.google/7dkdw4ZlXHO6xbCGC",
   },
   contact: {
-    whatsapp: process.env.NEXT_PUBLIC_WHATSAPP || "6281290271990",
-    whatsappDisplay: "+62 812 9027 1990",
+    whatsapp: "6287845010779",
+    whatsappDisplay: "+62 878-4501-0779",
     instagram: process.env.NEXT_PUBLIC_INSTAGRAM || "bhumilovina.villa",
   },
   ota: {
@@ -41,10 +41,6 @@ export function whatsappLink(prefill = waMessage) {
   return `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(
     prefill,
   )}`;
-}
-
-export function googleMapsEmbedUrl() {
-  return `https://www.google.com/maps?q=${site.location.lat},${site.location.lng}&hl=en&z=14&output=embed`;
 }
 
 export function googleMapsDirectionsUrl(

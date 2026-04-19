@@ -41,7 +41,7 @@ export default async function ExperiencesPage() {
       />
 
       {/* Hero */}
-      <header className="relative h-[70svh] md:h-[85svh] w-full overflow-hidden flex items-end">
+      <header className="relative h-[60svh] md:h-[85svh] w-full overflow-hidden flex items-end">
         <Image
           src={EXP_HERO}
           alt="Dolphins at sunrise off Lovina beach, North Bali"
@@ -51,11 +51,11 @@ export default async function ExperiencesPage() {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-primary/85 via-primary/20 to-primary/30" />
-        <div className="relative z-10 max-w-[1440px] mx-auto px-6 md:px-12 pb-20 md:pb-28 w-full">
+        <div className="relative z-10 max-w-[1440px] mx-auto px-5 sm:px-6 md:px-12 pb-14 md:pb-28 w-full">
           <span className="font-sans tracking-[0.4em] uppercase text-xs text-on-primary/80 mb-6 block">
             {t("badge")}
           </span>
-          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-light text-on-primary max-w-3xl leading-[1.05] text-balance">
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-light text-on-primary max-w-3xl leading-[1.05] text-balance">
             {t("headline")}
           </h1>
           <p className="mt-6 text-on-primary/90 text-base md:text-lg font-light max-w-2xl text-pretty">
@@ -65,19 +65,19 @@ export default async function ExperiencesPage() {
       </header>
 
       {/* Experience list */}
-      <section className="py-20 md:py-28 px-6 md:px-12 max-w-[1440px] mx-auto">
-        <div className="space-y-20 md:space-y-32">
+      <section className="py-16 md:py-28 px-5 sm:px-6 md:px-12 max-w-[1440px] mx-auto">
+        <div className="space-y-14 md:space-y-32">
           {experiences.map((exp, i) => {
             const le = experienceLocale(exp, locale);
             return (
               <Reveal key={exp.slug}>
                 <article
                   id={exp.slug}
-                  className={`grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center ${
+                  className={`grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 lg:gap-20 items-center ${
                     i % 2 === 1 ? "lg:[&>div:first-child]:order-2" : ""
                   }`}
                 >
-                  <div className="relative aspect-[4/5] md:aspect-[5/6] overflow-hidden rounded-xl">
+                  <div className="relative aspect-[16/11] sm:aspect-[5/6] overflow-hidden rounded-xl">
                     <Image
                       src={exp.image}
                       alt={le.title}
@@ -90,21 +90,23 @@ export default async function ExperiencesPage() {
                     <span className="font-sans tracking-[0.4em] uppercase text-xs text-secondary mb-4 block">
                       {exp.category}
                     </span>
-                    <h2 className="font-serif text-3xl md:text-5xl font-light leading-tight mb-6 text-balance">
+                    <h2 className="font-serif text-2xl sm:text-3xl md:text-5xl font-light leading-tight mb-5 md:mb-6 text-balance">
                       {le.title}
                     </h2>
-                    <p className="text-on-surface text-lg font-light leading-[1.75] mb-6 text-pretty">
+                    <p className="text-on-surface text-base md:text-lg font-light leading-[1.75] mb-5 md:mb-6 text-pretty">
                       {le.description}
                     </p>
-                    <p className="text-sm text-on-surface-variant font-light">
-                      Keywords:{" "}
-                      {exp.keywords.map((k, idx) => (
-                        <span key={k}>
-                          <em className="not-italic">{k}</em>
-                          {idx < exp.keywords.length - 1 ? " · " : ""}
-                        </span>
-                      ))}
-                    </p>
+                    <div className="text-sm text-on-surface-variant font-light break-words">
+                      <span className="mr-2">{t("keywordsLabel")}</span>
+                      <span className="inline-flex flex-wrap gap-x-2 gap-y-1">
+                        {exp.keywords.map((k, idx) => (
+                          <span key={k}>
+                            <em className="not-italic">{k}</em>
+                            {idx < exp.keywords.length - 1 ? " ·" : ""}
+                          </span>
+                        ))}
+                      </span>
+                    </div>
                   </div>
                 </article>
               </Reveal>
@@ -114,7 +116,7 @@ export default async function ExperiencesPage() {
       </section>
 
       {/* Nearby */}
-      <section className="bg-surface-container-low py-20 md:py-28 px-6 md:px-12">
+      <section className="bg-surface-container-low py-16 md:py-28 px-5 sm:px-6 md:px-12">
         <div className="max-w-[1200px] mx-auto">
           <span className="font-sans tracking-[0.4em] uppercase text-xs text-secondary mb-6 block">
             {t("nearbyLabel")}
@@ -131,7 +133,7 @@ export default async function ExperiencesPage() {
               return (
                 <li
                   key={p.name}
-                  className="flex justify-between items-start gap-6 border-b border-outline/10 pb-5"
+                  className="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-start border-b border-outline/10 pb-5"
                 >
                   <div>
                     <h3 className="font-serif text-xl font-light mb-1">
@@ -152,7 +154,7 @@ export default async function ExperiencesPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-20 md:py-28 px-6 md:px-12 max-w-[1000px] mx-auto">
+      <section className="py-16 md:py-28 px-5 sm:px-6 md:px-12 max-w-[1000px] mx-auto">
         <span className="font-sans tracking-[0.4em] uppercase text-xs text-secondary mb-6 block">
           {t("questionsLabel")}
         </span>
@@ -162,11 +164,11 @@ export default async function ExperiencesPage() {
         <div className="divide-y divide-outline/10 border-t border-outline/10">
           {faqs.map((f) => (
             <details key={f.q} className="group py-6">
-              <summary className="flex justify-between items-center cursor-pointer list-none">
-                <span className="font-serif text-xl md:text-2xl font-light pr-6">
+              <summary className="flex justify-between items-start gap-4 cursor-pointer list-none">
+                <span className="font-serif text-xl md:text-2xl font-light pr-4">
                   {f.q}
                 </span>
-                <span className="text-secondary text-2xl group-open:rotate-45 transition-transform">
+                <span className="mt-1 shrink-0 text-secondary text-2xl group-open:rotate-45 transition-transform">
                   +
                 </span>
               </summary>
