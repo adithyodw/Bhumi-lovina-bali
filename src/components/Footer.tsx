@@ -16,10 +16,7 @@ export default async function Footer() {
             {t("tagline")}
           </p>
           <address className="not-italic text-sm text-surface/70 leading-relaxed space-y-1">
-            <div>{site.location.address}</div>
-            <div>
-              {site.location.region}, {site.location.country}
-            </div>
+            <div>{site.location.fullAddress}</div>
             <div className="pt-3">
               <a
                 href={whatsappLink()}
@@ -38,6 +35,16 @@ export default async function Footer() {
                 className="hover:text-secondary-fixed-dim transition-colors"
               >
                 @{site.contact.instagram}
+              </a>
+            </div>
+            <div className="pt-2">
+              <a
+                href={site.location.mapsShareUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-secondary-fixed-dim transition-colors"
+              >
+                {t("openMap")}
               </a>
             </div>
           </address>

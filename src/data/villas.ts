@@ -7,8 +7,17 @@ import {
   VILLA_ASHOKA,
   VILLA_BOUGAINVILLE,
   VILLA_KAYU,
-  galleryFor,
 } from "@/lib/images";
+import {
+  VILLA_ASHOKA_GALLERY,
+  VILLA_BOUGAINVILLE_GALLERY,
+  VILLA_KAYU_GALLERY,
+  VILLA_KRISNA_GALLERY,
+  VILLA_LILI_GALLERY,
+  VILLA_LOTUS_GALLERY,
+  VILLA_MONSTERA_GALLERY,
+  VILLA_TUNJUNG_GALLERY,
+} from "@/lib/villa-images";
 
 export type VillaCategory = "deluxe" | "suite" | "executive";
 
@@ -71,7 +80,7 @@ export const villas: Villa[] = [
       "Breakfast included",
     ],
     heroImage: VILLA_LILI,
-    gallery: galleryFor(VILLA_LILI, 6),
+    gallery: [...VILLA_LILI_GALLERY],
     translations: {
       id: {
         categoryLabel: "Vila Deluxe",
@@ -123,7 +132,7 @@ export const villas: Villa[] = [
       "Breakfast included",
     ],
     heroImage: VILLA_LOTUS,
-    gallery: galleryFor(VILLA_LOTUS, 6),
+    gallery: [...VILLA_LOTUS_GALLERY],
     translations: {
       id: {
         categoryLabel: "Vila Deluxe",
@@ -174,7 +183,7 @@ export const villas: Villa[] = [
       "Breakfast included",
     ],
     heroImage: VILLA_MONSTERA,
-    gallery: galleryFor(VILLA_MONSTERA, 6),
+    gallery: [...VILLA_MONSTERA_GALLERY],
     translations: {
       id: {
         categoryLabel: "Vila Deluxe",
@@ -224,7 +233,7 @@ export const villas: Villa[] = [
       "Breakfast included",
     ],
     heroImage: VILLA_KRISNA,
-    gallery: galleryFor(VILLA_KRISNA, 6),
+    gallery: [...VILLA_KRISNA_GALLERY],
     translations: {
       id: {
         categoryLabel: "Vila Deluxe",
@@ -273,7 +282,7 @@ export const villas: Villa[] = [
       "Breakfast included",
     ],
     heroImage: VILLA_TUNJUNG,
-    gallery: galleryFor(VILLA_TUNJUNG, 6),
+    gallery: [...VILLA_TUNJUNG_GALLERY],
     translations: {
       id: {
         categoryLabel: "Vila Deluxe",
@@ -324,7 +333,7 @@ export const villas: Villa[] = [
       "Breakfast included",
     ],
     heroImage: VILLA_ASHOKA,
-    gallery: galleryFor(VILLA_ASHOKA, 8),
+    gallery: [...VILLA_ASHOKA_GALLERY],
     translations: {
       id: {
         categoryLabel: "Suite Vila",
@@ -376,7 +385,7 @@ export const villas: Villa[] = [
       "Breakfast included",
     ],
     heroImage: VILLA_BOUGAINVILLE,
-    gallery: galleryFor(VILLA_BOUGAINVILLE, 8),
+    gallery: [...VILLA_BOUGAINVILLE_GALLERY],
     translations: {
       id: {
         categoryLabel: "Suite Vila",
@@ -429,7 +438,7 @@ export const villas: Villa[] = [
       "Breakfast included",
     ],
     heroImage: VILLA_KAYU,
-    gallery: galleryFor(VILLA_KAYU, 10),
+    gallery: [...VILLA_KAYU_GALLERY],
     translations: {
       id: {
         categoryLabel: "Hunian Eksekutif",

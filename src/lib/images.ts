@@ -1,5 +1,3 @@
-import { GALLERY_POOL as VILLA_GALLERY_POOL } from './villa-images';
-
 /**
  * Reference design images from Google Stitch and Vercel Blob.
  * All URLs are served from their respective CDNs (whitelisted in next.config.ts).
@@ -77,28 +75,6 @@ export const VILLA_TUNJUNG =
 
 export const VILLA_MAIN =
   "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/main/hero.webp";
-
-// ── Gallery pool (for villa detail pages) ────────────────────────────────────
-// Real photos from all 9 villas (from Vercel Blob) + fallback placeholder images
-export const GALLERY_POOL = [
-  ...VILLA_GALLERY_POOL,
-  HERO_ESTATE,
-  EXP_DOLPHIN,
-  EXP_WATERFALL,
-  EXP_SNORKELING,
-  EXP_TEMPLE,
-  NEARBY_CAFE,
-  NEARBY_RESTAURANT,
-  GH +
-    "AB6AXuCDmeG7V0IhL4kJMIlYPpjbvbcUibwtWIRrrre7IFEM8xzaBkSK1fHNuYo9ZPim08XjsZZKtmhxcmxTryWveMODxZIsHyVe8wrWeeudt1xLC1JVycBi5pmgXSUQMF4JQE_6CAMUiv8DPQHBTFvNZOLClS02XlbmLjnNuDW-glbmCZMKGMTKaSC-YzCBrWdMBqrXYaV0ypgMbJ2TkAB9pxkfaQUKJtV_FIq8UrO6Eqvorq7ZHdyk2OZEX-5VAdsTj86SX9TmoLFvkCXG",
-  GH +
-    "AB6AXuAyVz7axypeU0uvzYlqEF23ma9QjbgOcTnOx0mJoYCQ3an-oBJj6TbAwj6H_3l46VTwOCKjE1daZzR-dWIEa1oDEV7sqXF758E-l3YI5UYeerGVIBAxpQ2isADT8OoX6MD20YiBLq9NpWjLViSYiiAW6LDJqlta3hId5Mab9PIGiO1RUrShnElNiIGn6I8gcsJHxgDJyvxuMTBtpl6dlqAR1PFlPvk8Rwm3FxpBerD9M1hiZd9eWmwAnYIvN3SDsahvwfwM9g7HTjLF",
-];
-
-export function galleryFor(heroImage: string, count: number): string[] {
-  const pool = GALLERY_POOL.filter((u) => u !== heroImage);
-  return Array.from({ length: count }, (_, i) => pool[i % pool.length]);
-}
 
 // ── Instagram grid ───────────────────────────────────────────────────────────
 export const INSTAGRAM_POSTS = [

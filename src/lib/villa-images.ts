@@ -1,101 +1,184 @@
-// Generated villa images from Vercel Blob
-// Auto-generated - do not edit manually
+// Generated from live Vercel Blob villa folders
+// Auto-generated to keep each villa gallery correctly grouped
 
-// ── Villas ───────────────────────────────────────────────────────────────
-export const VILLA_MAIN =
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/main/hero.webp";
+export const VILLA_MAIN_GALLERY = [
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Main%20Villa/2-ug67DK0FyM7RTmc4NSxxIppoNGj1N5.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Main%20Villa/4-sXcjnEB59uSKYWKDdEhWM3mrdAfc40.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Main%20Villa/6-vm3TSaTani822rH79zF1H3Qe4sqHBf.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Main%20Villa/10-CYPbRdAj2LmmtJ4B3e4L0NUHqTgyR2.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Main%20Villa/11-zMHjPj4dmxxrqdASh1OMT4gDpZkEsX.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Main%20Villa/msg5073668127-110730-EPRJcUnBJe7jP9PKPA7bHnudhlQQ2V.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Main%20Villa/msg5073668127-110731-WmfNMooZidhqnzyLmb1spi0vNGNI9S.jpg",
+] as const;
 
-export const VILLA_ASHOKA =
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/ashoka/hero.webp";
+export const VILLA_ASHOKA_GALLERY = [
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Ashoka%20%28Suite%29/IMG_7838.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Ashoka%20%28Suite%29/IMG_7840.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Ashoka%20%28Suite%29/IMG_7842.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Ashoka%20%28Suite%29/IMG_7843.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Ashoka%20%28Suite%29/IMG_7846.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Ashoka%20%28Suite%29/IMG_7848.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Ashoka%20%28Suite%29/IMG_7851.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Ashoka%20%28Suite%29/IMG_7852.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Ashoka%20%28Suite%29/IMG_7853.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Ashoka%20%28Suite%29/IMG_7854.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Ashoka%20%28Suite%29/IMG_7855.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Ashoka%20%28Suite%29/IMG_7856.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Ashoka%20%28Suite%29/IMG_7857.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Ashoka%20%28Suite%29/IMG_7858.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Ashoka%20%28Suite%29/IMG_7859.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Ashoka%20%28Suite%29/IMG_7860.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Ashoka%20%28Suite%29/IMG_7863.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Ashoka%20%28Suite%29/IMG_7868.jpg",
+] as const;
 
-export const VILLA_BOUGAINVILLE =
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/bougainville/hero.webp";
+export const VILLA_BOUGAINVILLE_GALLERY = [
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Bougainville%20%28Suite%29/IMG_7802.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Bougainville%20%28Suite%29/IMG_7804.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Bougainville%20%28Suite%29/IMG_7807.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Bougainville%20%28Suite%29/IMG_7810.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Bougainville%20%28Suite%29/IMG_7814.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Bougainville%20%28Suite%29/IMG_7815.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Bougainville%20%28Suite%29/IMG_7816.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Bougainville%20%28Suite%29/IMG_7817.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Bougainville%20%28Suite%29/IMG_7818.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Bougainville%20%28Suite%29/IMG_7822.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Bougainville%20%28Suite%29/IMG_7825.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Bougainville%20%28Suite%29/IMG_7827.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Bougainville%20%28Suite%29/IMG_7829.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Bougainville%20%28Suite%29/IMG_7830.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Bougainville%20%28Suite%29/IMG_7831.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Bougainville%20%28Suite%29/IMG_7833.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Bougainville%20%28Suite%29/IMG_7834.jpg",
+] as const;
 
-export const VILLA_KAYU =
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/kayu/hero.webp";
+export const VILLA_KAYU_GALLERY = [
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Kayu%20%28Executive%29/1.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Kayu%20%28Executive%29/2.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Kayu%20%28Executive%29/3.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Kayu%20%28Executive%29/4.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Kayu%20%28Executive%29/5.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Kayu%20%28Executive%29/6.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Kayu%20%28Executive%29/7.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Kayu%20%28Executive%29/8.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Kayu%20%28Executive%29/9.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Kayu%20%28Executive%29/IMG_7986.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Kayu%20%28Executive%29/IMG_7987.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Kayu%20%28Executive%29/IMG_7993.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Kayu%20%28Executive%29/IMG_7994.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Kayu%20%28Executive%29/IMG_8003.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Kayu%20%28Executive%29/IMG_8004.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Kayu%20%28Executive%29/IMG_8007.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Kayu%20%28Executive%29/IMG_8008.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Kayu%20%28Executive%29/IMG_8009.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Kayu%20%28Executive%29/IMG_8011.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Kayu%20%28Executive%29/IMG_8013.jpg",
+] as const;
 
-export const VILLA_KRISNA =
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/krisna/hero.webp";
+export const VILLA_KRISNA_GALLERY = [
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Krisna%20%28Deluxe%29/IMG_7906.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Krisna%20%28Deluxe%29/IMG_7908.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Krisna%20%28Deluxe%29/IMG_7909.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Krisna%20%28Deluxe%29/IMG_7910.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Krisna%20%28Deluxe%29/IMG_7912.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Krisna%20%28Deluxe%29/IMG_7914.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Krisna%20%28Deluxe%29/IMG_7916.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Krisna%20%28Deluxe%29/IMG_7920.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Krisna%20%28Deluxe%29/IMG_7921.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Krisna%20%28Deluxe%29/IMG_7922.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Krisna%20%28Deluxe%29/IMG_7923.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Krisna%20%28Deluxe%29/IMG_7924.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Krisna%20%28Deluxe%29/IMG_7926.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Krisna%20%28Deluxe%29/IMG_7927.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Krisna%20%28Deluxe%29/IMG_7929.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Krisna%20%28Deluxe%29/IMG_7930.jpg",
+] as const;
 
-export const VILLA_LILY =
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/lily/hero.webp";
+export const VILLA_LILI_GALLERY = [
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Lily%20%28Deluxe%29/msg5073668127-110709.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Lily%20%28Deluxe%29/msg5073668127-110710.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Lily%20%28Deluxe%29/msg5073668127-110717.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Lily%20%28Deluxe%29/msg5073668127-110719.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Lily%20%28Deluxe%29/msg5073668127-110720.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Lily%20%28Deluxe%29/msg5073668127-110721.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Lily%20%28Deluxe%29/msg5073668127-110722.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Lily%20%28Deluxe%29/msg5073668127-110734.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Lily%20%28Deluxe%29/msg5073668127-110735.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Lily%20%28Deluxe%29/msg5073668127-110736.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Lily%20%28Deluxe%29/msg5073668127-110737.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Lily%20%28Deluxe%29/msg5073668127-110740.jpg",
+] as const;
 
-export const VILLA_LOTUS =
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/lotus/hero.webp";
+export const VILLA_LOTUS_GALLERY = [
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20lotus%20%28Deluxe%29/IMG_7959.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20lotus%20%28Deluxe%29/IMG_7961.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20lotus%20%28Deluxe%29/IMG_7962.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20lotus%20%28Deluxe%29/IMG_7963.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20lotus%20%28Deluxe%29/IMG_7966.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20lotus%20%28Deluxe%29/IMG_7967.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20lotus%20%28Deluxe%29/IMG_7968.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20lotus%20%28Deluxe%29/IMG_7969.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20lotus%20%28Deluxe%29/IMG_7970.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20lotus%20%28Deluxe%29/IMG_7971.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20lotus%20%28Deluxe%29/IMG_7972.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20lotus%20%28Deluxe%29/IMG_7973.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20lotus%20%28Deluxe%29/IMG_7974.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20lotus%20%28Deluxe%29/IMG_7975.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20lotus%20%28Deluxe%29/IMG_7976.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20lotus%20%28Deluxe%29/IMG_7977.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20lotus%20%28Deluxe%29/IMG_7978.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20lotus%20%28Deluxe%29/IMG_7979.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20lotus%20%28Deluxe%29/IMG_7980.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20lotus%20%28Deluxe%29/IMG_7981.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20lotus%20%28Deluxe%29/IMG_7982.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20lotus%20%28Deluxe%29/IMG_7983.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20lotus%20%28Deluxe%29/IMG_7985.jpg",
+] as const;
 
-export const VILLA_MONSTERA =
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/monstera/hero.webp";
+export const VILLA_MONSTERA_GALLERY = [
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Monstera%20%28Deluxe%29/IMG_7932.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Monstera%20%28Deluxe%29/IMG_7935.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Monstera%20%28Deluxe%29/IMG_7936.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Monstera%20%28Deluxe%29/IMG_7938.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Monstera%20%28Deluxe%29/IMG_7939.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Monstera%20%28Deluxe%29/IMG_7941.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Monstera%20%28Deluxe%29/IMG_7944.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Monstera%20%28Deluxe%29/IMG_7946.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Monstera%20%28Deluxe%29/IMG_7948.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Monstera%20%28Deluxe%29/IMG_7950.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Monstera%20%28Deluxe%29/IMG_7951.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Monstera%20%28Deluxe%29/IMG_7952.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Monstera%20%28Deluxe%29/IMG_7953.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Monstera%20%28Deluxe%29/IMG_7954.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Monstera%20%28Deluxe%29/IMG_7955.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Monstera%20%28Deluxe%29/IMG_7956.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Monstera%20%28Deluxe%29/IMG_7957.jpg",
+] as const;
 
-export const VILLA_TUNJUNG =
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/tunjung/hero.webp";
+export const VILLA_TUNJUNG_GALLERY = [
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Tunjung%20%28Deluxe%29/IMG_7874-cQNungYCvDVOALPkloGkT0AZgooJ3E.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Tunjung%20%28Deluxe%29/IMG_7876-ATAEB4JviWOLSYB7GHBRAocv9lh6jj.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Tunjung%20%28Deluxe%29/IMG_7878-i61lPckvp4z3lBYJD9prvmkPqIrBFN.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Tunjung%20%28Deluxe%29/IMG_7879-in2dTvw3yxD37gpGQxdqYpMo27kRSK.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Tunjung%20%28Deluxe%29/IMG_7880-s7bij2Prq4UlMrrY65vyFFg1oozkvi.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Tunjung%20%28Deluxe%29/IMG_7882-QFDrqDzwYu4stKuWbCzT6MI8oSeyTd.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Tunjung%20%28Deluxe%29/IMG_7883-3hJv4WK4UHtPMZvk2gpDbYxNFLftt2.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Tunjung%20%28Deluxe%29/IMG_7884-U3wg2YqSRY3wmKmBA2DfAvmGKefE24.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Tunjung%20%28Deluxe%29/IMG_7885-yjPYYWfMzG8Ku8bM7SsoGuWqIUCvq8.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Tunjung%20%28Deluxe%29/IMG_7886-A20dC8992W8lDzombrwEbNfWLuz4Rm.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Tunjung%20%28Deluxe%29/IMG_7887-Y27Vbb3ZHjuAVtvNgek877ZjkayiUg.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Tunjung%20%28Deluxe%29/IMG_7888-b05cn2vZI9ixmnEHsk82DJGoNN1qAQ.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Tunjung%20%28Deluxe%29/IMG_7889-74iYaQfkThjREHKXSw57cXjekkeAen.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Tunjung%20%28Deluxe%29/IMG_7890-WSHBBoOTYRlPg0iac2Ra2AVnrnEnhR.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Tunjung%20%28Deluxe%29/IMG_7892-s1BRYbUDHB8hCx9NHlq9drqyJiTKTu.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Tunjung%20%28Deluxe%29/IMG_7893-H0N4jD4Vdcw2J9gwQ5rixpGXxFyyPn.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Tunjung%20%28Deluxe%29/IMG_7894-GVN81mvNvOEDL82uEdkxx8X1HtKa0P.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Tunjung%20%28Deluxe%29/IMG_7895-FUpiHky0Ty8WY85t2nKv2OCVt2w831.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Tunjung%20%28Deluxe%29/IMG_7897-XUZfbKPldjwd4oAvxm18pmGGmlfD4c.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Tunjung%20%28Deluxe%29/IMG_7899-98akxO2xElomKXw2U845XJ3ptqIbMJ.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Tunjung%20%28Deluxe%29/IMG_7900-HKVMgsXEoQBPVlF3bIznkFeh9shyL6.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Tunjung%20%28Deluxe%29/IMG_7902-DTre0ba2G8lrg1zld5ZfOS9eOLSqE8.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Tunjung%20%28Deluxe%29/IMG_7904-oO7fhKggOgM7yTIkzq8TCTPiJhMdyE.jpg",
+  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/Villa%20Tunjung%20%28Deluxe%29/IMG_7905-2tVDBI3isLrZ5MgkH8hSvOvi5hWb3L.jpg",
+] as const;
 
-// ── Gallery pool (for villa detail pages) ────────────────────────────────
-export const GALLERY_POOL = [
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/main/gallery-1.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/main/gallery-2.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/main/gallery-3.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/main/gallery-4.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/main/gallery-5.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/main/gallery-6.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/ashoka/gallery-1.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/ashoka/gallery-2.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/ashoka/gallery-3.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/ashoka/gallery-4.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/ashoka/gallery-5.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/ashoka/gallery-6.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/ashoka/gallery-7.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/bougainville/gallery-1.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/bougainville/gallery-2.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/bougainville/gallery-3.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/bougainville/gallery-4.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/bougainville/gallery-5.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/bougainville/gallery-6.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/bougainville/gallery-7.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/kayu/gallery-1.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/kayu/gallery-2.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/kayu/gallery-3.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/kayu/gallery-4.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/kayu/gallery-5.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/kayu/gallery-6.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/kayu/gallery-7.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/krisna/gallery-1.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/krisna/gallery-2.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/krisna/gallery-3.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/krisna/gallery-4.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/krisna/gallery-5.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/krisna/gallery-6.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/krisna/gallery-7.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/lily/gallery-1.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/lily/gallery-2.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/lily/gallery-3.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/lily/gallery-4.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/lily/gallery-5.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/lily/gallery-6.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/lily/gallery-7.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/lotus/gallery-1.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/lotus/gallery-2.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/lotus/gallery-3.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/lotus/gallery-4.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/lotus/gallery-5.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/lotus/gallery-6.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/lotus/gallery-7.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/monstera/gallery-1.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/monstera/gallery-2.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/monstera/gallery-3.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/monstera/gallery-4.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/monstera/gallery-5.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/monstera/gallery-6.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/monstera/gallery-7.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/tunjung/gallery-1.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/tunjung/gallery-2.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/tunjung/gallery-3.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/tunjung/gallery-4.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/tunjung/gallery-5.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/tunjung/gallery-6.webp",
-  "https://wwq0lftovaoyltrd.public.blob.vercel-storage.com/villas/tunjung/gallery-7.webp",
-];
-
-export function galleryFor(heroImage: string, count: number): string[] {
-  const pool = GALLERY_POOL.filter((u) => u !== heroImage);
-  return Array.from({ length: count }, (_, i) => pool[i % pool.length]);
-}

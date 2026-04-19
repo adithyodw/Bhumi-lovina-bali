@@ -56,10 +56,11 @@ export default async function VillaDetailPage(props: {
     starRating: { "@type": "Rating", ratingValue: "5" },
     address: {
       "@type": "PostalAddress",
-      streetAddress: site.location.address,
-      addressLocality: "Lovina",
+      streetAddress: site.location.fullAddress,
+      addressLocality: site.location.locality,
       addressRegion: site.location.region,
       addressCountry: site.location.country,
+      postalCode: site.location.postalCode,
     },
     numberOfRooms: villa.bedrooms,
     amenityFeature: villa.amenities.map((a) => ({

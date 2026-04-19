@@ -112,10 +112,11 @@ const jsonLd = {
       starRating: { "@type": "Rating", ratingValue: "5" },
       address: {
         "@type": "PostalAddress",
-        streetAddress: site.location.address,
-        addressLocality: "Lovina",
+        streetAddress: site.location.fullAddress,
+        addressLocality: site.location.locality,
         addressRegion: site.location.region,
         addressCountry: site.location.country,
+        postalCode: site.location.postalCode,
       },
       geo: {
         "@type": "GeoCoordinates",
@@ -146,10 +147,11 @@ const jsonLd = {
       telephone: `+${site.contact.whatsapp}`,
       address: {
         "@type": "PostalAddress",
-        streetAddress: site.location.address,
-        addressLocality: "Lovina",
+        streetAddress: site.location.fullAddress,
+        addressLocality: site.location.locality,
         addressRegion: site.location.region,
         addressCountry: site.location.country,
+        postalCode: site.location.postalCode,
       },
       geo: {
         "@type": "GeoCoordinates",
