@@ -4,6 +4,7 @@ import Link from "next/link";
 import { getTranslations, getLocale } from "next-intl/server";
 import { villas, villasByCategory, villaLocale } from "@/data/villas";
 import Reveal from "@/components/Reveal";
+import { VILLA_MAIN_GALLERY } from "@/lib/villa-images";
 
 export const metadata: Metadata = {
   title: "Our Villas — Eight Private Villas in Lovina, North Bali",
@@ -56,6 +57,49 @@ export default async function VillasPage() {
           </h1>
         </div>
       </header>
+
+      {/* Main villa gallery */}
+      <section className="py-20 md:py-28 px-6 md:px-12 max-w-[1440px] mx-auto">
+        <div className="max-w-3xl mb-12 md:mb-16">
+          <span className="font-sans tracking-[0.4em] uppercase text-xs text-secondary mb-4 block">
+            {t("mainVillaLabel")}
+          </span>
+          <h2 className="font-serif text-3xl md:text-5xl font-light leading-tight text-balance">
+            {t("mainVillaHeadline")}
+          </h2>
+          <p className="mt-5 text-on-surface-variant text-lg font-light leading-relaxed text-pretty">
+            {t("mainVillaCopy")}
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-4 md:gap-6">
+          {VILLA_MAIN_GALLERY.map((src, i) => {
+            const span =
+              i === 0
+                ? "md:col-span-4 aspect-[16/10]"
+                : i === 1
+                  ? "md:col-span-2 aspect-[4/5]"
+                  : i === 2 || i === 3
+                    ? "md:col-span-3 aspect-[4/3]"
+                    : "md:col-span-2 aspect-[4/5]";
+
+            return (
+              <Reveal
+                key={src}
+                delay={i * 70}
+                className={`relative overflow-hidden rounded-xl ${span}`}
+              >
+                <Image
+                  src={src}
+                  alt={`Main villa photograph ${i + 1}`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </Reveal>
+            );
+          })}
+        </div>
+      </section>
 
       {/* Villa sections */}
       {sections.map((section) => {

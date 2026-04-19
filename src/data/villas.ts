@@ -4,7 +4,6 @@ import {
   VILLA_MONSTERA,
   VILLA_KRISNA,
   VILLA_TUNJUNG,
-  VILLA_ASHOKA,
   VILLA_BOUGAINVILLE,
   VILLA_KAYU,
 } from "@/lib/images";
@@ -27,6 +26,13 @@ type VillaTranslation = {
   intro: string;
   description: string[];
   amenities: string[];
+  occupancy: string;
+  bathroom: string;
+  bedSetup: string[];
+  extraGuestPolicy: string;
+  extraBeds: string;
+  kitchenFacilities: string[];
+  typeNote: string;
 };
 
 export type Villa = {
@@ -43,6 +49,13 @@ export type Villa = {
   amenities: string[];
   heroImage: string;
   gallery: string[];
+  occupancy: string;
+  bathroom: string;
+  bedSetup: string[];
+  extraGuestPolicy: string;
+  extraBeds: string;
+  kitchenFacilities: string[];
+  typeNote: string;
   translations?: { id: VillaTranslation };
 };
 
@@ -51,419 +64,376 @@ export function villaLocale(v: Villa, locale: string): Villa {
   return { ...v, ...v.translations.id };
 }
 
+const COMMON_AMENITIES = [
+  "2-bedroom private pool villa",
+  "Private WiFi",
+  "Kitchen + cooking equipment",
+  "Dining utensils",
+  "Refrigerator",
+  "TV",
+  "Water heater",
+  "AC in every room",
+  "Balcony",
+  "Bathroom amenities (soap, shampoo, 2 towels)",
+];
+
+const COMMON_AMENITIES_ID = [
+  "Vila 2 kamar dengan kolam renang pribadi",
+  "WiFi pribadi",
+  "Dapur + peralatan memasak",
+  "Peralatan makan",
+  "Kulkas",
+  "TV",
+  "Pemanas air",
+  "AC di setiap kamar",
+  "Balkon",
+  "Perlengkapan kamar mandi (sabun, sampo, 2 handuk)",
+];
+
+const COMMON_KITCHEN = [
+  "Refrigerator",
+  "Stove",
+  "Knife",
+  "Frying pan (teflon)",
+  "Cooking pot",
+  "Cups",
+  "Plates",
+  "Spoon & fork",
+];
+
+const COMMON_KITCHEN_ID = [
+  "Kulkas",
+  "Kompor",
+  "Pisau",
+  "Wajan teflon",
+  "Panci",
+  "Gelas",
+  "Piring",
+  "Sendok & garpu",
+];
+
+const DELUXE_BED_SETUP = [
+  "1st floor: 1 Queen Bed",
+  "2nd floor: 2 Single Beds",
+];
+
+const DELUXE_BED_SETUP_ID = [
+  "Lantai 1: 1 Queen Bed",
+  "Lantai 2: 2 Single Beds",
+];
+
+const EXECUTIVE_BED_SETUP = [
+  "1st floor: 1 Queen Bed",
+  "2nd floor: 1 Queen Bed",
+];
+
+const EXECUTIVE_BED_SETUP_ID = [
+  "Lantai 1: 1 Queen Bed",
+  "Lantai 2: 1 Queen Bed",
+];
+
+function createVilla(base: {
+  slug: string;
+  name: string;
+  category: VillaCategory;
+  categoryLabel: string;
+  sizeSqm: number;
+  tagline: string;
+  taglineId: string;
+  heroImage: string;
+  gallery: readonly string[];
+  intro: string;
+  introId: string;
+  description: string[];
+  descriptionId: string[];
+  occupancy: string;
+  occupancyId: string;
+  bathroom: string;
+  bathroomId: string;
+  bedSetup: string[];
+  bedSetupId: string[];
+  typeNote: string;
+  typeNoteId: string;
+  amenities?: string[];
+  amenitiesId?: string[];
+}): Villa {
+  return {
+    slug: base.slug,
+    name: base.name,
+    category: base.category,
+    categoryLabel: base.categoryLabel,
+    bedrooms: 2,
+    maxGuests: 5,
+    sizeSqm: base.sizeSqm,
+    tagline: base.tagline,
+    intro: base.intro,
+    description: base.description,
+    amenities: base.amenities ?? COMMON_AMENITIES,
+    heroImage: base.heroImage,
+    gallery: [...base.gallery],
+    occupancy: base.occupancy,
+    bathroom: base.bathroom,
+    bedSetup: base.bedSetup,
+    extraGuestPolicy:
+      "Extra adult: IDR 110,000/person · Extra child: IDR 55,000/person",
+    extraBeds: "No extra beds available",
+    kitchenFacilities: COMMON_KITCHEN,
+    typeNote: base.typeNote,
+    translations: {
+      id: {
+        categoryLabel:
+          base.category === "executive"
+            ? "Vila Eksekutif"
+            : base.category === "suite"
+              ? "Vila Suite"
+              : "Vila Deluxe",
+        tagline: base.taglineId,
+        intro: base.introId,
+        description: base.descriptionId,
+        amenities: base.amenitiesId ?? COMMON_AMENITIES_ID,
+        occupancy: base.occupancyId,
+        bathroom: base.bathroomId,
+        bedSetup: base.bedSetupId,
+        extraGuestPolicy:
+          "Tamu dewasa tambahan: IDR 110.000/orang · Tamu anak tambahan: IDR 55.000/orang",
+        extraBeds: "Tidak ada extra bed tersedia",
+        kitchenFacilities: COMMON_KITCHEN_ID,
+        typeNote: base.typeNoteId,
+      },
+    },
+  };
+}
+
+const DELUXE_INTRO =
+  "A 150 m² two-bedroom private pool villa with 1 bathroom on the ground floor, ideal for up to 5 adults or 4 adults + 2 children.";
+const DELUXE_INTRO_ID =
+  "Vila 150 m² dengan 2 kamar tidur, kolam renang pribadi, dan 1 kamar mandi di lantai dasar, ideal untuk hingga 5 dewasa atau 4 dewasa + 2 anak.";
+const DELUXE_DESCRIPTION = [
+  "Each deluxe villa at Bhumi Lovina Residence is one of our 8 private villa units, arranged for practical family stays with 2 bedrooms, 1 bathroom on the ground floor, and a private pool.",
+  "The bed setup is 1 queen bed on the 1st floor and 2 single beds on the 2nd floor. Bathroom amenities include soap, shampoo, and 2 towels, while extra charges apply at IDR 110,000 per adult and IDR 55,000 per child within the stated occupancy.",
+];
+const DELUXE_DESCRIPTION_ID = [
+  "Setiap vila deluxe di Bhumi Lovina Residence merupakan bagian dari 8 unit vila pribadi kami, dirancang praktis untuk keluarga dengan 2 kamar tidur, 1 kamar mandi di lantai dasar, dan kolam renang pribadi.",
+  "Susunan tempat tidurnya adalah 1 queen bed di lantai 1 dan 2 single beds di lantai 2. Perlengkapan kamar mandi meliputi sabun, sampo, dan 2 handuk, sementara biaya tambahan berlaku sebesar IDR 110.000 per dewasa dan IDR 55.000 per anak sesuai batas okupansi.",
+];
+
+const SUITE_INTRO =
+  "A 200 m² two-bedroom private pool villa with 1 bathroom on the ground floor and complimentary Aqua gallon drinking water.";
+const SUITE_INTRO_ID =
+  "Vila 200 m² dengan 2 kamar tidur, kolam renang pribadi, 1 kamar mandi di lantai dasar, dan Aqua galon air minum gratis.";
+const SUITE_DESCRIPTION = [
+  "Our suite villas share the same core facilities as every Bhumi Lovina villa: 2 bedrooms, 1 bathroom on the ground floor, a private pool, private WiFi, and a complete kitchen setup.",
+  "Each suite offers 200 m² of space with 1 queen bed on the 1st floor and 2 single beds on the 2nd floor. The only facility difference is complimentary Aqua gallon drinking water.",
+];
+const SUITE_DESCRIPTION_ID = [
+  "Vila suite kami memiliki fasilitas inti yang sama dengan semua vila Bhumi Lovina: 2 kamar tidur, 1 kamar mandi di lantai dasar, kolam renang pribadi, WiFi pribadi, dan perlengkapan dapur lengkap.",
+  "Setiap suite memiliki luas 200 m² dengan 1 queen bed di lantai 1 dan 2 single beds di lantai 2. Satu-satunya perbedaan fasilitas adalah Aqua galon air minum gratis.",
+];
+
+const EXEC_INTRO =
+  "A 150 m² executive two-bedroom private pool villa with 1 bathroom on the ground floor and a maximum occupancy of 5 adults only.";
+const EXEC_INTRO_ID =
+  "Vila eksekutif 150 m² dengan 2 kamar tidur, kolam renang pribadi, 1 kamar mandi di lantai dasar, dan kapasitas maksimum 5 dewasa saja.";
+const EXEC_DESCRIPTION = [
+  "The executive villa follows the same core facility standard as our deluxe and suite categories, with 2 bedrooms, 1 bathroom on the ground floor, private WiFi, a private pool, and full kitchen equipment.",
+  "This villa offers 1 queen bed on the 1st floor and 1 queen bed on the 2nd floor. Maximum occupancy is strictly 5 adults, with no extra beds available.",
+];
+const EXEC_DESCRIPTION_ID = [
+  "Vila eksekutif mengikuti standar fasilitas inti yang sama dengan kategori deluxe dan suite kami, dengan 2 kamar tidur, 1 kamar mandi di lantai dasar, WiFi pribadi, kolam renang pribadi, dan perlengkapan dapur lengkap.",
+  "Vila ini menyediakan 1 queen bed di lantai 1 dan 1 queen bed di lantai 2. Kapasitas maksimum adalah 5 dewasa dan tidak tersedia extra bed.",
+];
+
+const ASHOKA_HERO_IMAGE = VILLA_ASHOKA_GALLERY[3];
+
 export const villas: Villa[] = [
-  {
+  createVilla({
     slug: "lili",
     name: "Villa Lili",
     category: "deluxe",
     categoryLabel: "Deluxe Villa",
-    bedrooms: 1,
-    maxGuests: 2,
-    sizeSqm: 68,
+    sizeSqm: 150,
     tagline: "A quiet bloom above the Bali Sea.",
-    intro:
-      "A serene deluxe retreat wrapped in Balinese hardwood, with a private plunge pool open to the sky.",
-    description: [
-      "Villa Lili is the softest of the deluxe collection. A single bedroom opens through wide glass doors onto a private plunge pool, framed by frangipani and an open stretch of sea.",
-      "Inside, a hand-carved teak bed faces the horizon. The bathroom is a private garden of river-stone and bamboo, lit from above by a single shaft of morning light.",
-    ],
-    amenities: [
-      "Private plunge pool",
-      "King bed",
-      "Outdoor rain shower",
-      "Air conditioning & ceiling fan",
-      "Smart TV & high-speed Wi-Fi",
-      "Bluetooth audio",
-      "In-villa safe",
-      "Complimentary mini-bar",
-      "Daily housekeeping",
-      "Breakfast included",
-    ],
+    taglineId: "Mekar tenang di atas Laut Bali.",
     heroImage: VILLA_LILI,
-    gallery: [...VILLA_LILI_GALLERY],
-    translations: {
-      id: {
-        categoryLabel: "Vila Deluxe",
-        tagline: "Mekar tenang di atas Laut Bali.",
-        intro: "Retret deluxe yang tenang, dibalut kayu keras Bali, dengan kolam rendam pribadi terbuka ke langit.",
-        description: [
-          "Villa Lili adalah yang paling lembut di koleksi deluxe. Satu kamar tidur terbuka melalui pintu kaca lebar ke kolam rendam pribadi, dikelilingi bunga kamboja dan hamparan laut bebas.",
-          "Di dalamnya, ranjang jati berukir tangan menghadap cakrawala. Kamar mandi adalah taman pribadi dari batu sungai dan bambu, diterangi seberkas cahaya pagi dari atas.",
-        ],
-        amenities: [
-          "Kolam rendam pribadi",
-          "Tempat tidur king",
-          "Pancuran hujan outdoor",
-          "AC & kipas langit-langit",
-          "Smart TV & Wi-Fi",
-          "Audio Bluetooth",
-          "Brankas villa",
-          "Mini-bar gratis",
-          "Kamar dibersihkan setiap hari",
-          "Sarapan sudah termasuk",
-        ],
-      },
-    },
-  },
-  {
+    gallery: VILLA_LILI_GALLERY,
+    intro: DELUXE_INTRO,
+    introId: DELUXE_INTRO_ID,
+    description: DELUXE_DESCRIPTION,
+    descriptionId: DELUXE_DESCRIPTION_ID,
+    occupancy: "Max 5 adults or 4 adults + 2 children",
+    occupancyId: "Maks 5 dewasa atau 4 dewasa + 2 anak",
+    bathroom: "1 bathroom on the ground floor",
+    bathroomId: "1 kamar mandi di lantai dasar",
+    bedSetup: DELUXE_BED_SETUP,
+    bedSetupId: DELUXE_BED_SETUP_ID,
+    typeNote: "All facilities are the same across villa types.",
+    typeNoteId: "Semua tipe vila memiliki fasilitas yang sama.",
+  }),
+  createVilla({
     slug: "lotus",
     name: "Villa Lotus",
     category: "deluxe",
     categoryLabel: "Deluxe Villa",
-    bedrooms: 1,
-    maxGuests: 2,
-    sizeSqm: 72,
+    sizeSqm: 150,
     tagline: "A still pond at the centre of the estate.",
-    intro:
-      "A deluxe villa encircled by lotus ponds and shaded by ancient frangipani, designed for quiet contemplation.",
-    description: [
-      "Villa Lotus sits at the heart of the estate, framed by lily ponds and the slow breathing of frangipani. A hand-poured terrazzo bathtub opens to a private garden.",
-      "Mornings begin with birdsong and fresh-cut fruit on the open terrace. Evenings close with a candle-lit soak under a sky of stars.",
-    ],
-    amenities: [
-      "Private plunge pool",
-      "King bed",
-      "Terrazzo soaking tub",
-      "Air conditioning",
-      "Smart TV & Wi-Fi",
-      "In-villa safe",
-      "Mini-bar",
-      "Daily housekeeping",
-      "Breakfast included",
-    ],
+    taglineId: "Kolam hening di jantung kawasan.",
     heroImage: VILLA_LOTUS,
-    gallery: [...VILLA_LOTUS_GALLERY],
-    translations: {
-      id: {
-        categoryLabel: "Vila Deluxe",
-        tagline: "Kolam hening di jantung kawasan.",
-        intro: "Vila deluxe dikelilingi kolam teratai dan dinaungi kamboja purba, dirancang untuk perenungan yang tenang.",
-        description: [
-          "Villa Lotus berdiri di jantung kawasan, dikelilingi kolam teratai dan napas lambat kamboja. Bathtub terrazzo tuang tangan terbuka ke taman pribadi.",
-          "Pagi dimulai dengan kicau burung dan buah segar di teras terbuka. Malam ditutup dengan rendam lilin di bawah langit berbintang.",
-        ],
-        amenities: [
-          "Kolam rendam pribadi",
-          "Tempat tidur king",
-          "Bathtub terrazzo",
-          "AC",
-          "Smart TV & Wi-Fi",
-          "Brankas villa",
-          "Mini-bar",
-          "Kamar dibersihkan setiap hari",
-          "Sarapan sudah termasuk",
-        ],
-      },
-    },
-  },
-  {
+    gallery: VILLA_LOTUS_GALLERY,
+    intro: DELUXE_INTRO,
+    introId: DELUXE_INTRO_ID,
+    description: DELUXE_DESCRIPTION,
+    descriptionId: DELUXE_DESCRIPTION_ID,
+    occupancy: "Max 5 adults or 4 adults + 2 children",
+    occupancyId: "Maks 5 dewasa atau 4 dewasa + 2 anak",
+    bathroom: "1 bathroom on the ground floor",
+    bathroomId: "1 kamar mandi di lantai dasar",
+    bedSetup: DELUXE_BED_SETUP,
+    bedSetupId: DELUXE_BED_SETUP_ID,
+    typeNote: "All facilities are the same across villa types.",
+    typeNoteId: "Semua tipe vila memiliki fasilitas yang sama.",
+  }),
+  createVilla({
     slug: "monstera",
     name: "Villa Monstera",
     category: "deluxe",
     categoryLabel: "Deluxe Villa",
-    bedrooms: 1,
-    maxGuests: 2,
-    sizeSqm: 70,
+    sizeSqm: 150,
     tagline: "A canopy of green, a pool of sky.",
-    intro:
-      "A jungle-adjacent deluxe villa where wild monstera leaves meet a mirrored plunge pool.",
-    description: [
-      "Villa Monstera is cocooned by a sculpted garden of wild greens. The private plunge pool catches the sky and turns it into an inverted painting.",
-      "The interior balances raw volcanic stone with soft ivory linen and warm teak — a study in tropical restraint.",
-    ],
-    amenities: [
-      "Private plunge pool",
-      "King bed",
-      "Outdoor rain shower",
-      "Garden day-bed",
-      "Air conditioning",
-      "Wi-Fi & Bluetooth audio",
-      "In-villa safe",
-      "Mini-bar",
-      "Breakfast included",
-    ],
+    taglineId: "Kanopi hijau, kolam langit biru.",
     heroImage: VILLA_MONSTERA,
-    gallery: [...VILLA_MONSTERA_GALLERY],
-    translations: {
-      id: {
-        categoryLabel: "Vila Deluxe",
-        tagline: "Kanopi hijau, kolam langit biru.",
-        intro: "Vila deluxe di tepi hutan, tempat daun monstera liar bertemu kolam rendam bercermin.",
-        description: [
-          "Villa Monstera diselimuti taman hijau yang rimbun. Kolam rendam pribadi memantulkan langit dan mengubahnya menjadi lukisan terbalik.",
-          "Interior memadukan batu vulkanik mentah dengan linen gading lembut dan teak hangat — ketenangan tropis dalam kesederhanaan.",
-        ],
-        amenities: [
-          "Kolam rendam pribadi",
-          "Tempat tidur king",
-          "Pancuran hujan outdoor",
-          "Tempat tidur siang di taman",
-          "AC",
-          "Wi-Fi & audio Bluetooth",
-          "Brankas villa",
-          "Mini-bar",
-          "Sarapan sudah termasuk",
-        ],
-      },
-    },
-  },
-  {
+    gallery: VILLA_MONSTERA_GALLERY,
+    intro: DELUXE_INTRO,
+    introId: DELUXE_INTRO_ID,
+    description: DELUXE_DESCRIPTION,
+    descriptionId: DELUXE_DESCRIPTION_ID,
+    occupancy: "Max 5 adults or 4 adults + 2 children",
+    occupancyId: "Maks 5 dewasa atau 4 dewasa + 2 anak",
+    bathroom: "1 bathroom on the ground floor",
+    bathroomId: "1 kamar mandi di lantai dasar",
+    bedSetup: DELUXE_BED_SETUP,
+    bedSetupId: DELUXE_BED_SETUP_ID,
+    typeNote: "All facilities are the same across villa types.",
+    typeNoteId: "Semua tipe vila memiliki fasilitas yang sama.",
+  }),
+  createVilla({
     slug: "krisna",
     name: "Villa Krisna",
     category: "deluxe",
     categoryLabel: "Deluxe Villa",
-    bedrooms: 1,
-    maxGuests: 2,
-    sizeSqm: 74,
+    sizeSqm: 150,
     tagline: "A chapter of quiet heritage.",
-    intro:
-      "Balinese heritage detailing and a broad covered verandah set Villa Krisna apart.",
-    description: [
-      "Villa Krisna honours the craft traditions of North Bali — hand-chiselled limestone, woven pandan ceilings, and a bed carved from a single reclaimed tree.",
-      "A generous verandah, shaded from the midday sun, opens onto the villa's own plunge pool and a tiled sun-deck for slow afternoons.",
-    ],
-    amenities: [
-      "Private plunge pool",
-      "King bed",
-      "Covered verandah",
-      "Outdoor shower",
-      "Air conditioning",
-      "Smart TV & Wi-Fi",
-      "Safe & mini-bar",
-      "Breakfast included",
-    ],
+    taglineId: "Bab warisan yang sunyi.",
     heroImage: VILLA_KRISNA,
-    gallery: [...VILLA_KRISNA_GALLERY],
-    translations: {
-      id: {
-        categoryLabel: "Vila Deluxe",
-        tagline: "Bab warisan yang sunyi.",
-        intro: "Detail warisan Bali dan beranda tertutup yang luas menjadikan Villa Krisna berbeda dari yang lain.",
-        description: [
-          "Villa Krisna merayakan tradisi kerajinan Bali Utara — batu kapur ukiran tangan, langit-langit pandan anyaman, dan ranjang yang dipahat dari satu pohon reklamasi.",
-          "Beranda yang luas, terlindung dari terik siang, terbuka ke kolam rendam pribadi dan dek matahari bertegel untuk sore-sore yang santai.",
-        ],
-        amenities: [
-          "Kolam rendam pribadi",
-          "Tempat tidur king",
-          "Beranda tertutup",
-          "Pancuran outdoor",
-          "AC",
-          "Smart TV & Wi-Fi",
-          "Brankas & mini-bar",
-          "Sarapan sudah termasuk",
-        ],
-      },
-    },
-  },
-  {
+    gallery: VILLA_KRISNA_GALLERY,
+    intro: DELUXE_INTRO,
+    introId: DELUXE_INTRO_ID,
+    description: DELUXE_DESCRIPTION,
+    descriptionId: DELUXE_DESCRIPTION_ID,
+    occupancy: "Max 5 adults or 4 adults + 2 children",
+    occupancyId: "Maks 5 dewasa atau 4 dewasa + 2 anak",
+    bathroom: "1 bathroom on the ground floor",
+    bathroomId: "1 kamar mandi di lantai dasar",
+    bedSetup: DELUXE_BED_SETUP,
+    bedSetupId: DELUXE_BED_SETUP_ID,
+    typeNote: "All facilities are the same across villa types.",
+    typeNoteId: "Semua tipe vila memiliki fasilitas yang sama.",
+  }),
+  createVilla({
     slug: "tunjung",
     name: "Villa Tunjung",
     category: "deluxe",
     categoryLabel: "Deluxe Villa",
-    bedrooms: 1,
-    maxGuests: 2,
-    sizeSqm: 68,
+    sizeSqm: 150,
     tagline: "The lotus that opens at dusk.",
-    intro:
-      "A deluxe villa named for the night-blooming lotus — warm, low-lit, and deeply private.",
-    description: [
-      "Villa Tunjung is the warmest of the deluxe villas, finished in burnished teak and smoked rattan. By evening, hidden lighting turns the plunge pool into a pool of amber.",
-      "A tucked-away reading nook and a generous outdoor daybed make this the quietest of the five.",
-    ],
-    amenities: [
-      "Private plunge pool",
-      "King bed",
-      "Outdoor daybed",
-      "Reading nook",
-      "Air conditioning",
-      "Wi-Fi & Bluetooth",
-      "Safe & mini-bar",
-      "Breakfast included",
-    ],
+    taglineId: "Teratai yang mekar saat senja.",
     heroImage: VILLA_TUNJUNG,
-    gallery: [...VILLA_TUNJUNG_GALLERY],
-    translations: {
-      id: {
-        categoryLabel: "Vila Deluxe",
-        tagline: "Teratai yang mekar saat senja.",
-        intro: "Vila deluxe bernama dari teratai yang mekar di malam hari — hangat, temaram, dan sungguh pribadi.",
-        description: [
-          "Villa Tunjung adalah yang paling hangat di antara vila deluxe, diselesaikan dalam teak mengkilap dan rotan asap. Di malam hari, pencahayaan tersembunyi mengubah kolam rendam menjadi genangan cahaya amber.",
-          "Sudut baca yang tersembunyi dan tempat tidur siang outdoor yang lapang menjadikan ini yang paling hening di antara kelimanya.",
-        ],
-        amenities: [
-          "Kolam rendam pribadi",
-          "Tempat tidur king",
-          "Tempat tidur siang outdoor",
-          "Sudut baca",
-          "AC",
-          "Wi-Fi & Bluetooth",
-          "Brankas & mini-bar",
-          "Sarapan sudah termasuk",
-        ],
-      },
-    },
-  },
-  {
+    gallery: VILLA_TUNJUNG_GALLERY,
+    intro: DELUXE_INTRO,
+    introId: DELUXE_INTRO_ID,
+    description: DELUXE_DESCRIPTION,
+    descriptionId: DELUXE_DESCRIPTION_ID,
+    occupancy: "Max 5 adults or 4 adults + 2 children",
+    occupancyId: "Maks 5 dewasa atau 4 dewasa + 2 anak",
+    bathroom: "1 bathroom on the ground floor",
+    bathroomId: "1 kamar mandi di lantai dasar",
+    bedSetup: DELUXE_BED_SETUP,
+    bedSetupId: DELUXE_BED_SETUP_ID,
+    typeNote: "All facilities are the same across villa types.",
+    typeNoteId: "Semua tipe vila memiliki fasilitas yang sama.",
+  }),
+  createVilla({
     slug: "ashoka",
     name: "Villa Ashoka",
     category: "suite",
     categoryLabel: "Suite Villa",
-    bedrooms: 2,
-    maxGuests: 4,
-    sizeSqm: 120,
+    sizeSqm: 200,
     tagline: "A suite of rooms, a single view.",
-    intro:
-      "A two-bedroom suite villa with a private pool and a full open-air living pavilion.",
-    description: [
-      "Villa Ashoka is composed as a small compound: two bedroom pavilions, a living pavilion, and an outdoor kitchen, all arranged around a mirror-still private pool.",
-      "It is an ideal retreat for families or two couples travelling together, with enough room to share the evening and retreat in private.",
-    ],
-    amenities: [
-      "Private pool",
-      "Two king bedrooms",
-      "Open-air living pavilion",
-      "Outdoor kitchen",
-      "Two en-suite bathrooms",
-      "Air conditioning throughout",
-      "Smart TV & Wi-Fi",
-      "In-villa safe",
-      "Daily housekeeping",
-      "Breakfast included",
-    ],
-    heroImage: VILLA_ASHOKA,
-    gallery: [...VILLA_ASHOKA_GALLERY],
-    translations: {
-      id: {
-        categoryLabel: "Suite Vila",
-        tagline: "Serangkaian kamar, satu pemandangan.",
-        intro: "Vila suite dua kamar dengan kolam renang pribadi dan paviliun tamu terbuka penuh.",
-        description: [
-          "Villa Ashoka dirancang sebagai kompleks kecil: dua paviliun kamar tidur, paviliun ruang tamu, dan dapur outdoor, semuanya tersusun di sekitar kolam renang pribadi yang tenang.",
-          "Ideal untuk keluarga atau dua pasangan yang bepergian bersama, dengan cukup ruang untuk berbagi sore hari dan menarik diri dalam keintiman.",
-        ],
-        amenities: [
-          "Kolam renang pribadi",
-          "Dua kamar king",
-          "Paviliun tamu terbuka",
-          "Dapur outdoor",
-          "Dua kamar mandi dalam kamar",
-          "AC di seluruh villa",
-          "Smart TV & Wi-Fi",
-          "Brankas villa",
-          "Kamar dibersihkan setiap hari",
-          "Sarapan sudah termasuk",
-        ],
-      },
-    },
-  },
-  {
+    taglineId: "Serangkaian kamar, satu pemandangan.",
+    heroImage: ASHOKA_HERO_IMAGE,
+    gallery: [...VILLA_ASHOKA_GALLERY.slice(0, 3), ...VILLA_ASHOKA_GALLERY.slice(4)],
+    intro: SUITE_INTRO,
+    introId: SUITE_INTRO_ID,
+    description: SUITE_DESCRIPTION,
+    descriptionId: SUITE_DESCRIPTION_ID,
+    occupancy: "Max 5 adults or 4 adults + 2 children",
+    occupancyId: "Maks 5 dewasa atau 4 dewasa + 2 anak",
+    bathroom: "1 bathroom on the ground floor",
+    bathroomId: "1 kamar mandi di lantai dasar",
+    bedSetup: DELUXE_BED_SETUP,
+    bedSetupId: DELUXE_BED_SETUP_ID,
+    typeNote: "Suite includes complimentary Aqua gallon drinking water.",
+    typeNoteId: "Suite termasuk Aqua galon air minum gratis.",
+    amenities: [...COMMON_AMENITIES, "Aqua gallon drinking water"],
+    amenitiesId: [...COMMON_AMENITIES_ID, "Aqua galon air minum"],
+  }),
+  createVilla({
     slug: "bougainville",
     name: "Villa Bougainville",
     category: "suite",
     categoryLabel: "Suite Villa",
-    bedrooms: 2,
-    maxGuests: 4,
-    sizeSqm: 130,
+    sizeSqm: 200,
     tagline: "Two bedrooms, a garden of flame-red bloom.",
-    intro:
-      "A suite villa wrapped in bougainvillea, with a sculpted private garden and a full-length pool.",
-    description: [
-      "Villa Bougainville is the most generous of the suites. A long rectangular pool runs the length of the garden, framed by flame-red bougainvillea and a hand-laid terrazzo sun-deck.",
-      "Both bedrooms open directly onto the garden, with deep-plunge bathtubs and private outdoor showers.",
-    ],
-    amenities: [
-      "15 m private pool",
-      "Two king bedrooms",
-      "Two en-suite bathrooms",
-      "Outdoor showers",
-      "Living & dining pavilion",
-      "Air conditioning",
-      "Smart TV & Wi-Fi",
-      "Safe & mini-bar",
-      "Breakfast included",
-    ],
+    taglineId: "Dua kamar, taman bunga merah membara.",
     heroImage: VILLA_BOUGAINVILLE,
-    gallery: [...VILLA_BOUGAINVILLE_GALLERY],
-    translations: {
-      id: {
-        categoryLabel: "Suite Vila",
-        tagline: "Dua kamar, taman bunga merah membara.",
-        intro: "Vila suite yang diselimuti bougainvillea, dengan taman pribadi berukir dan kolam renang panjang penuh.",
-        description: [
-          "Villa Bougainville adalah yang paling lapang di antara suite. Kolam renang persegi panjang membentang sepanjang taman, dikelilingi bougainvillea merah membara dan dek matahari terrazzo buatan tangan.",
-          "Kedua kamar tidur langsung terbuka ke taman, dengan bathtub celup dalam dan pancuran outdoor pribadi.",
-        ],
-        amenities: [
-          "Kolam renang pribadi 15 m",
-          "Dua kamar king",
-          "Dua kamar mandi dalam kamar",
-          "Pancuran outdoor",
-          "Paviliun ruang tamu & makan",
-          "AC",
-          "Smart TV & Wi-Fi",
-          "Brankas & mini-bar",
-          "Sarapan sudah termasuk",
-        ],
-      },
-    },
-  },
-  {
+    gallery: VILLA_BOUGAINVILLE_GALLERY,
+    intro: SUITE_INTRO,
+    introId: SUITE_INTRO_ID,
+    description: SUITE_DESCRIPTION,
+    descriptionId: SUITE_DESCRIPTION_ID,
+    occupancy: "Max 5 adults or 4 adults + 2 children",
+    occupancyId: "Maks 5 dewasa atau 4 dewasa + 2 anak",
+    bathroom: "1 bathroom on the ground floor",
+    bathroomId: "1 kamar mandi di lantai dasar",
+    bedSetup: DELUXE_BED_SETUP,
+    bedSetupId: DELUXE_BED_SETUP_ID,
+    typeNote: "Suite includes complimentary Aqua gallon drinking water.",
+    typeNoteId: "Suite termasuk Aqua galon air minum gratis.",
+    amenities: [...COMMON_AMENITIES, "Aqua gallon drinking water"],
+    amenitiesId: [...COMMON_AMENITIES_ID, "Aqua galon air minum"],
+  }),
+  createVilla({
     slug: "kayu",
     name: "Villa Kayu",
     category: "executive",
     categoryLabel: "Executive Villa",
-    bedrooms: 3,
-    maxGuests: 6,
-    sizeSqm: 220,
+    sizeSqm: 150,
     tagline: "The estate's signature residence.",
-    intro:
-      "The signature executive residence — three bedrooms, a private infinity pool, and uninterrupted views of the Bali Sea.",
-    description: [
-      "Villa Kayu is the flagship residence of Bhumi Lovina. A long infinity pool reaches toward the sea, separated only by a line of frangipani. Three generous bedroom suites are arranged across two pavilions, each with its own open-air bathroom.",
-      "A full chef's kitchen, dedicated dining pavilion, and a discreet butler's pantry make Villa Kayu ideal for families, close friends, or a small private retreat.",
-      "Private airport transfer, a dedicated villa host, and a made-to-measure experience itinerary are included.",
-    ],
-    amenities: [
-      "Private infinity pool",
-      "Three king bedrooms",
-      "Three en-suite bathrooms",
-      "Open-air living & dining pavilion",
-      "Full chef's kitchen",
-      "Dedicated villa host",
-      "Private airport transfer",
-      "Smart TV & Wi-Fi",
-      "Safe & mini-bar",
-      "Breakfast included",
-    ],
+    taglineId: "Hunian unggulan kawasan.",
     heroImage: VILLA_KAYU,
-    gallery: [...VILLA_KAYU_GALLERY],
-    translations: {
-      id: {
-        categoryLabel: "Hunian Eksekutif",
-        tagline: "Hunian unggulan kawasan.",
-        intro: "Hunian eksekutif pilihan — tiga kamar tidur, kolam renang infinity pribadi, dan pemandangan Laut Bali yang tak terputus.",
-        description: [
-          "Villa Kayu adalah hunian unggulan Bhumi Lovina. Kolam renang infinity panjang menjangkau ke arah laut, hanya dipisahkan deretan kamboja. Tiga suite kamar tidur yang lapang tersusun di dua paviliun, masing-masing dengan kamar mandi terbuka.",
-          "Dapur chef lengkap, paviliun makan tersendiri, dan pantri butler yang diskrit menjadikan Villa Kayu ideal untuk keluarga, sahabat karib, atau retret pribadi.",
-          "Transfer bandara pribadi, host villa khusus, dan itinerary pengalaman yang dirancang khusus sudah termasuk.",
-        ],
-        amenities: [
-          "Kolam renang infinity pribadi",
-          "Tiga kamar king",
-          "Tiga kamar mandi dalam kamar",
-          "Paviliun ruang tamu & makan terbuka",
-          "Dapur chef lengkap",
-          "Host villa khusus",
-          "Transfer bandara pribadi",
-          "Smart TV & Wi-Fi",
-          "Brankas & mini-bar",
-          "Sarapan sudah termasuk",
-        ],
-      },
-    },
-  },
+    gallery: VILLA_KAYU_GALLERY,
+    intro: EXEC_INTRO,
+    introId: EXEC_INTRO_ID,
+    description: EXEC_DESCRIPTION,
+    descriptionId: EXEC_DESCRIPTION_ID,
+    occupancy: "Max 5 adults only",
+    occupancyId: "Maks 5 dewasa saja",
+    bathroom: "1 bathroom on the ground floor",
+    bathroomId: "1 kamar mandi di lantai dasar",
+    bedSetup: EXECUTIVE_BED_SETUP,
+    bedSetupId: EXECUTIVE_BED_SETUP_ID,
+    typeNote: "No extra beds are available in the executive villa.",
+    typeNoteId: "Tidak ada extra bed tersedia di vila eksekutif.",
+  }),
 ];
 
 export const villaBySlug = (slug: string) =>

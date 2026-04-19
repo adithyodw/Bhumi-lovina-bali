@@ -21,13 +21,24 @@ export default async function InfoPage() {
     t("facilityPool"),
     t("facilityWifi"),
     t("facilityKitchen"),
-    t("facilityFridge"),
     t("facilityDining"),
+    t("facilityFridge"),
     t("facilityTv"),
     t("facilityHeater"),
     t("facilityAc"),
     t("facilityBalcony"),
     t("facilityBathroom"),
+  ];
+
+  const kitchenFacilities = [
+    t("kitchenFridge"),
+    t("kitchenStove"),
+    t("kitchenKnife"),
+    t("kitchenPan"),
+    t("kitchenPot"),
+    t("kitchenCups"),
+    t("kitchenPlates"),
+    t("kitchenCutlery"),
   ];
 
   const villaTypes = [
@@ -36,6 +47,9 @@ export default async function InfoPage() {
       count: t("deluxeCount"),
       note: t("deluxeNote"),
       max: t("deluxeMax"),
+      size: t("deluxeSize"),
+      bedSetup: t("deluxeBedSetup"),
+      extraBeds: t("noExtraBeds"),
       strict: false,
     },
     {
@@ -43,6 +57,9 @@ export default async function InfoPage() {
       count: t("suiteCount"),
       note: t("suiteNote"),
       max: t("suiteMax"),
+      size: t("suiteSize"),
+      bedSetup: t("suiteBedSetup"),
+      extraBeds: t("noExtraBeds"),
       strict: false,
     },
     {
@@ -50,6 +67,9 @@ export default async function InfoPage() {
       count: t("execCount"),
       note: t("execNote"),
       max: t("execMax"),
+      size: t("execSize"),
+      bedSetup: t("execBedSetup"),
+      extraBeds: t("noExtraBeds"),
       strict: true,
     },
   ];
@@ -136,10 +156,10 @@ export default async function InfoPage() {
             <dl className="space-y-4 border-t border-outline/10 pt-8">
               {[
                 [t("bedroomsTerm"), t("bedroomsDetail")],
+                [t("bathroomTerm"), t("bathroomDetail")],
                 [t("occupancyTerm"), t("occupancyDetail")],
                 [t("extraAdultTerm"), t("extraAdultDetail")],
                 [t("extraChildTerm"), t("extraChildDetail")],
-                [t("bathroomTerm"), t("bathroomDetail")],
               ].map(([term, detail]) => (
                 <div key={term} className="flex justify-between gap-8 text-sm">
                   <dt className="text-on-surface-variant font-light">{term}</dt>
@@ -208,11 +228,64 @@ export default async function InfoPage() {
                       {type.max}
                     </p>
                   </div>
+                  <div className="border-t border-on-primary/10 pt-4 mt-4">
+                    <span className="font-sans tracking-[0.2em] uppercase text-[10px] text-secondary-fixed-dim block mb-1">
+                      {t("sizeLabel")}
+                    </span>
+                    <p className="text-sm font-light text-on-primary/80">
+                      {type.size}
+                    </p>
+                  </div>
+                  <div className="border-t border-on-primary/10 pt-4 mt-4">
+                    <span className="font-sans tracking-[0.2em] uppercase text-[10px] text-secondary-fixed-dim block mb-1">
+                      {t("bedSetupLabel")}
+                    </span>
+                    <p className="text-sm font-light text-on-primary/80">
+                      {type.bedSetup}
+                    </p>
+                  </div>
+                  <div className="border-t border-on-primary/10 pt-4 mt-4">
+                    <span className="font-sans tracking-[0.2em] uppercase text-[10px] text-secondary-fixed-dim block mb-1">
+                      {t("extraBedLabel")}
+                    </span>
+                    <p className="text-sm font-light text-on-primary/80">
+                      {type.extraBeds}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
           </Reveal>
         </div>
+      </section>
+
+      {/* Kitchen Facilities */}
+      <section className="py-20 md:py-28 px-6 md:px-12 max-w-[1200px] mx-auto">
+        <Reveal>
+          <span className="font-sans tracking-[0.4em] uppercase text-xs text-secondary mb-6 block">
+            {t("kitchenLabel")}
+          </span>
+          <h2 className="font-serif text-3xl md:text-5xl font-light mb-4 text-balance">
+            {t("kitchenHeadline")}
+          </h2>
+          <p className="text-on-surface-variant font-light leading-relaxed max-w-2xl mb-12 text-pretty">
+            {t("kitchenCopy")}
+          </p>
+        </Reveal>
+
+        <Reveal>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-10 gap-y-4">
+            {kitchenFacilities.map((item) => (
+              <li
+                key={item}
+                className="flex items-start gap-3 text-sm font-light text-on-surface"
+              >
+                <span className="mt-1.5 w-1 h-1 rounded-full bg-secondary shrink-0" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </Reveal>
       </section>
 
       {/* Guest Rules */}

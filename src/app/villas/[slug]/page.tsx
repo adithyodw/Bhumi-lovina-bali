@@ -45,6 +45,16 @@ export default async function VillaDetailPage(props: {
   const lv = villaLocale(villa, locale);
 
   const others = villas.filter((v) => v.slug !== villa.slug).slice(0, 3);
+  const stayDetails = [
+    { label: t("bedrooms"), value: `${villa.bedrooms}` },
+    { label: t("bathroom"), value: lv.bathroom },
+    { label: t("size"), value: `${villa.sizeSqm} m²` },
+    { label: t("occupancy"), value: lv.occupancy },
+    { label: t("checkIn"), value: t("checkInValue") },
+    { label: t("checkOut"), value: t("checkOutValue") },
+    { label: t("extraGuestPolicy"), value: lv.extraGuestPolicy },
+    { label: t("extraBeds"), value: lv.extraBeds },
+  ];
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -52,7 +62,9 @@ export default async function VillaDetailPage(props: {
     name: `${villa.name} — Bhumi Lovina Residence`,
     description: villa.intro,
     url: `${site.url}/villas/${villa.slug}`,
-    image: `${site.url}${villa.heroImage}`,
+    image: villa.heroImage.startsWith("http")
+      ? villa.heroImage
+      : `${site.url}${villa.heroImage}`,
     starRating: { "@type": "Rating", ratingValue: "5" },
     address: {
       "@type": "PostalAddress",
@@ -121,39 +133,23 @@ export default async function VillaDetailPage(props: {
           </div>
           <aside className="lg:col-span-4">
             <div className="bg-surface-container-low rounded-xl p-8 shadow-botanical">
-              <dl className="grid grid-cols-2 gap-y-6">
-                <div>
-                  <dt className="font-sans tracking-widest uppercase text-[10px] text-secondary mb-1">
-                    {t("bedrooms")}
-                  </dt>
-                  <dd className="font-serif text-xl font-light">
-                    {villa.bedrooms}
-                  </dd>
-                </div>
-                <div>
-                  <dt className="font-sans tracking-widest uppercase text-[10px] text-secondary mb-1">
-                    {t("guests")}
-                  </dt>
-                  <dd className="font-serif text-xl font-light">
-                    {villa.maxGuests}
-                  </dd>
-                </div>
-                <div>
-                  <dt className="font-sans tracking-widest uppercase text-[10px] text-secondary mb-1">
-                    {t("size")}
-                  </dt>
-                  <dd className="font-serif text-xl font-light">
-                    {villa.sizeSqm} m²
-                  </dd>
-                </div>
-                <div>
-                  <dt className="font-sans tracking-widest uppercase text-[10px] text-secondary mb-1">
-                    {t("category")}
-                  </dt>
-                  <dd className="font-serif text-xl font-light">
-                    {lv.categoryLabel}
-                  </dd>
-                </div>
+              <span className="font-sans tracking-[0.3em] uppercase text-[10px] text-secondary mb-6 block">
+                {t("details")}
+              </span>
+              <dl className="space-y-5">
+                {stayDetails.map((item) => (
+                  <div
+                    key={item.label}
+                    className="border-b border-outline/10 pb-5 last:border-b-0 last:pb-0"
+                  >
+                    <dt className="font-sans tracking-widest uppercase text-[10px] text-secondary mb-2">
+                      {item.label}
+                    </dt>
+                    <dd className="font-light text-on-surface leading-relaxed">
+                      {item.value}
+                    </dd>
+                  </div>
+                ))}
               </dl>
 
               <a
@@ -227,6 +223,70 @@ export default async function VillaDetailPage(props: {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      {/* Villa details */}
+      <section className="py-20 md:py-28 px-6 md:px-12 max-w-[1200px] mx-auto">
+        <span className="font-sans tracking-[0.4em] uppercase text-xs text-secondary mb-6 block">
+          {t("details")}
+        </span>
+        <h2 className="font-serif text-3xl md:text-4xl font-light leading-tight mb-12 text-balance">
+          {t("detailsHeadline")}
+        </h2>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="rounded-xl border border-outline/10 bg-surface-container-low p-8">
+            <h3 className="font-serif text-2xl font-light mb-6">
+              {t("bedSetup")}
+            </h3>
+            <ul className="space-y-4">
+              {lv.bedSetup.map((item) => (
+                <li key={item} className="font-light text-on-surface-variant">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="rounded-xl border border-outline/10 bg-surface-container-low p-8">
+            <h3 className="font-serif text-2xl font-light mb-6">
+              {t("kitchenFacilities")}
+            </h3>
+            <ul className="space-y-4">
+              {lv.kitchenFacilities.map((item) => (
+                <li key={item} className="font-light text-on-surface-variant">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="rounded-xl border border-outline/10 bg-surface-container-low p-8">
+            <h3 className="font-serif text-2xl font-light mb-6">
+              {t("stayDetails")}
+            </h3>
+            <p className="font-light text-on-surface-variant leading-relaxed mb-6">
+              {lv.typeNote}
+            </p>
+            <div className="space-y-4">
+              <div>
+                <div className="font-sans tracking-widest uppercase text-[10px] text-secondary mb-2">
+                  {t("category")}
+                </div>
+                <p className="font-light text-on-surface-variant">
+                  {lv.categoryLabel}
+                </p>
+              </div>
+              <div>
+                <div className="font-sans tracking-widest uppercase text-[10px] text-secondary mb-2">
+                  {t("guests")}
+                </div>
+                <p className="font-light text-on-surface-variant">
+                  {villa.maxGuests}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

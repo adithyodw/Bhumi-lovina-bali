@@ -25,6 +25,19 @@ export default async function HomePage() {
   const tv = await getTranslations("villa");
   const routeUrl = googleMapsDirectionsUrl();
   const mapEmbedUrl = googleMapsEmbedUrl();
+  const guestReviews = [
+    { title: t("review1Title"), body: t("review1Body") },
+    { title: t("review2Title"), body: t("review2Body") },
+    { title: t("review3Title"), body: t("review3Body") },
+    { title: t("review4Title"), body: t("review4Body") },
+    { title: t("review5Title"), body: t("review5Body") },
+  ];
+  const reelEmbeds = [
+    "https://www.instagram.com/reel/DC8mVKhPZbE/embed",
+    "https://www.instagram.com/reel/C8E8cSKvhgC/embed",
+    "https://www.instagram.com/reel/C76YNyxSbHI/embed",
+    "https://www.instagram.com/reel/C6s-vOABmmT/embed",
+  ];
 
   return (
     <>
@@ -450,6 +463,75 @@ export default async function HomePage() {
                 </div>
               </Reveal>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Reviews */}
+      <section className="py-24 md:py-32 px-6 md:px-12 max-w-[1440px] mx-auto">
+        <div className="max-w-3xl mb-12 md:mb-16">
+          <span className="font-sans tracking-[0.4em] uppercase text-xs text-secondary mb-6 block">
+            {t("reviewsLabel")}
+          </span>
+          <h2 className="font-serif text-3xl md:text-5xl font-light mb-6 leading-tight text-balance">
+            {t("reviewsHeadline")}
+          </h2>
+          <p className="text-on-surface-variant text-lg font-light leading-relaxed text-pretty">
+            {t("reviewsCopy")}
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          {guestReviews.map((review, i) => (
+            <Reveal key={review.title} delay={i * 70}>
+              <div className="h-full rounded-xl border border-outline/10 bg-surface-container-low p-8">
+                <div className="text-tertiary-fixed-dim text-lg mb-4">★★★★★</div>
+                <h3 className="font-serif text-2xl font-light mb-4 text-balance">
+                  {review.title}
+                </h3>
+                <p className="text-on-surface-variant font-light leading-relaxed">
+                  {review.body}
+                </p>
+                <div className="mt-6 font-sans tracking-[0.3em] uppercase text-[10px] text-secondary">
+                  {t("reviewsSource")}
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* Guest moments */}
+      <section className="bg-surface-container-low py-24 md:py-32 px-6 md:px-12">
+        <div className="max-w-[1440px] mx-auto">
+          <div className="max-w-3xl mb-12 md:mb-16">
+            <span className="font-sans tracking-[0.4em] uppercase text-xs text-secondary mb-6 block">
+              {t("momentsLabel")}
+            </span>
+            <h2 className="font-serif text-3xl md:text-5xl font-light mb-6 leading-tight text-balance">
+              {t("momentsHeadline")}
+            </h2>
+            <p className="text-on-surface-variant text-lg font-light leading-relaxed text-pretty">
+              {t("momentsCopy")}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+            {reelEmbeds.map((src, i) => (
+              <Reveal key={src} delay={i * 70}>
+                <div className="overflow-hidden rounded-xl border border-outline/10 bg-surface shadow-sm">
+                  <div className="relative aspect-[9/16]">
+                    <iframe
+                      title={`Instagram reel ${i + 1}`}
+                      src={src}
+                      loading="lazy"
+                      frameBorder="0"
+                      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                      className="absolute inset-0 h-full w-full"
+                    />
+                  </div>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>

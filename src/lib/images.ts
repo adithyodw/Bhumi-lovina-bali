@@ -20,24 +20,19 @@ export const EXP_HERO =
   "AB6AXuDnPMRkCdIi8gNA8BtiLh_0Fk6iK9ZlYLvABfj45duZQlx4AlwwANZ7AE836ijghwy7c0Em4N_9V4cBTnKIIF7C9uSnAuEZ9-zR2CyNznIDWK1AxViwLb8g7s25R90DQ8XBcLYF1cilI1gCHWX0HgiOE4tEIMiIGYTZCYanB5rpoJeRqPUsrmbzk9vR_e1HbgOuMYPfx9SnRegmO4Dwu3pIMCdJvArgXJBfmLcN2GZblwZih_b-SYWYtCPJLuJxCvFwxuoNB8NLsIkS";
 
 export const EXP_DOLPHIN =
-  GH +
-  "AB6AXuCd4GjQg0jGvzQYkCOhTdqht121uKkfFFcaCU9VUkwyls2NMczzFWXaytmuLitQfTjXkQN_0X8iWPMQiDLWFHsPWmfwe7tbVTNW-PuaJ58RM2WTdtI216iZVmlcWOYCw0eO7CQiGzHgjEiTA48Y7mRKpqZyIkV3LFasnhPECa5GuTIbHhUj_ce1QI16IwAsMuw8IDo0u5RxRFaRVjNgrUi-WM3u_qcFwJuV3Vja5TZi28SJQJUeqmNParsnyu1A_sd-utlq1DhB9JR1";
+  "/images/experiences/dolphin-tour.webp";
 
 export const EXP_SNORKELING =
-  GH +
-  "AB6AXuCJWCYPTsgtcnBj5svlIVS34NVGMWrvZZLRKyq7EYdD32t9AUE1A0IGbl23c7YTHZ3D-_jX5-RNEzcWP89hdPB-yZm5yrWmFaJELvB57I9jsR3x75dLQufN2g4e5VZZiIMkp9LgMnzLaw_cxqd6B8YKeCw1T_sIwFKDZbuEAvw-_SscBUE5QvnCXMpYvDUjeGObx921arVhEdp19T3-gRiLjlSuKIaQmzf6A3EjOBoZvdfESofi5MuGeA8XLdrqeT3i9OfvDXzD0PJv";
+  "/images/experiences/snorkeling-lovina-reef.jpg";
 
 export const EXP_WATERFALL =
-  GH +
-  "AB6AXuBMxoJx-fDk1MFslC15RoWIdADnRZsMwsFnZrwBbiEyhu6d4vzScH4f9yUabK36jQWqXUY48mxldYFFDdu5012t4eqrybGXyyGyQTy43a0X08EyHjtB0ClqbbwxL1Z4XFIscmZhmA5lFWxMAu5eHNWvM17NrlIYEKoZJ3Lu-Czv9XzUal8cyxh6DG2fpbh0dx9m7v6w6SdsXnl6FTlD28aM5g8NiT7XucRBguaXVCFlmFc7vsw-lYa8DbHgLxq-9O8IreEwUzew7ZTC";
+  "/images/experiences/north-bali-waterfalls.jpg";
 
 export const EXP_TEMPLE =
-  GH +
-  "AB6AXuARcfjW5LXC0uiGADb3h-bLr8LTyDp2EVPsnm4SJbaUUxNKXZ7_zqXF2ktbmQdeWkf7V8VHgcN0-zPMiWUq87lDOSm_VBb4MqsswisGjVNLdtuPpbn_YdtvJ0oxCrrBftsYNkBk_n_yNGBjfS0hBRmFn7NfZe8UxDqb0F0K1Pbz-Mj4YNk4tQkZnvChdPGNMJFRCEaFPUgb8tLK0RB5uoz2Gun-1RIXXA2WegL5GylYOYEs6MtJK_dTkS2wMNC2Y19kSBDt-m4e31KT";
+  "/images/experiences/north-bali-temples.jpg";
 
 export const EXP_HOTSPRINGS =
-  GH +
-  "AB6AXuB8u4JsD_eR1xMl1PCqqxtQvazsGc_q15SKNPILx2FA9kTls262zHNWIrjL8VM0CntCeoPUdao4lPOz-8uyz5zGtB6rrGCsJOPJ5UfFGO8huwn8OFnQGjtTjjCf_dlu4cGH6QM-nUAABxcXrUR2hunWLzXh4D0gDA3eApXGBPoJBqKhEyEbwqcWcV45N0oksW0UnAF-Lz9Aus6Pjd0VJ2ufPtBhjXXgcoVrmsfj6edmPUAw6j__JeiPJMeMeaHXXaTQwEtjXfruj1KM";
+  "/images/experiences/banjar-hot-springs.jpg";
 
 // ── Nearby ───────────────────────────────────────────────────────────────────
 export const NEARBY_CAFE =
