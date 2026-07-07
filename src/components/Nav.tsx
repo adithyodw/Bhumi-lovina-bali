@@ -45,8 +45,8 @@ export default function Nav() {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-cream/90 backdrop-blur-xl shadow-soft border-b border-outline/50"
-            : "bg-transparent"
+            ? "border-b border-outline/50 bg-cream/95 shadow-soft backdrop-blur-xl"
+            : "bg-black/25 backdrop-blur-sm"
         }`}
         aria-label="Main"
       >

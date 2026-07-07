@@ -1,101 +1,82 @@
 import { site } from "@/lib/site";
+import { IconExternalLink } from "./icons";
 
 const partners = [
   {
     href: site.ota.traveloka,
     name: "Traveloka",
     tagline: "Best deals in Southeast Asia",
-    color: "#0194F3",
-    bg: "bg-[#0194F3]/5",
-    border: "border-[#0194F3]/20",
-    hover: "hover:border-[#0194F3]/50 hover:bg-[#0194F3]/10",
-    logo: (
-      <svg viewBox="0 0 120 28" className="h-6 w-auto" aria-hidden>
-        <text
-          x="0"
-          y="22"
-          fill="#0194F3"
-          fontFamily="system-ui, sans-serif"
-          fontWeight="700"
-          fontSize="22"
-        >
-          Traveloka
-        </text>
-      </svg>
-    ),
   },
   {
     href: site.ota.booking,
     name: "Booking.com",
     tagline: "Worldwide trusted bookings",
-    color: "#003580",
-    bg: "bg-[#003580]/5",
-    border: "border-[#003580]/20",
-    hover: "hover:border-[#003580]/50 hover:bg-[#003580]/10",
-    logo: (
-      <svg viewBox="0 0 140 28" className="h-6 w-auto" aria-hidden>
-        <text
-          x="0"
-          y="22"
-          fill="#003580"
-          fontFamily="system-ui, sans-serif"
-          fontWeight="700"
-          fontSize="20"
-        >
-          Booking.com
-        </text>
-      </svg>
-    ),
   },
   {
     href: site.ota.tiket,
     name: "tiket.com",
     tagline: "Indonesia's leading platform",
-    color: "#0064D2",
-    bg: "bg-[#0064D2]/5",
-    border: "border-[#0064D2]/20",
-    hover: "hover:border-[#0064D2]/50 hover:bg-[#0064D2]/10",
-    logo: (
-      <svg viewBox="0 0 100 28" className="h-6 w-auto" aria-hidden>
-        <text
-          x="0"
-          y="22"
-          fill="#0064D2"
-          fontFamily="system-ui, sans-serif"
-          fontWeight="700"
-          fontSize="22"
-        >
-          tiket.com
-        </text>
-      </svg>
-    ),
   },
 ] as const;
 
 type BookingCardsProps = {
   bookLabel?: string;
+  variant?: "light" | "dark";
 };
 
-export default function BookingCards({ bookLabel = "Book Now" }: BookingCardsProps) {
+export default function BookingCards({
+  bookLabel = "Book Now",
+  variant = "light",
+}: BookingCardsProps) {
+  const isDark = variant === "dark";
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+    <div className="grid grid-cols-1 gap-5 md:grid-cols-3 md:gap-6">
       {partners.map((partner) => (
         <a
           key={partner.href}
           href={partner.href}
           target="_blank"
           rel="noopener noreferrer"
-          className={`group flex flex-col rounded-2xl border ${partner.border} ${partner.bg} ${partner.hover} p-6 md:p-8 transition-all duration-300 shadow-soft hover:shadow-card`}
+          className={`group flex flex-col rounded-2xl border p-6 transition-all duration-300 md:p-8 ${
+            isDark
+              ? "border-cream/15 bg-cream/5 hover:border-cream/30 hover:bg-cream/10"
+              : "border-outline bg-surface hover:border-secondary/30 hover:shadow-card shadow-soft"
+          }`}
         >
-          <div className="mb-6">{partner.logo}</div>
-          <p className="text-on-surface-muted text-sm font-light leading-relaxed mb-8 flex-grow">
+          <div
+            className={`mb-5 flex h-11 w-11 items-center justify-center rounded-full ${
+              isDark ? "bg-cream/10 text-cream" : "bg-sand text-primary"
+            }`}
+          >
+            <IconExternalLink size={18} />
+          </div>
+
+          <h3
+            className={`mb-2 font-serif text-xl font-light ${
+              isDark ? "text-cream" : "text-charcoal"
+            }`}
+          >
+            {partner.name}
+          </h3>
+
+          <p
+            className={`mb-8 flex-grow text-sm font-light leading-relaxed ${
+              isDark ? "text-cream/60" : "text-on-surface-muted"
+            }`}
+          >
             {partner.tagline}
           </p>
+
           <span
-            className="inline-flex items-center justify-center w-full py-3 rounded-xl font-sans tracking-widest uppercase text-[11px] text-white transition-all duration-300 group-hover:opacity-90"
-            style={{ backgroundColor: partner.color }}
+            className={`inline-flex w-full items-center justify-center gap-2 rounded-lg py-3 font-sans text-[11px] uppercase tracking-widest transition-all duration-300 ${
+              isDark
+                ? "bg-cream text-primary group-hover:bg-white"
+                : "bg-primary text-on-primary group-hover:bg-primary-dark"
+            }`}
           >
             {bookLabel}
+            <IconExternalLink size={14} className="opacity-70" />
           </span>
         </a>
       ))}

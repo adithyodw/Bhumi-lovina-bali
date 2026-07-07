@@ -56,7 +56,7 @@ export default async function Footer() {
 
             <div>
               <span className="section-label !text-cream/40">{t("reserve")}</span>
-              <BookingCards bookLabel={t("bookNow")} />
+              <BookingCards bookLabel={t("bookNow")} variant="dark" />
             </div>
           </div>
 
