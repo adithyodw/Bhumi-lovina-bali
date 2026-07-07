@@ -21,7 +21,6 @@ export const site = {
   contact: {
     whatsapp: "6287845010779",
     whatsappDisplay: "+62 878-4501-0779",
-    email: "info@bhumilovina.com",
     instagram: process.env.NEXT_PUBLIC_INSTAGRAM || "bhumilovina.villa",
   },
   ota: {

@@ -8,18 +8,16 @@ import {
 } from "@/lib/site";
 import HeroBanner from "@/components/HeroBanner";
 import BookingCards from "@/components/BookingCards";
+import Gallery from "@/components/Gallery";
+import InstagramReels from "@/components/InstagramReels";
 import Reveal from "@/components/Reveal";
 import {
   IconAirCon,
   IconCheck,
   IconChevronDown,
   IconConcierge,
-  IconHome,
   IconHousekeeping,
   IconKitchen,
-  IconLeaf,
-  IconMail,
-  IconMountain,
   IconPool,
   IconStar,
   IconWhatsApp,
@@ -40,12 +38,6 @@ export default async function HomePage() {
   ] as const;
 
   const whyItems = ["why1", "why2", "why3", "why4"] as const;
-
-  const estateHighlights = [
-    { key: "galleryLabel1", bodyKey: "galleryBody1", Icon: IconHome },
-    { key: "galleryLabel2", bodyKey: "galleryBody2", Icon: IconLeaf },
-    { key: "galleryLabel3", bodyKey: "galleryBody3", Icon: IconMountain },
-  ] as const;
 
   const guestReviews = [
     { title: t("review1Title"), body: t("review1Body") },
@@ -166,43 +158,17 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Estate Highlights (editorial — no images) */}
-      <section id="gallery" className="section-padding bg-surface-warm">
-        <div className="mx-auto max-w-[1440px]">
-          <Reveal>
-            <div className="mb-14 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
-              <div className="max-w-xl">
-                <span className="section-label">{t("galleryLabel")}</span>
-                <h2 className="font-serif text-3xl font-light leading-tight text-balance md:text-4xl lg:text-5xl">
-                  {t("galleryHeadline")}
-                </h2>
-              </div>
-              <p className="max-w-sm font-light text-on-surface-muted text-pretty">
-                {t("galleryCopy")}
-              </p>
-            </div>
-          </Reveal>
+      <Gallery
+        label={t("galleryLabel")}
+        headline={t("galleryHeadline")}
+        copy={t("galleryCopy")}
+      />
 
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
-            {estateHighlights.map((item, i) => (
-              <Reveal key={item.key} delay={i * 80}>
-                <article className="flex h-full flex-col rounded-2xl border border-outline bg-surface p-8 shadow-soft">
-                  <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-sand text-primary">
-                    <item.Icon size={24} />
-                  </div>
-                  <h3 className="mb-3 font-serif text-2xl font-light text-charcoal">
-                    {t(item.key)}
-                  </h3>
-                  <p className="flex-grow text-sm font-light leading-relaxed text-on-surface-muted">
-                    {t(item.bodyKey)}
-                  </p>
-                  <div className="mt-8 h-px w-12 bg-secondary/40" aria-hidden />
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      <InstagramReels
+        label={t("reelsLabel")}
+        headline={t("reelsHeadline")}
+        copy={t("reelsCopy")}
+      />
 
       {/* Location */}
       <section id="location" className="bg-primary-dark text-cream">
@@ -397,17 +363,23 @@ export default async function HomePage() {
                 </div>
               </a>
               <a
-                href={`mailto:${site.contact.email}`}
+                href={`https://instagram.com/${site.contact.instagram}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-4 rounded-2xl border border-outline bg-surface p-5 shadow-soft transition-shadow hover:shadow-card"
               >
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-sand text-primary">
-                  <IconMail size={22} />
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
+                    <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" strokeWidth="1.5" />
+                    <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.5" />
+                    <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
+                  </svg>
                 </div>
                 <div>
                   <div className="mb-1 font-sans text-[10px] uppercase tracking-widest text-muted">
-                    Email
+                    Instagram
                   </div>
-                  <div className="font-light">{site.contact.email}</div>
+                  <div className="font-light">@{site.contact.instagram}</div>
                 </div>
               </a>
               <div className="rounded-2xl border border-outline bg-surface p-5 shadow-soft">

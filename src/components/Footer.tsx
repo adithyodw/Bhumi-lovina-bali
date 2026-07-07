@@ -22,14 +22,6 @@ export default async function Footer() {
                 <div>{site.location.fullAddress}</div>
                 <div>
                   <a
-                    href={`mailto:${site.contact.email}`}
-                    className="hover:text-secondary-light transition-colors"
-                  >
-                    {site.contact.email}
-                  </a>
-                </div>
-                <div>
-                  <a
                     href={whatsappLink()}
                     target="_blank"
                     rel="noopener noreferrer"

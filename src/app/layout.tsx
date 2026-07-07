@@ -100,7 +100,6 @@ const jsonLd = {
       url: site.url,
       image: `${site.url}${HERO_IMAGE}`,
       telephone: `+${site.contact.whatsapp}`,
-      email: site.contact.email,
       priceRange: "$$$",
       starRating: { "@type": "Rating", ratingValue: "5" },
       address: {
@@ -136,7 +135,6 @@ const jsonLd = {
       url: site.url,
       image: `${site.url}${HERO_IMAGE}`,
       telephone: `+${site.contact.whatsapp}`,
-      email: site.contact.email,
       address: {
         "@type": "PostalAddress",
         streetAddress: site.location.fullAddress,
