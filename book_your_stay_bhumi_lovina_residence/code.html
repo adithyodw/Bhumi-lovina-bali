@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,700;1,400&amp;family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "background": "#faf9f5",
+                        "surface-variant": "#e3e2df",
+                        "primary-container": "#00334e",
+                        "on-background": "#1b1c1a",
+                        "tertiary-fixed-dim": "#f4bb92",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "outline-variant": "#c2c7ce",
+                        "secondary-fixed-dim": "#e1c299",
+                        "on-secondary-fixed": "#281801",
+                        "surface-tint": "#3b627f",
+                        "secondary-container": "#fbdbb0",
+                        "outline": "#72787e",
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#f2f1ed",
+                        "surface-container": "#efeeea",
+                        "inverse-primary": "#a4cbec",
+                        "on-tertiary-fixed-variant": "#653d1e",
+                        "primary-fixed": "#cae6ff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#759cbb",
+                        "secondary": "#725a39",
+                        "on-tertiary-container": "#c08d67",
+                        "surface-bright": "#faf9f5",
+                        "tertiary-fixed": "#ffdcc5",
+                        "tertiary-container": "#4a2709",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#584324",
+                        "on-tertiary-fixed": "#301400",
+                        "secondary-fixed": "#feddb3",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f4f4f0",
+                        "primary": "#001d2f",
+                        "surface-container-highest": "#e3e2df",
+                        "surface-container-high": "#e9e8e4",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#42474d",
+                        "inverse-surface": "#2f312e",
+                        "primary-fixed-dim": "#a4cbec",
+                        "on-surface": "#1b1c1a",
+                        "on-secondary-container": "#765f3d",
+                        "on-primary-fixed-variant": "#214a66",
+                        "on-primary-fixed": "#001e30",
+                        "tertiary": "#2f1400",
+                        "surface-dim": "#dbdad6",
+                        "surface": "#faf9f5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Manrope', sans-serif; }
+        h1, h2, h3 { font-family: 'Noto Serif', serif; }
+        .glass-nav { background: rgba(250, 249, 245, 0.8); backdrop-filter: blur(24px); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-slate-950/80 backdrop-blur-xl flex justify-between items-center px-12 py-6 max-w-[1920px] mx-auto">
+<div class="font-serif text-2xl font-light tracking-[0.2em] text-[#001d2f] dark:text-white uppercase">BHUMI LOVINA</div>
+<div class="hidden md:flex gap-12 items-center">
+<a class="font-serif tracking-tight text-lg text-slate-500 opacity-70 hover:text-[#725a39] transition-colors duration-500" href="#">The Estate</a>
+<a class="font-serif tracking-tight text-lg text-slate-500 opacity-70 hover:text-[#725a39] transition-colors duration-500" href="#">Villas</a>
+<a class="font-serif tracking-tight text-lg text-slate-500 opacity-70 hover:text-[#725a39] transition-colors duration-500" href="#">Wellness</a>
+<a class="font-serif tracking-tight text-lg text-slate-500 opacity-70 hover:text-[#725a39] transition-colors duration-500" href="#">Experiences</a>
+<a class="font-serif tracking-tight text-lg text-slate-500 opacity-70 hover:text-[#725a39] transition-colors duration-500" href="#">Journal</a>
+</div>
+<button class="bg-primary text-on-primary px-8 py-3 rounded-lg font-label tracking-widest uppercase text-xs hover:bg-primary-container transition-all duration-300">Enquire</button>
+</nav>
+<main class="pt-32 pb-24 px-6 md:px-12 max-w-[1440px] mx-auto">
+<!-- Hero Section - Editorial Style -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-8 items-end mb-24">
+<div class="md:col-span-7">
+<span class="font-label tracking-[0.3em] uppercase text-secondary text-xs block mb-4">Reservations &amp; Concierge</span>
+<h1 class="text-5xl md:text-7xl font-light tracking-tight leading-tight mb-8">Begin your <span class="italic">sanctuary</span> journey.</h1>
+<p class="text-on-surface-variant text-lg max-w-xl leading-relaxed">Whether you seek a quiet retreat or a curated Balinese adventure, our concierge is dedicated to tailoring your stay at Bhumi Lovina Residence.</p>
+</div>
+<div class="md:col-span-5 aspect-[4/5] overflow-hidden rounded-lg">
+<img class="w-full h-full object-cover grayscale-[20%] hover:scale-105 transition-transform duration-1000" data-alt="Luxurious minimalist villa bedroom in Lovina Bali with large windows overlooking tropical palm trees and soft morning sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-_Y8yyusC_i1CxsrAiroWoYhnIrbA4fMOcN_7TUf_Jc1AsVbiEf78crAwycscpgbEF3AT0MFMOqhX46u_sS4AHvh3INnMbDsbVN3KC2yJuaFyNhyT12uhnqXwdekG5eWPbtsidObaat1N3szkaRsAwmFRP2jYiGPKpGbtKmVSblbycKTqD6fglkrzIGsYWccXaU-b5yXQyFqrPLfrXdv95PWPMnxXXmFbSq1VqjJys9x_kE8nvvadnouLbC0MszdrHHMKSzMm87wc"/>
+</div>
+</section>
+<!-- Booking Channels Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32">
+<!-- WhatsApp Primary CTA -->
+<div class="md:col-span-2 bg-primary-container rounded-xl p-10 flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-8 opacity-10 group-hover:scale-110 transition-transform duration-700">
+<span class="material-symbols-outlined text-[120px] text-white">chat</span>
+</div>
+<div class="relative z-10">
+<h3 class="text-3xl text-on-primary font-light mb-4">Direct Concierge</h3>
+<p class="text-on-primary-container text-lg mb-12 max-w-md">Connect directly with our Bali-based team for the best available rates, bespoke villa requests, and seamless airport transfers.</p>
+</div>
+<div class="relative z-10">
+<a class="inline-flex items-center gap-4 bg-[#25D366] text-white px-10 py-5 rounded-full font-semibold tracking-wide hover:brightness-110 transition-all shadow-xl" href="https://wa.me/6281290271990?text=I'm%20interested%20in%20booking%20a%20stay%20at%20Bhumi%20Lovina">
+<span class="material-symbols-outlined" data-weight="fill">chat</span>
+                        WhatsApp Booking (+62 812 9027 1990)
+                    </a>
+</div>
+</div>
+<!-- OTA Platforms -->
+<div class="bg-surface-container-low rounded-xl p-10 flex flex-col justify-between">
+<div>
+<h3 class="text-2xl font-light mb-8">Preferred Partners</h3>
+<div class="space-y-6">
+<a class="flex items-center justify-between p-4 bg-white rounded-lg hover:shadow-md transition-shadow group" href="#">
+<span class="font-medium text-primary">Booking.com</span>
+<span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
+</a>
+<a class="flex items-center justify-between p-4 bg-white rounded-lg hover:shadow-md transition-shadow group" href="#">
+<span class="font-medium text-primary">Traveloka</span>
+<span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
+</a>
+<a class="flex items-center justify-between p-4 bg-white rounded-lg hover:shadow-md transition-shadow group" href="#">
+<span class="font-medium text-primary">Tiket.com</span>
+<span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
+</a>
+</div>
+</div>
+<p class="text-xs text-on-surface-variant italic mt-8">Subject to availability on external platforms.</p>
+</div>
+</section>
+<!-- Contact Form & Location SEO -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+<!-- Contact Form -->
+<div>
+<h2 class="text-4xl font-light mb-12">General Inquiry</h2>
+<form class="space-y-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-2">
+<label class="text-[10px] tracking-widest uppercase font-bold text-secondary">Full Name</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary transition-colors pb-4 placeholder:text-outline-variant/50" placeholder="Your name" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] tracking-widest uppercase font-bold text-secondary">Email Address</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary transition-colors pb-4 placeholder:text-outline-variant/50" placeholder="email@address.com" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] tracking-widest uppercase font-bold text-secondary">Subject</label>
+<select class="w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary transition-colors pb-4">
+<option>Special Event Inquiry</option>
+<option>Corporate Booking</option>
+<option>Sustainability Partnerships</option>
+<option>Media &amp; Press</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] tracking-widest uppercase font-bold text-secondary">Message</label>
+<textarea class="w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary transition-colors pb-4 placeholder:text-outline-variant/50" placeholder="How can we assist you?" rows="4"></textarea>
+</div>
+<button class="w-full py-5 bg-primary text-on-primary font-label tracking-[0.2em] uppercase text-xs hover:bg-primary-container transition-all">Send Message</button>
+</form>
+</div>
+<!-- Location & SEO Text -->
+<div class="space-y-12">
+<div class="bg-surface-container-high rounded-lg p-1 aspect-video relative group overflow-hidden">
+<div class="w-full h-full bg-slate-200" data-location="Lovina, Bali" style="">
+<!-- Placeholder for Map Visualization -->
+<img class="w-full h-full object-cover" data-alt="Stylized map showing North Bali coastline and Lovina beach area with luxury resort pins" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBy1C8-LzNdm9hdDmELpyVvwsp6L7ZIig5fXy9OTzME-EA3XYeAL4RrbCbHB6IwNUv1mqBg964Vy9qZwx1_Q1-4UkYEIXFgFXVtgHxiXmYBfX0IDVJ2araxGyTvXarsXCCGA8BtsMd_uEGnjEvf23omNXQGDKdJuXTuuur-JZIYvHuBosxtaiqggZh3utbhB9o9W_fv-iRdB6VUfNIcj4LowDuuM2eCSSPZQm08KCb7FJLkGeDdS5E5P1Zp6X41jkmVGzXptNY9vbXz"/>
+</div>
+</div>
+<div class="space-y-6">
+<h3 class="text-2xl font-light">The Heart of North Bali</h3>
+<p class="text-on-surface-variant leading-relaxed text-sm">
+                        Located in the serene enclave of Lovina, <strong class="text-primary font-medium">Bhumi Lovina Residence</strong> offers a sophisticated alternative to the bustling south. Nestled between the tranquil North Bali sea and lush volcanic mountains, our villas provide unparalleled access to famous dolphin-watching sunrises, cascading Sekumpul waterfalls, and the historic charm of Singaraja.
+                    </p>
+<div class="flex flex-col gap-4 text-sm font-label">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-lg">location_on</span>
+<span>Jl. Raya Lovina, Kalibukbuk, Buleleng, Bali, Indonesia</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-lg">mail</span>
+<span>stay@bhumilovina.com</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-24 bg-[#001d2f] dark:bg-black text-[#faf9f5]">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-20 max-w-[1920px] mx-auto">
+<div class="md:col-span-1">
+<div class="text-3xl font-serif mb-8 text-[#faf9f5]">BHUMI LOVINA</div>
+<p class="font-serif font-light tracking-wide text-slate-400 max-w-xs">An architectural tribute to the silence of North Bali.</p>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label uppercase tracking-widest text-[10px] text-secondary-fixed mb-4">Exploration</h4>
+<a class="font-serif font-light tracking-wide text-slate-400 hover:text-[#725a39] transition-colors" href="#">The Estate</a>
+<a class="font-serif font-light tracking-wide text-slate-400 hover:text-[#725a39] transition-colors" href="#">Villas</a>
+<a class="font-serif font-light tracking-wide text-slate-400 hover:text-[#725a39] transition-colors" href="#">Experiences</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label uppercase tracking-widest text-[10px] text-secondary-fixed mb-4">Information</h4>
+<a class="font-serif font-light tracking-wide text-slate-400 hover:text-[#725a39] transition-colors" href="#">Privacy Policy</a>
+<a class="font-serif font-light tracking-wide text-slate-400 hover:text-[#725a39] transition-colors" href="#">Sustainability</a>
+<a class="font-serif font-light tracking-wide text-slate-400 hover:text-[#725a39] transition-colors" href="#">Careers</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label uppercase tracking-widest text-[10px] text-secondary-fixed mb-4">Newsletter</h4>
+<p class="font-serif font-light tracking-wide text-slate-400 mb-4 text-sm">Join our journal for exclusive seasonal retreats.</p>
+<div class="border-b border-slate-700 pb-2 flex justify-between">
+<input class="bg-transparent border-0 focus:ring-0 p-0 text-sm w-full" placeholder="Email" type="email"/>
+<button class="material-symbols-outlined">east</button>
+</div>
+</div>
+</div>
+<div class="px-12 py-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+<span class="text-[10px] font-label tracking-widest text-slate-500 uppercase">© 2024 BHUMI LOVINA RESIDENCE. ALL RIGHTS RESERVED.</span>
+<div class="flex gap-8">
+<span class="text-slate-500 hover:text-white transition-colors cursor-pointer text-sm">Instagram</span>
+<span class="text-slate-500 hover:text-white transition-colors cursor-pointer text-sm">Facebook</span>
+</div>
+</div>
+</footer>
+<!-- BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-6 pt-3 pb-8 bg-[#faf9f5]/90 dark:bg-slate-900/90 backdrop-blur-2xl z-50 rounded-t-3xl shadow-[0px_-10px_30px_rgba(0,0,0,0.03)] border-t border-[#001d2f]/5">
+<a class="flex flex-col items-center justify-center text-slate-500 opacity-70 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="font-sans text-[10px] tracking-widest uppercase mt-1">Explore</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 opacity-70 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="villa">villa</span>
+<span class="font-sans text-[10px] tracking-widest uppercase mt-1">Villas</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#725a39] font-bold active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month" style="font-variation-settings: 'FILL' 1;">calendar_month</span>
+<span class="font-sans text-[10px] tracking-widest uppercase mt-1">Book</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 opacity-70 active:scale-95 transition-transform" href="https://wa.me/6281290271990">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+<span class="font-sans text-[10px] tracking-widest uppercase mt-1">WhatsApp</span>
+</a>
+</nav>
+</body></html>
