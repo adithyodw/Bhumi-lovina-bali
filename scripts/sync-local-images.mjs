@@ -132,36 +132,6 @@ async function main() {
     }
   }
 
-  // Curate main gallery: Main Villa photos first, then one standout per villa
-  const curatedGallery = [...galleryPaths];
-  const villaGalleryExtras = [];
-  for (const [slug, jpgs] of Object.entries(villaManifest)) {
-    if (jpgs[0]) villaGalleryExtras.push({ slug, src: jpgs[0] });
-  }
-
-  // Copy one hero per villa into gallery folder for estate showcase
-  const galleryDir = path.join(PUBLIC, "gallery");
-  let galleryIndex = galleryPaths.length;
-  for (const extra of villaGalleryExtras) {
-    if (galleryIndex >= 11) break;
-    galleryIndex++;
-    const srcJpg = path.join(ROOT, "public", extra.src.replace(/^\//, ""));
-    const index = String(galleryIndex).padStart(2, "0");
-    const baseName = `${index}-${extra.slug}-villa`;
-    const outputBase = path.join(galleryDir, baseName);
-    if (fs.existsSync(srcJpg)) {
-      const dims = await processImage(srcJpg, outputBase, 1800);
-      curatedGallery.push({
-        jpg: `/images/gallery/${baseName}.jpg`,
-        webp: `/images/gallery/${baseName}.webp`,
-        width: dims.width,
-        height: dims.height,
-        name: extra.slug,
-        villaSlug: extra.slug,
-      });
-    }
-  }
-
   fs.writeFileSync(
     path.join(__dirname, "villa-gallery-manifest.json"),
     JSON.stringify(villaManifest, null, 2),
@@ -181,14 +151,8 @@ async function main() {
 
   fs.writeFileSync(path.join(ROOT, "src", "lib", "villa-images.ts"), villaImagesTs);
 
-  // Write gallery manifest for gallery.ts generation
-  fs.writeFileSync(
-    path.join(__dirname, "gallery-manifest.json"),
-    JSON.stringify(curatedGallery, null, 2),
-  );
-
   console.log("\n✅ Done");
-  console.log(`   Gallery images: ${curatedGallery.length}`);
+  console.log(`   Main Villa gallery: ${galleryPaths.length} images`);
   for (const [slug, imgs] of Object.entries(villaManifest)) {
     console.log(`   ${slug}: ${imgs.length} images`);
   }

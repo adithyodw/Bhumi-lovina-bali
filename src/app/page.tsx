@@ -88,6 +88,12 @@ export default async function HomePage() {
         exploreLabel={t("exploreVilla")}
       />
 
+      <Gallery
+        label={t("galleryLabel")}
+        headline={t("galleryHeadline")}
+        copy={t("galleryCopy")}
+      />
+
       {/* Villa Overview */}
       <section id="villa" className="section-padding bg-cream">
         <div className="mx-auto max-w-[1100px]">
@@ -217,12 +223,6 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
-
-      <Gallery
-        label={t("galleryLabel")}
-        headline={t("galleryHeadline")}
-        copy={t("galleryCopy")}
-      />
 
       <InstagramReels
         label={t("reelsLabel")}
