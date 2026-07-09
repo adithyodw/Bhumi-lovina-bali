@@ -1,0 +1,200 @@
+#!/usr/bin/env node
+/**
+ * Sync re-uploaded workspace image folders → public/images/
+ * Generates villa-images.ts, gallery.ts manifest, and villa-gallery-manifest.json
+ */
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import sharp from "sharp";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.join(__dirname, "..");
+const PUBLIC = path.join(ROOT, "public", "images");
+
+const SOURCE_FOLDERS = {
+  main: path.join(ROOT, "Main Villa"),
+  ashoka: path.join(ROOT, "Villa Ashoka (Suite)"),
+  bougainville: path.join(ROOT, "Villa Bougainville (Suite)"),
+  kayu: path.join(ROOT, "Villa Kayu (Executive)"),
+  krisna: path.join(ROOT, "Villa Krisna (Deluxe)"),
+  lili: path.join(ROOT, "Villa Lily (Deluxe)"),
+  lotus: path.join(ROOT, "Villa lotus (Deluxe)"),
+  monstera: path.join(ROOT, "Villa Monstera (Deluxe)"),
+  tunjung: path.join(ROOT, "Villa Tunjung (Deluxe)"),
+};
+
+const IMAGE_EXT = /\.(jpe?g|png|webp)$/i;
+
+function slugify(name) {
+  return name
+    .replace(/\.[^.]+$/, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+function listImages(dir) {
+  if (!fs.existsSync(dir)) return [];
+  return fs
+    .readdirSync(dir)
+    .filter((f) => IMAGE_EXT.test(f))
+    .map((f) => {
+      const full = path.join(dir, f);
+      const stat = fs.statSync(full);
+      return { name: f, full, size: stat.size };
+    })
+    .sort((a, b) => {
+      const numA = parseInt(a.name.match(/\d+/)?.[0] ?? "0", 10);
+      const numB = parseInt(b.name.match(/\d+/)?.[0] ?? "0", 10);
+      if (numA !== numB) return numA - numB;
+      return a.name.localeCompare(b.name);
+    });
+}
+
+async function processImage(inputPath, outputBase, maxWidth) {
+  const buffer = fs.readFileSync(inputPath);
+  let pipeline = sharp(buffer).rotate();
+  const meta = await pipeline.metadata();
+  const width = meta.width ?? maxWidth;
+  const height = meta.height ?? Math.round(maxWidth * 0.75);
+  const targetW = Math.min(width, maxWidth);
+  const targetH = Math.round((height * targetW) / width);
+
+  pipeline = sharp(buffer)
+    .rotate()
+    .resize(targetW, targetH, { fit: "inside", withoutEnlargement: true });
+
+  await pipeline.clone().jpeg({ quality: 85, mozjpeg: true }).toFile(`${outputBase}.jpg`);
+  await pipeline.clone().webp({ quality: 82 }).toFile(`${outputBase}.webp`);
+
+  return { width: targetW, height: targetH };
+}
+
+async function processFolder(files, outDir, prefix, maxWidth = 1800) {
+  fs.mkdirSync(outDir, { recursive: true });
+  const existing = fs.readdirSync(outDir);
+  for (const f of existing) {
+    fs.unlinkSync(path.join(outDir, f));
+  }
+
+  const paths = [];
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i];
+    const index = String(i + 1).padStart(2, "0");
+    const slug = slugify(file.name);
+    const baseName = `${index}-${slug}`;
+    const outputBase = path.join(outDir, baseName);
+    const dims = await processImage(file.full, outputBase, maxWidth);
+    paths.push({
+      jpg: `/images/${prefix}/${baseName}.jpg`,
+      webp: `/images/${prefix}/${baseName}.webp`,
+      width: dims.width,
+      height: dims.height,
+      name: file.name,
+    });
+    process.stdout.write(`  ✓ ${file.name}\n`);
+  }
+  return paths;
+}
+
+async function main() {
+  const villaManifest = {};
+  const galleryPaths = [];
+
+  console.log("\n=== Main Villa → Gallery ===");
+  const mainFiles = listImages(SOURCE_FOLDERS.main);
+  if (mainFiles.length) {
+    const mainOut = path.join(PUBLIC, "gallery");
+    const processed = await processFolder(mainFiles, mainOut, "gallery", 2000);
+    galleryPaths.push(...processed);
+  }
+
+  for (const [slug, srcDir] of Object.entries(SOURCE_FOLDERS)) {
+    if (slug === "main") continue;
+    console.log(`\n=== ${slug} ===`);
+    const files = listImages(srcDir);
+    if (!files.length) {
+      console.log("  (no images)");
+      continue;
+    }
+    const outDir = path.join(PUBLIC, "villas", slug);
+    const processed = await processFolder(files, outDir, `villas/${slug}`, 2000);
+    villaManifest[slug] = processed.map((p) => p.jpg);
+
+    // Add best villa exterior to main gallery (first + largest by size)
+    if (slug !== "kayu") {
+      const heroCandidate = [...files].sort((a, b) => b.size - a.size)[0];
+      const idx = files.findIndex((f) => f.name === heroCandidate.name);
+      if (idx >= 0 && galleryPaths.length < 12) {
+        // pick one representative per villa for estate gallery variety
+      }
+    }
+  }
+
+  // Curate main gallery: Main Villa photos first, then one standout per villa
+  const curatedGallery = [...galleryPaths];
+  const villaGalleryExtras = [];
+  for (const [slug, jpgs] of Object.entries(villaManifest)) {
+    if (jpgs[0]) villaGalleryExtras.push({ slug, src: jpgs[0] });
+  }
+
+  // Copy one hero per villa into gallery folder for estate showcase
+  const galleryDir = path.join(PUBLIC, "gallery");
+  let galleryIndex = galleryPaths.length;
+  for (const extra of villaGalleryExtras) {
+    if (galleryIndex >= 11) break;
+    galleryIndex++;
+    const srcJpg = path.join(ROOT, "public", extra.src.replace(/^\//, ""));
+    const index = String(galleryIndex).padStart(2, "0");
+    const baseName = `${index}-${extra.slug}-villa`;
+    const outputBase = path.join(galleryDir, baseName);
+    if (fs.existsSync(srcJpg)) {
+      const dims = await processImage(srcJpg, outputBase, 1800);
+      curatedGallery.push({
+        jpg: `/images/gallery/${baseName}.jpg`,
+        webp: `/images/gallery/${baseName}.webp`,
+        width: dims.width,
+        height: dims.height,
+        name: extra.slug,
+        villaSlug: extra.slug,
+      });
+    }
+  }
+
+  fs.writeFileSync(
+    path.join(__dirname, "villa-gallery-manifest.json"),
+    JSON.stringify(villaManifest, null, 2),
+  );
+
+  // Generate villa-images.ts
+  const exportName = (slug) =>
+    slug === "lili" ? "LILI" : slug.toUpperCase();
+
+  let villaImagesTs = `/** Auto-generated by scripts/sync-local-images.mjs — do not edit manually */\n\n`;
+  for (const [slug, jpgs] of Object.entries(villaManifest)) {
+    const constName = `VILLA_${exportName(slug)}_GALLERY`;
+    villaImagesTs += `export const ${constName} = [\n`;
+    villaImagesTs += jpgs.map((p) => `  "${p}",`).join("\n");
+    villaImagesTs += `\n] as const;\n\n`;
+  }
+
+  fs.writeFileSync(path.join(ROOT, "src", "lib", "villa-images.ts"), villaImagesTs);
+
+  // Write gallery manifest for gallery.ts generation
+  fs.writeFileSync(
+    path.join(__dirname, "gallery-manifest.json"),
+    JSON.stringify(curatedGallery, null, 2),
+  );
+
+  console.log("\n✅ Done");
+  console.log(`   Gallery images: ${curatedGallery.length}`);
+  for (const [slug, imgs] of Object.entries(villaManifest)) {
+    console.log(`   ${slug}: ${imgs.length} images`);
+  }
+}
+
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});

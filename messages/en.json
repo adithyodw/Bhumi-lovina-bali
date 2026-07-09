@@ -165,9 +165,13 @@
     "bedrooms": "Bedrooms",
     "amenities": "Villa Amenities",
     "gallery": "Gallery",
-    "galleryCopy": "A curated look inside this residence — pool, interiors, and the surrounding landscape.",
+    "galleryCopy": "A complete visual tour of this residence — pool, bedrooms, kitchen, and the surrounding landscape.",
+    "highlights": "Design Highlights",
+    "includedTitle": "Included With Every Stay",
+    "includedCopy": "Regardless of which villa you choose, these comforts and services are thoughtfully included to make your North Bali escape effortless.",
     "bookThisVilla": "Book This Villa",
     "viewAllVillas": "View All Villas",
-    "sqm": "m²"
+    "sqm": "m²",
+    "photoCount": "{count} Photos"
   }
 }

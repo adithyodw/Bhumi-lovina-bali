@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { galleryImages } from "@/lib/gallery";
 import Reveal from "./Reveal";
 
@@ -14,6 +15,7 @@ function GalleryItem({
   height,
   priority = false,
   className = "",
+  href,
 }: {
   src: string;
   alt: string;
@@ -21,10 +23,11 @@ function GalleryItem({
   height: number;
   priority?: boolean;
   className?: string;
+  href?: string;
 }) {
-  return (
+  const inner = (
     <figure
-      className={`group overflow-hidden rounded-2xl border border-outline/60 bg-sand shadow-soft transition-all duration-500 hover:shadow-card ${className}`}
+      className={`group relative h-full overflow-hidden rounded-2xl border border-outline/60 bg-sand shadow-soft transition-all duration-500 hover:shadow-card`}
       style={{ aspectRatio: `${width} / ${height}` }}
     >
       <img
@@ -34,10 +37,27 @@ function GalleryItem({
         height={height}
         loading={priority ? "eager" : "lazy"}
         decoding="async"
-        className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-[1.02]"
+        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
       />
+      {href && (
+        <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+          <span className="font-sans text-[10px] uppercase tracking-widest text-white">
+            View Villa →
+          </span>
+        </figcaption>
+      )}
     </figure>
   );
+
+  if (href) {
+    return (
+      <Link href={href} className={`relative block ${className}`}>
+        {inner}
+      </Link>
+    );
+  }
+
+  return <div className={className}>{inner}</div>;
 }
 
 export default function Gallery({ label, headline, copy }: GalleryProps) {
@@ -80,6 +100,7 @@ export default function Gallery({ label, headline, copy }: GalleryProps) {
                 alt={image.alt}
                 width={image.width}
                 height={image.height}
+                href={image.villaSlug ? `/villas/${image.villaSlug}` : undefined}
                 className="w-full"
               />
             </Reveal>

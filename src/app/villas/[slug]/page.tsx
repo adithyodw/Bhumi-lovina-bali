@@ -1,7 +1,7 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { villaBySlug, villaLocale, villas } from "@/data/villas";
+import { villaBySlug, villaLocale, villas, STAY_BENEFITS, STAY_BENEFITS_ID } from "@/data/villas";
 import { site } from "@/lib/site";
 import VillaDetailView from "@/components/VillaDetailView";
 
@@ -43,10 +43,12 @@ export default async function VillaDetailPage({ params }: Props) {
   if (!raw) notFound();
 
   const villa = villaLocale(raw, locale);
+  const stayBenefits = locale === "id" ? [...STAY_BENEFITS_ID] : [...STAY_BENEFITS];
 
   return (
     <VillaDetailView
       villa={villa}
+      stayBenefits={stayBenefits}
       labels={{
         backToVillas: t("backToVillas"),
         bedConfiguration: t("bedConfiguration"),
@@ -58,9 +60,13 @@ export default async function VillaDetailPage({ params }: Props) {
         amenities: t("amenities"),
         gallery: t("gallery"),
         galleryCopy: t("galleryCopy"),
+        highlights: t("highlights"),
+        includedTitle: t("includedTitle"),
+        includedCopy: t("includedCopy"),
         bookThisVilla: t("bookThisVilla"),
         viewAllVillas: t("viewAllVillas"),
         sqm: t("sqm"),
+        photoCount: t("photoCount"),
       }}
     />
   );

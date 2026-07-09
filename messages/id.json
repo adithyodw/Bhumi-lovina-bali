@@ -165,9 +165,13 @@
     "bedrooms": "Kamar Tidur",
     "amenities": "Fasilitas Vila",
     "gallery": "Galeri",
-    "galleryCopy": "Sekilas ke dalam hunian ini — kolam, interior, dan lanskap sekitarnya.",
+    "galleryCopy": "Tur visual lengkap hunian ini — kolam, kamar tidur, dapur, dan lanskap sekitarnya.",
+    "highlights": "Sorotan Desain",
+    "includedTitle": "Termasuk di Setiap Menginap",
+    "includedCopy": "Vila mana pun yang Anda pilih, kenyamanan dan layanan ini disediakan dengan penuh pertimbangan agar pelarian Bali Utara Anda mudah dan santai.",
     "bookThisVilla": "Pesan Vila Ini",
     "viewAllVillas": "Lihat Semua Vila",
-    "sqm": "m²"
+    "sqm": "m²",
+    "photoCount": "{count} Foto"
   }
 }
