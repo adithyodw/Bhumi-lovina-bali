@@ -7,14 +7,14 @@ import { whatsappLink } from "@/lib/site";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 const linkDefs = [
-  { href: "#home", key: "home" },
-  { href: "#villa", key: "villa" },
-  { href: "#amenities", key: "amenities" },
-  { href: "#gallery", key: "gallery" },
-  { href: "#location", key: "location" },
-  { href: "#reviews", key: "reviews" },
-  { href: "#book", key: "book" },
-  { href: "#contact", key: "contact" },
+  { href: "/#home", key: "home" },
+  { href: "/#villa", key: "villa" },
+  { href: "/#amenities", key: "amenities" },
+  { href: "/#gallery", key: "gallery" },
+  { href: "/#location", key: "location" },
+  { href: "/#reviews", key: "reviews" },
+  { href: "/#book", key: "book" },
+  { href: "/#contact", key: "contact" },
 ] as const;
 
 export default function Nav() {
@@ -52,7 +52,7 @@ export default function Nav() {
       >
         <div className="max-w-[1440px] mx-auto flex justify-between items-center px-6 md:px-10 lg:px-16 py-4 md:py-5">
           <Link
-            href="#home"
+            href="/#home"
             className={`font-serif text-lg md:text-xl font-light tracking-[0.15em] uppercase transition-colors ${
               scrolled ? "text-primary" : "text-white"
             }`}

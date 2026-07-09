@@ -104,34 +104,24 @@ const COMMON_KITCHEN_ID = [
   "Sendok & garpu",
 ];
 
-const DELUXE_BED_SETUP = [
-  "Level 1: 1 Queen Bed",
-  "Level 2: 2 Single Beds",
+const GROUND_QUEEN_UPPER_SINGLES = [
+  "Ground floor: 1 Queen Bed",
+  "Upper floor: 2 Single Beds",
 ];
 
-const DELUXE_BED_SETUP_ID = [
-  "Lantai 1: 1 Queen Bed",
-  "Lantai 2: 2 Single Beds",
-];
-
-const SUITE_BED_SETUP = [
-  "Level 1: 1 Queen Bed",
-  "Level 2: 1 Queen Bed",
-];
-
-const SUITE_BED_SETUP_ID = [
-  "Lantai 1: 1 Queen Bed",
-  "Lantai 2: 1 Queen Bed",
+const GROUND_QUEEN_UPPER_SINGLES_ID = [
+  "Lantai bawah: 1 Queen Bed",
+  "Lantai atas: 2 Single Beds",
 ];
 
 const EXECUTIVE_BED_SETUP = [
-  "Level 1: 1 Queen Bed",
-  "Level 2: 1 Queen Bed",
+  "Ground floor: 1 Queen Bed",
+  "Upper floor: 1 Queen Bed",
 ];
 
 const EXECUTIVE_BED_SETUP_ID = [
-  "Lantai 1: 1 Queen Bed",
-  "Lantai 2: 1 Queen Bed",
+  "Lantai bawah: 1 Queen Bed",
+  "Lantai atas: 1 Queen Bed",
 ];
 
 function createVilla(base: {
@@ -214,42 +204,42 @@ function createVilla(base: {
 }
 
 const DELUXE_INTRO =
-  "A 150 m² two-storey, two-bedroom private pool villa with 1 bathroom on the ground floor — ideal for up to 5 adults or 4 adults and 2 children.";
+  "An elegant 150 m² two-storey retreat with two bedrooms, a ground-floor bathroom, and your own private pool — thoughtfully composed for families and friends.";
 const DELUXE_INTRO_ID =
-  "Vila 150 m², 2 lantai, 2 kamar tidur, kolam renang pribadi, dan 1 kamar mandi di lantai bawah — ideal untuk maksimal 5 dewasa atau 4 dewasa dan 2 anak.";
+  "Hunian elegan 150 m², 2 lantai, dengan dua kamar tidur, kamar mandi di lantai bawah, dan kolam renang pribadi — dirancang dengan penuh pertimbangan untuk keluarga dan teman.";
 const DELUXE_DESCRIPTION = [
-  "Each deluxe villa is one of eight private units at Bhumi Lovina Residence & Villa, with 2 bedrooms, 1 ground-floor bathroom, and a private pool.",
-  "Bed configuration: Level 1 has 1 queen bed; Level 2 has 2 single beds. Standard bathroom amenities include soap, shampoo, and 2 towels.",
+  "Each deluxe villa is a private sanctuary within our eight-villa estate, framed by rice fields and the quiet rhythm of North Bali.",
+  "The ground floor welcomes you with a queen bedroom and living space opening to the pool. Upstairs, two single beds offer flexible sleeping for children or companions.",
 ];
 const DELUXE_DESCRIPTION_ID = [
-  "Setiap vila deluxe merupakan salah satu dari 8 unit vila pribadi di Bhumi Lovina Residence & Villa, dengan 2 kamar tidur, 1 kamar mandi di lantai bawah, dan kolam renang pribadi.",
-  "Susunan tempat tidur: Lantai 1 dengan 1 queen bed; Lantai 2 dengan 2 single beds. Fasilitas kamar mandi standar meliputi sabun, sampo, dan 2 handuk.",
+  "Setiap vila deluxe adalah surga pribadi di dalam kawasan delapan vila kami, dikelilingi sawah dan irama tenang Bali Utara.",
+  "Lantai bawah menyambut Anda dengan kamar queen dan ruang tamu yang terbuka ke kolam. Di lantai atas, dua single bed memberikan fleksibilitas untuk anak atau teman menginap.",
 ];
 
 const SUITE_INTRO =
-  "A 200 m² premium-design two-storey suite with 2 bedrooms, 1 ground-floor bathroom, private pool, and complimentary Aqua gallon drinking water.";
+  "Our most spacious 200 m² suite residences — premium Balinese design across two storeys, with a private pool, ground-floor bathroom, and complimentary Aqua gallon drinking water.";
 const SUITE_INTRO_ID =
-  "Suite premium 200 m², 2 lantai, 2 kamar tidur, 1 kamar mandi di lantai bawah, kolam renang pribadi, dan fasilitas air galon Aqua gratis.";
+  "Hunian suite terluas kami seluas 200 m² — desain Bali premium di dua lantai, kolam renang pribadi, kamar mandi di lantai bawah, dan fasilitas air galon Aqua gratis.";
 const SUITE_DESCRIPTION = [
-  "Our two suite villas — Villa Ashoka and Villa Bougainville — offer premium design across 200 m² with 2 storeys and 2 bedrooms.",
-  "Bed configuration: 1 queen bed on Level 1 and 1 queen bed on Level 2. Includes complimentary Aqua gallon drinking water (dispenser).",
+  "Villa Ashoka and Villa Bougainville represent the pinnacle of Bhumi Lovina — generous proportions, refined finishes, and an unmistakably Balinese sense of place.",
+  "A queen bedroom on the ground floor flows to the pool terrace. The upper level offers two single beds — ideal for families. Complimentary Aqua gallon drinking water is included.",
 ];
 const SUITE_DESCRIPTION_ID = [
-  "Dua vila suite kami — Villa Ashoka dan Villa Bougainville — menawarkan desain premium seluas 200 m² dengan 2 lantai dan 2 kamar tidur.",
-  "Susunan tempat tidur: 1 queen bed di Lantai 1 dan 1 queen bed di Lantai 2. Termasuk fasilitas air galon Aqua gratis.",
+  "Villa Ashoka dan Villa Bougainville merupakan puncak Bhumi Lovina — proporsi lapang, finishing halus, dan nuansa Bali yang khas.",
+  "Kamar queen di lantai bawah mengalir ke teras kolam. Lantai atas menawarkan dua single bed — ideal untuk keluarga. Termasuk fasilitas air galon Aqua gratis.",
 ];
 
 const EXEC_INTRO =
-  "A 150 m² premium wood executive villa with 2 storeys, 2 bedrooms, 1 ground-floor bathroom, private pool, and complimentary Aqua gallon drinking water.";
+  "Villa Kayu is our singular executive residence — 150 m² of warm premium wood, two queen bedrooms across two storeys, and an intimate private pool setting.";
 const EXEC_INTRO_ID =
-  "Vila eksekutif premium kayu 150 m², 2 lantai, 2 kamar tidur, 1 kamar mandi di lantai bawah, kolam renang pribadi, dan fasilitas air galon Aqua gratis.";
+  "Villa Kayu adalah satu-satunya hunian eksekutif kami — 150 m² dengan sentuhan kayu premium, dua kamar queen di dua lantai, dan kolam renang pribadi yang intim.";
 const EXEC_DESCRIPTION = [
-  "Villa Kayu is our single executive unit with premium wood finishes, 2 bedrooms, 1 ground-floor bathroom, and a private pool.",
-  "Bed configuration: 1 queen bed on Level 1 and 1 queen bed on Level 2. Strict maximum of 5 guests total — no exceptions and no extra beds.",
+  "Crafted with rich timber accents and thoughtful spatial design, Villa Kayu offers a refined escape for guests who appreciate understated luxury.",
+  "One queen bed on each floor provides comfortable sleeping for up to five guests — our strict maximum, with no additional guests permitted and no extra beds available.",
 ];
 const EXEC_DESCRIPTION_ID = [
-  "Villa Kayu adalah satu-satunya unit eksekutif kami dengan sentuhan kayu premium, 2 kamar tidur, 1 kamar mandi di lantai bawah, dan kolam renang pribadi.",
-  "Susunan tempat tidur: 1 queen bed di Lantai 1 dan 1 queen bed di Lantai 2. Kapasitas maksimal ketat 5 orang — tanpa pengecualian dan tanpa extra bed.",
+  "Dibuat dengan aksen kayu yang kaya dan tata ruang yang matang, Villa Kayu menawarkan pelarian halus bagi tamu yang menghargai kemewahan yang sederhana.",
+  "Satu queen bed di setiap lantai menampung hingga lima tamu — kapasitas maksimal ketat kami, tanpa tamu tambahan dan tanpa extra bed.",
 ];
 
 const SUITE_AMENITIES = [...COMMON_AMENITIES, AQUA_AMENITY];
@@ -274,8 +264,8 @@ export const villas: Villa[] = [
     occupancyId: "Maks 5 dewasa atau 4 dewasa + 2 anak",
     bathroom: "1 bathroom on the ground floor",
     bathroomId: "1 kamar mandi di lantai bawah",
-    bedSetup: DELUXE_BED_SETUP,
-    bedSetupId: DELUXE_BED_SETUP_ID,
+    bedSetup: GROUND_QUEEN_UPPER_SINGLES,
+    bedSetupId: GROUND_QUEEN_UPPER_SINGLES_ID,
     typeNote: "Standard deluxe facilities across 150 m².",
     typeNoteId: "Fasilitas deluxe standar seluas 150 m².",
   }),
@@ -297,8 +287,8 @@ export const villas: Villa[] = [
     occupancyId: "Maks 5 dewasa atau 4 dewasa + 2 anak",
     bathroom: "1 bathroom on the ground floor",
     bathroomId: "1 kamar mandi di lantai bawah",
-    bedSetup: DELUXE_BED_SETUP,
-    bedSetupId: DELUXE_BED_SETUP_ID,
+    bedSetup: GROUND_QUEEN_UPPER_SINGLES,
+    bedSetupId: GROUND_QUEEN_UPPER_SINGLES_ID,
     typeNote: "Standard deluxe facilities across 150 m².",
     typeNoteId: "Fasilitas deluxe standar seluas 150 m².",
   }),
@@ -320,8 +310,8 @@ export const villas: Villa[] = [
     occupancyId: "Maks 5 dewasa atau 4 dewasa + 2 anak",
     bathroom: "1 bathroom on the ground floor",
     bathroomId: "1 kamar mandi di lantai bawah",
-    bedSetup: DELUXE_BED_SETUP,
-    bedSetupId: DELUXE_BED_SETUP_ID,
+    bedSetup: GROUND_QUEEN_UPPER_SINGLES,
+    bedSetupId: GROUND_QUEEN_UPPER_SINGLES_ID,
     typeNote: "Standard deluxe facilities across 150 m².",
     typeNoteId: "Fasilitas deluxe standar seluas 150 m².",
   }),
@@ -343,8 +333,8 @@ export const villas: Villa[] = [
     occupancyId: "Maks 5 dewasa atau 4 dewasa + 2 anak",
     bathroom: "1 bathroom on the ground floor",
     bathroomId: "1 kamar mandi di lantai bawah",
-    bedSetup: DELUXE_BED_SETUP,
-    bedSetupId: DELUXE_BED_SETUP_ID,
+    bedSetup: GROUND_QUEEN_UPPER_SINGLES,
+    bedSetupId: GROUND_QUEEN_UPPER_SINGLES_ID,
     typeNote: "Standard deluxe facilities across 150 m².",
     typeNoteId: "Fasilitas deluxe standar seluas 150 m².",
   }),
@@ -366,8 +356,8 @@ export const villas: Villa[] = [
     occupancyId: "Maks 5 dewasa atau 4 dewasa + 2 anak",
     bathroom: "1 bathroom on the ground floor",
     bathroomId: "1 kamar mandi di lantai bawah",
-    bedSetup: DELUXE_BED_SETUP,
-    bedSetupId: DELUXE_BED_SETUP_ID,
+    bedSetup: GROUND_QUEEN_UPPER_SINGLES,
+    bedSetupId: GROUND_QUEEN_UPPER_SINGLES_ID,
     typeNote: "Standard deluxe facilities across 150 m².",
     typeNoteId: "Fasilitas deluxe standar seluas 150 m².",
   }),
@@ -377,22 +367,28 @@ export const villas: Villa[] = [
     category: "suite",
     categoryLabel: "Suite Villa",
     sizeSqm: 200,
-    tagline: "Premium design across two serene levels.",
-    taglineId: "Desain premium di dua lantai yang tenang.",
+    tagline: "Where premium design meets the open sky.",
+    taglineId: "Di mana desain premium bertemu langit terbuka.",
     heroImage: VILLA_ASHOKA_GALLERY[0],
     gallery: VILLA_ASHOKA_GALLERY,
     intro: SUITE_INTRO,
     introId: SUITE_INTRO_ID,
-    description: SUITE_DESCRIPTION,
-    descriptionId: SUITE_DESCRIPTION_ID,
+    description: [
+      "Named for the sacred Ashoka tree, this 200 m² suite is a study in calm — clean lines, natural textures, and generous light throughout two storeys.",
+      "Ground floor queen bedroom opens to your private pool. The upper level holds two single beds for flexible family arrangements. Complimentary Aqua gallon included.",
+    ],
+    descriptionId: [
+      "Dinamai dari pohon Ashoka yang sakral, suite 200 m² ini adalah perwujudan ketenangan — garis bersih, tekstur alami, dan cahaya melimpah di dua lantai.",
+      "Kamar queen di lantai bawah terbuka ke kolam pribadi. Lantai atas memiliki dua single bed untuk susunan keluarga yang fleksibel. Termasuk galon Aqua gratis.",
+    ],
     occupancy: "Max 5 adults or 4 adults + 2 children",
     occupancyId: "Maks 5 dewasa atau 4 dewasa + 2 anak",
     bathroom: "1 bathroom on the ground floor",
     bathroomId: "1 kamar mandi di lantai bawah",
-    bedSetup: SUITE_BED_SETUP,
-    bedSetupId: SUITE_BED_SETUP_ID,
-    typeNote: "Premium design suite with complimentary Aqua gallon drinking water.",
-    typeNoteId: "Suite desain premium dengan fasilitas air galon Aqua gratis.",
+    bedSetup: GROUND_QUEEN_UPPER_SINGLES,
+    bedSetupId: GROUND_QUEEN_UPPER_SINGLES_ID,
+    typeNote: "Premium 200 m² suite with complimentary Aqua gallon drinking water.",
+    typeNoteId: "Suite premium 200 m² dengan fasilitas air galon Aqua gratis.",
     amenities: SUITE_AMENITIES,
     amenitiesId: SUITE_AMENITIES_ID,
   }),
@@ -402,22 +398,28 @@ export const villas: Villa[] = [
     category: "suite",
     categoryLabel: "Suite Villa",
     sizeSqm: 200,
-    tagline: "Two bedrooms, a garden of flame-red bloom.",
-    taglineId: "Dua kamar, taman bunga merah membara.",
+    tagline: "Tropical bloom, timeless Balinese grace.",
+    taglineId: "Mekar tropis, keanggunan Bali abadi.",
     heroImage: VILLA_BOUGAINVILLE_GALLERY[0],
     gallery: VILLA_BOUGAINVILLE_GALLERY,
     intro: SUITE_INTRO,
     introId: SUITE_INTRO_ID,
-    description: SUITE_DESCRIPTION,
-    descriptionId: SUITE_DESCRIPTION_ID,
+    description: [
+      "Inspired by the vivid bougainvillea that frames our estate, this 200 m² suite pairs bold tropical character with refined, resort-level comfort.",
+      "A queen bedroom on the ground floor leads to the pool deck. Upstairs, two single beds accommodate children or guests. Complimentary Aqua gallon included.",
+    ],
+    descriptionId: [
+      "Terinspirasi dari bougainvillea cerah yang membingkai kawasan kami, suite 200 m² ini memadukan karakter tropis dengan kenyamanan setara resor.",
+      "Kamar queen di lantai bawah menuju dek kolam. Di lantai atas, dua single bed untuk anak atau tamu. Termasuk galon Aqua gratis.",
+    ],
     occupancy: "Max 5 adults or 4 adults + 2 children",
     occupancyId: "Maks 5 dewasa atau 4 dewasa + 2 anak",
     bathroom: "1 bathroom on the ground floor",
     bathroomId: "1 kamar mandi di lantai bawah",
-    bedSetup: SUITE_BED_SETUP,
-    bedSetupId: SUITE_BED_SETUP_ID,
-    typeNote: "Premium design suite with complimentary Aqua gallon drinking water.",
-    typeNoteId: "Suite desain premium dengan fasilitas air galon Aqua gratis.",
+    bedSetup: GROUND_QUEEN_UPPER_SINGLES,
+    bedSetupId: GROUND_QUEEN_UPPER_SINGLES_ID,
+    typeNote: "Premium 200 m² suite with complimentary Aqua gallon drinking water.",
+    typeNoteId: "Suite premium 200 m² dengan fasilitas air galon Aqua gratis.",
     amenities: SUITE_AMENITIES,
     amenitiesId: SUITE_AMENITIES_ID,
   }),

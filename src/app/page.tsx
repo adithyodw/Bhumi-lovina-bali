@@ -6,10 +6,12 @@ import {
   site,
   whatsappLink,
 } from "@/lib/site";
+import { villasByCategory } from "@/data/villas";
 import HeroBanner from "@/components/HeroBanner";
 import BookingCards from "@/components/BookingCards";
 import Gallery from "@/components/Gallery";
 import InstagramReels from "@/components/InstagramReels";
+import VillaShowcase from "@/components/VillaShowcase";
 import Reveal from "@/components/Reveal";
 import {
   IconAirCon,
@@ -53,20 +55,20 @@ export default async function HomePage() {
     {
       label: t("tierSuiteLabel"),
       meta: t("tierSuiteMeta"),
-      names: t("tierSuiteNames"),
       note: t("tierSuiteNote"),
+      villas: villasByCategory("suite"),
     },
     {
       label: t("tierExecutiveLabel"),
       meta: t("tierExecutiveMeta"),
-      names: t("tierExecutiveNames"),
       note: t("tierExecutiveNote"),
+      villas: villasByCategory("executive"),
     },
     {
       label: t("tierDeluxeLabel"),
       meta: t("tierDeluxeMeta"),
-      names: t("tierDeluxeNames"),
       note: t("tierDeluxeNote"),
+      villas: villasByCategory("deluxe"),
     },
   ] as const;
 
@@ -129,13 +131,25 @@ export default async function HomePage() {
                     {tier.meta}
                   </p>
                   <p className="mb-3 text-sm font-light leading-relaxed text-on-surface-muted">
-                    <strong className="font-medium text-charcoal">{tier.names}</strong>
+                    {tier.villas.map((villa, vi) => (
+                      <span key={villa.slug}>
+                        {vi > 0 && <span className="text-muted">, </span>}
+                        <Link
+                          href={`/villas/${villa.slug}`}
+                          className="font-medium text-charcoal underline decoration-outline/60 underline-offset-4 transition-colors hover:text-secondary hover:decoration-secondary/40"
+                        >
+                          {villa.name}
+                        </Link>
+                      </span>
+                    ))}
                   </p>
                   <p className="text-sm font-light leading-relaxed text-muted">{tier.note}</p>
                 </article>
               </Reveal>
             ))}
           </div>
+
+          <VillaShowcase />
         </div>
       </section>
 

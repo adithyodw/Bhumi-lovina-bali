@@ -57,13 +57,13 @@ export default async function Footer() {
               <span className="font-sans tracking-widest uppercase text-[10px] text-cream/40">
                 {t("explore")}
               </span>
-              <Link href="#villa" className="font-light text-sm text-cream/70 hover:text-secondary-light transition-colors">
+              <Link href="/villas" className="font-light text-sm text-cream/70 hover:text-secondary-light transition-colors">
                 {t("villa")}
               </Link>
-              <Link href="#amenities" className="font-light text-sm text-cream/70 hover:text-secondary-light transition-colors">
+              <Link href="/#amenities" className="font-light text-sm text-cream/70 hover:text-secondary-light transition-colors">
                 {t("amenities")}
               </Link>
-              <Link href="#gallery" className="font-light text-sm text-cream/70 hover:text-secondary-light transition-colors">
+              <Link href="/#gallery" className="font-light text-sm text-cream/70 hover:text-secondary-light transition-colors">
                 {t("gallery")}
               </Link>
             </div>
@@ -71,13 +71,13 @@ export default async function Footer() {
               <span className="font-sans tracking-widest uppercase text-[10px] text-cream/40">
                 &nbsp;
               </span>
-              <Link href="#location" className="font-light text-sm text-cream/70 hover:text-secondary-light transition-colors">
+              <Link href="/#location" className="font-light text-sm text-cream/70 hover:text-secondary-light transition-colors">
                 {t("location")}
               </Link>
-              <Link href="#reviews" className="font-light text-sm text-cream/70 hover:text-secondary-light transition-colors">
+              <Link href="/#reviews" className="font-light text-sm text-cream/70 hover:text-secondary-light transition-colors">
                 {t("reviews")}
               </Link>
-              <Link href="#faq" className="font-light text-sm text-cream/70 hover:text-secondary-light transition-colors">
+              <Link href="/#faq" className="font-light text-sm text-cream/70 hover:text-secondary-light transition-colors">
                 {t("faq")}
               </Link>
             </div>
@@ -99,7 +99,7 @@ export default async function Footer() {
               <span className="font-sans tracking-widest uppercase text-[10px] text-cream/40">
                 {t("contact")}
               </span>
-              <Link href="#contact" className="font-light text-sm text-cream/70 hover:text-secondary-light transition-colors">
+              <Link href="/#contact" className="font-light text-sm text-cream/70 hover:text-secondary-light transition-colors">
                 {t("getInTouch")}
               </Link>
               <a href={site.location.mapsShareUrl} target="_blank" rel="noopener noreferrer" className="font-light text-sm text-cream/70 hover:text-secondary-light transition-colors">

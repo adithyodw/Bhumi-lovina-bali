@@ -97,7 +97,7 @@ export const jsonLdGraph = {
       "@type": "Accommodation",
       name: "Suite (Villa Ashoka & Villa Bougainville)",
       description:
-        "Premium design 200m² private pool villa. 2 Storey, 2 Bedrooms with Queen Size beds on both levels. Maximum capacity: 5 adults or 4 adults and 2 children. Includes complimentary Aqua Gallon.",
+        "Premium design 200m² private pool villa. 2 Storey, 2 Bedrooms. Ground floor has 1 Queen bed; upper floor has 2 Single beds. Maximum capacity: 5 adults or 4 adults and 2 children. Includes complimentary Aqua Gallon.",
       floorSize: {
         "@type": "QuantitativeValue",
         value: "200",
