@@ -49,6 +49,33 @@ export default async function HomePage() {
 
   const faqs = ["faq1", "faq2", "faq3", "faq4", "faq5", "faq6"] as const;
 
+  const villaTiers = [
+    {
+      label: t("tierSuiteLabel"),
+      meta: t("tierSuiteMeta"),
+      names: t("tierSuiteNames"),
+      note: t("tierSuiteNote"),
+    },
+    {
+      label: t("tierExecutiveLabel"),
+      meta: t("tierExecutiveMeta"),
+      names: t("tierExecutiveNames"),
+      note: t("tierExecutiveNote"),
+    },
+    {
+      label: t("tierDeluxeLabel"),
+      meta: t("tierDeluxeMeta"),
+      names: t("tierDeluxeNames"),
+      note: t("tierDeluxeNote"),
+    },
+  ] as const;
+
+  const policies = [
+    { title: t("policyAboutTitle"), body: t("policyAboutBody") },
+    { title: t("policyRulesTitle"), body: t("policyRulesBody") },
+    { title: t("policyTermsTitle"), body: t("policyTermsBody") },
+  ] as const;
+
   return (
     <>
       <HeroBanner
@@ -87,6 +114,25 @@ export default async function HomePage() {
                     {stat.label}
                   </div>
                 </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <div className="mt-14 grid grid-cols-1 gap-5 lg:grid-cols-3">
+            {villaTiers.map((tier, i) => (
+              <Reveal key={tier.label} delay={i * 80}>
+                <article className="h-full rounded-2xl border border-outline bg-surface p-6 shadow-soft md:p-8">
+                  <h3 className="mb-2 font-serif text-xl font-light text-charcoal">
+                    {tier.label}
+                  </h3>
+                  <p className="mb-4 font-sans text-[11px] uppercase tracking-widest text-secondary">
+                    {tier.meta}
+                  </p>
+                  <p className="mb-3 text-sm font-light leading-relaxed text-on-surface-muted">
+                    {tier.names}
+                  </p>
+                  <p className="text-sm font-light leading-relaxed text-muted">{tier.note}</p>
+                </article>
               </Reveal>
             ))}
           </div>
@@ -302,6 +348,38 @@ export default async function HomePage() {
               </a>
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      {/* Policies */}
+      <section id="policies" className="section-padding bg-surface-warm">
+        <div className="mx-auto max-w-[800px]">
+          <Reveal>
+            <div className="mb-14 text-center">
+              <span className="section-label">{t("policiesLabel")}</span>
+              <h2 className="font-serif text-3xl font-light leading-tight text-balance md:text-4xl">
+                {t("policiesHeadline")}
+              </h2>
+            </div>
+          </Reveal>
+          <div className="space-y-4">
+            {policies.map((policy, i) => (
+              <Reveal key={policy.title} delay={i * 50}>
+                <details
+                  className="group overflow-hidden rounded-2xl border border-outline bg-surface shadow-soft"
+                  open={i === 0}
+                >
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-6 font-serif text-lg font-light md:p-7 [&::-webkit-details-marker]:hidden">
+                    {policy.title}
+                    <IconChevronDown className="shrink-0 text-muted transition-transform group-open:rotate-180" />
+                  </summary>
+                  <div className="space-y-3 border-t border-outline/40 px-6 pb-6 pt-5 text-sm font-light leading-relaxed text-on-surface-muted whitespace-pre-line md:px-7 md:pb-7">
+                    {policy.body}
+                  </div>
+                </details>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
