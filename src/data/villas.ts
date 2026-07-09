@@ -220,14 +220,6 @@ const SUITE_INTRO =
   "Our most spacious 200 m² suite residences — premium Balinese design across two storeys, with a private pool, ground-floor bathroom, and complimentary Aqua gallon drinking water.";
 const SUITE_INTRO_ID =
   "Hunian suite terluas kami seluas 200 m² — desain Bali premium di dua lantai, kolam renang pribadi, kamar mandi di lantai bawah, dan fasilitas air galon Aqua gratis.";
-const SUITE_DESCRIPTION = [
-  "Villa Ashoka and Villa Bougainville represent the pinnacle of Bhumi Lovina — generous proportions, refined finishes, and an unmistakably Balinese sense of place.",
-  "A queen bedroom on the ground floor flows to the pool terrace. The upper level offers two single beds — ideal for families. Complimentary Aqua gallon drinking water is included.",
-];
-const SUITE_DESCRIPTION_ID = [
-  "Villa Ashoka dan Villa Bougainville merupakan puncak Bhumi Lovina — proporsi lapang, finishing halus, dan nuansa Bali yang khas.",
-  "Kamar queen di lantai bawah mengalir ke teras kolam. Lantai atas menawarkan dua single bed — ideal untuk keluarga. Termasuk fasilitas air galon Aqua gratis.",
-];
 
 const EXEC_INTRO =
   "Villa Kayu is our singular executive residence — 150 m² of warm premium wood, two queen bedrooms across two storeys, and an intimate private pool setting.";
