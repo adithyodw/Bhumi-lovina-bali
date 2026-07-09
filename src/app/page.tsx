@@ -47,7 +47,7 @@ export default async function HomePage() {
     { title: t("review5Title"), body: t("review5Body") },
   ];
 
-  const faqs = ["faq1", "faq2", "faq3", "faq4", "faq5", "faq6"] as const;
+  const faqs = ["faq1", "faq2", "faq3", "faq4", "faq5", "faq6", "faq7", "faq8", "faq9"] as const;
 
   const villaTiers = [
     {
@@ -129,7 +129,7 @@ export default async function HomePage() {
                     {tier.meta}
                   </p>
                   <p className="mb-3 text-sm font-light leading-relaxed text-on-surface-muted">
-                    {tier.names}
+                    <strong className="font-medium text-charcoal">{tier.names}</strong>
                   </p>
                   <p className="text-sm font-light leading-relaxed text-muted">{tier.note}</p>
                 </article>

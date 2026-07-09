@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { HERO_ALT, HERO_IMAGE } from "@/lib/images";
 
@@ -21,15 +22,13 @@ export default function HeroBanner({
       id="home"
       className="relative flex min-h-[100svh] w-full items-center justify-center overflow-hidden bg-primary-dark"
     >
-      {/* Native img for maximum reliability across hosts */}
-      <img
+      <Image
         src={HERO_IMAGE}
         alt={HERO_ALT}
-        width={1920}
-        height={1080}
-        fetchPriority="high"
-        decoding="async"
-        className="absolute inset-0 h-full w-full object-cover object-center"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-center"
       />
 
       {/* Strong scrim ensures text is always readable */}

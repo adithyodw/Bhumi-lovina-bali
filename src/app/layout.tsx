@@ -4,6 +4,14 @@ import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import { site } from "@/lib/site";
 import { HERO_IMAGE } from "@/lib/images";
+import {
+  jsonLdGraph,
+  OG_DESCRIPTION,
+  OG_TITLE,
+  SEO_DESCRIPTION,
+  SEO_KEYWORDS,
+  SEO_TITLE,
+} from "@/lib/seo";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import MobileBottomNav from "@/components/MobileBottomNav";
@@ -33,47 +41,38 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — ${site.tagline}`,
+    default: SEO_TITLE,
     template: `%s | ${site.name}`,
   },
-  description: site.description,
+  description: SEO_DESCRIPTION,
   applicationName: site.name,
-  keywords: [
-    "Bhumi Lovina",
-    "Bhumi Lovina Residence Villa",
-    "luxury villa Lovina",
-    "north bali villa",
-    "lovina beach accommodation",
-    "private pool villa bali",
-    "boutique resort lovina",
-    "best villa in lovina bali",
-  ],
+  keywords: SEO_KEYWORDS,
   authors: [{ name: site.name }],
   creator: site.name,
   publisher: site.name,
   alternates: {
-    canonical: "/",
+    canonical: site.url,
   },
   openGraph: {
     type: "website",
     locale: site.locale,
     url: site.url,
     siteName: site.name,
-    title: `${site.name} — ${site.tagline}`,
-    description: site.description,
+    title: OG_TITLE,
+    description: OG_DESCRIPTION,
     images: [
       {
         url: HERO_IMAGE,
         width: 1200,
         height: 630,
-        alt: site.name,
+        alt: "Bhumi Lovina luxury 2-bedroom private pool villa estate in Lovina North Bali",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — ${site.tagline}`,
-    description: site.description,
+    title: OG_TITLE,
+    description: OG_DESCRIPTION,
     images: [HERO_IMAGE],
   },
   robots: {
@@ -87,75 +86,6 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-};
-
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Hotel",
-      "@id": `${site.url}#hotel`,
-      name: site.name,
-      description: site.description,
-      url: site.url,
-      image: `${site.url}${HERO_IMAGE}`,
-      telephone: `+${site.contact.whatsapp}`,
-      priceRange: "$$$",
-      starRating: { "@type": "Rating", ratingValue: "5" },
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: site.location.fullAddress,
-        addressLocality: site.location.locality,
-        addressRegion: site.location.region,
-        addressCountry: site.location.country,
-        postalCode: site.location.postalCode,
-      },
-      geo: {
-        "@type": "GeoCoordinates",
-        latitude: site.location.lat,
-        longitude: site.location.lng,
-      },
-      amenityFeature: [
-        "Private pool",
-        "Daily housekeeping",
-        "Private WiFi",
-        "Kitchen facilities",
-        "Air conditioning",
-        "Concierge",
-      ].map((name) => ({
-        "@type": "LocationFeatureSpecification",
-        name,
-        value: true,
-      })),
-    },
-    {
-      "@type": "LocalBusiness",
-      "@id": `${site.url}#business`,
-      name: site.name,
-      url: site.url,
-      image: `${site.url}${HERO_IMAGE}`,
-      telephone: `+${site.contact.whatsapp}`,
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: site.location.fullAddress,
-        addressLocality: site.location.locality,
-        addressRegion: site.location.region,
-        addressCountry: site.location.country,
-        postalCode: site.location.postalCode,
-      },
-      geo: {
-        "@type": "GeoCoordinates",
-        latitude: site.location.lat,
-        longitude: site.location.lng,
-      },
-      sameAs: [
-        `https://instagram.com/${site.contact.instagram}`,
-        site.ota.traveloka,
-        site.ota.booking,
-        site.ota.tiket,
-      ],
-    },
-  ],
 };
 
 export default async function RootLayout({
@@ -174,7 +104,7 @@ export default async function RootLayout({
       <body className="bg-background text-on-surface">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph) }}
         />
         <NextIntlClientProvider messages={messages}>
           <Nav />

@@ -3,7 +3,7 @@ export const site = {
   shortName: "Bhumi Lovina",
   tagline: "A Private Sanctuary in North Bali",
   description:
-    "Bhumi Lovina Residence & Villa is a premium boutique villa estate in Lovina, North Bali — private pool villas surrounded by rice fields, minutes from dolphin tours and North Bali's hidden gems.",
+    "Discover Bhumi Lovina: 8 luxury 2-bedroom private pool villas in North Bali. Perfect for family stays, dolphin tours, and serene rice field escapes in Temukus, Lovina.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://bhumilovina.com",
   locale: "en_US",
   location: {

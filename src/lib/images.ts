@@ -2,4 +2,4 @@
 export const HERO_IMAGE = "/images/hero/bhumi-hero.jpg";
 
 export const HERO_ALT =
-  "Bhumi Lovina Residence and Villa — luxury pool villas among rice paddies in Lovina, North Bali";
+  "Bhumi Lovina luxury 2-bedroom private pool villa estate among rice paddies in Temukus Lovina North Bali";

@@ -108,12 +108,30 @@ export default async function Footer() {
             </div>
           </div>
 
-          <div className="border-t border-cream/10 mt-10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="border-t border-cream/10 mt-10 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
             <p className="font-sans tracking-widest uppercase text-[10px] text-cream/40">
               {t("copyright", { year: new Date().getFullYear() })}
             </p>
-            <p className="font-sans tracking-widest uppercase text-[10px] text-cream/40">
-              {t("crafted")}
+            <p className="font-sans text-[11px] tracking-wide text-cream/45">
+              {t("craftedBy")}{" "}
+              <a
+                href="https://adithyodw-portfolio.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer author"
+                className="group inline-flex items-center gap-2 transition-colors hover:text-cream/80"
+                aria-label="ADW — Adithyo Dewangga Wijaya, website design and development"
+              >
+                <span className="font-serif text-sm tracking-[0.22em] text-cream/75 transition-colors group-hover:text-secondary-light">
+                  ADW
+                </span>
+                <span
+                  className="hidden h-px w-6 bg-cream/25 transition-colors group-hover:bg-secondary-light/60 sm:inline-block"
+                  aria-hidden
+                />
+                <span className="hidden text-[10px] uppercase tracking-[0.18em] text-cream/50 transition-colors group-hover:text-cream/70 sm:inline">
+                  {t("craftedRole")}
+                </span>
+              </a>
             </p>
           </div>
         </div>
