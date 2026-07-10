@@ -34,22 +34,34 @@ function slugify(name) {
     .replace(/^-|-$/g, "");
 }
 
+function isFirstImage(name) {
+  return /^first\./i.test(name);
+}
+
+function isLastImage(name) {
+  return /^last\./i.test(name);
+}
+
 function listImages(dir) {
   if (!fs.existsSync(dir)) return [];
-  return fs
+  const files = fs
     .readdirSync(dir)
     .filter((f) => IMAGE_EXT.test(f))
     .map((f) => {
       const full = path.join(dir, f);
       const stat = fs.statSync(full);
       return { name: f, full, size: stat.size };
-    })
-    .sort((a, b) => {
-      const numA = parseInt(a.name.match(/\d+/)?.[0] ?? "0", 10);
-      const numB = parseInt(b.name.match(/\d+/)?.[0] ?? "0", 10);
-      if (numA !== numB) return numA - numB;
-      return a.name.localeCompare(b.name);
     });
+
+  const first = files.filter((f) => isFirstImage(f.name));
+  const last = files.filter((f) => isLastImage(f.name));
+  const middle = files.filter((f) => !isFirstImage(f.name) && !isLastImage(f.name));
+
+  middle.sort((a, b) =>
+    a.name.localeCompare(b.name, undefined, { numeric: true, sensitivity: "base" }),
+  );
+
+  return [...first, ...middle, ...last];
 }
 
 async function processImage(inputPath, outputBase, maxWidth) {
@@ -150,6 +162,37 @@ async function main() {
   }
 
   fs.writeFileSync(path.join(ROOT, "src", "lib", "villa-images.ts"), villaImagesTs);
+
+  // Auto-update gallery.ts from Main Villa processed images
+  if (galleryPaths.length) {
+    const galleryTs = `export type GalleryImage = {
+  slug: string;
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+};
+
+/** Main Villa estate photography — featured in “A Glimpse of Paradise”. Auto-generated. */
+export const mainVillaGallery: GalleryImage[] = [
+${galleryPaths
+  .map((img, i) => {
+    const slug =
+      i === 0 ? "estate-primary" : i === 1 ? "estate-secondary" : `estate-${String(i + 1).padStart(2, "0")}`;
+    return `  {
+    slug: "${slug}",
+    src: "${img.jpg}",
+    alt: "Bhumi Lovina Residence & Villa — luxury private pool villa estate in Lovina, North Bali",
+    width: ${img.width},
+    height: ${img.height},
+  }`;
+  })
+  .join(",\n")}
+];
+`;
+    fs.writeFileSync(path.join(ROOT, "src", "lib", "gallery.ts"), galleryTs);
+    console.log(`   Updated src/lib/gallery.ts (${galleryPaths.length} images)`);
+  }
 
   console.log("\n✅ Done");
   console.log(`   Main Villa gallery: ${galleryPaths.length} images`);
