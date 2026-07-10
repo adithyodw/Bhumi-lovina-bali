@@ -197,7 +197,8 @@ export default function VillaDetailView({
                       src={src}
                       alt={`${villa.name} — photo ${i + 1} of ${villa.gallery.length}`}
                       fill
-                      priority={i < 3}
+                      priority={i === 0}
+                      loading={i === 0 ? undefined : "lazy"}
                       sizes={
                         i === 0
                           ? "(max-width: 768px) 100vw, 66vw"

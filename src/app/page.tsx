@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import {
@@ -10,7 +11,7 @@ import { villasByCategory } from "@/data/villas";
 import HeroBanner from "@/components/HeroBanner";
 import BookingCards from "@/components/BookingCards";
 import Gallery from "@/components/Gallery";
-import InstagramReels from "@/components/InstagramReels";
+import LazyGoogleMap from "@/components/LazyGoogleMap";
 import VillaShowcase from "@/components/VillaShowcase";
 import Reveal from "@/components/Reveal";
 import {
@@ -25,6 +26,14 @@ import {
   IconWhatsApp,
   IconWifi,
 } from "@/components/icons";
+
+const InstagramReels = dynamic(() => import("@/components/InstagramReels"), {
+  loading: () => (
+    <section className="section-padding bg-cream" aria-hidden>
+      <div className="mx-auto h-80 max-w-[1440px] animate-pulse rounded-2xl bg-sand/60" />
+    </section>
+  ),
+});
 
 export default async function HomePage() {
   const t = await getTranslations("home");
@@ -280,13 +289,10 @@ export default async function HomePage() {
             </Reveal>
           </div>
           <div className="min-h-[400px] flex-grow lg:min-h-0">
-            <iframe
+            <LazyGoogleMap
               title={t("mapTitle")}
               src={googleMapsEmbedUrl()}
-              loading="lazy"
-              className="h-full min-h-[400px] w-full border-0 grayscale-[30%] contrast-[1.1]"
-              allowFullScreen
-              referrerPolicy="no-referrer-when-downgrade"
+              className="h-full"
             />
           </div>
         </div>

@@ -38,6 +38,7 @@ function GalleryFigure({
         alt={image.alt}
         fill
         priority={priority}
+        loading={priority ? undefined : "lazy"}
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         className="object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-[1.02]"
       />
@@ -71,7 +72,6 @@ export default function Gallery({ label, headline, copy }: GalleryProps) {
           <Reveal delay={60}>
             <GalleryFigure
               image={hero}
-              priority
               className="relative mb-5 aspect-[16/10] w-full shadow-elevated md:aspect-[21/9]"
             />
           </Reveal>
