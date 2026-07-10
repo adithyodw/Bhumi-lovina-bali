@@ -23,7 +23,7 @@ export const OG_DESCRIPTION =
   "Stay at North Bali's premium boutique estate. 8 modern private pool villas with 2 bedrooms, fully-equipped kitchens, and stunning rice field surroundings.";
 
 const heroUrl = `${site.url}${HERO_IMAGE}`;
-const galleryUrl = `${site.url}/images/gallery/01-aerial-estate.jpg`;
+const galleryUrl = `${site.url}/images/gallery/11-10.webp`;
 
 export const jsonLdGraph = {
   "@context": "https://schema.org",

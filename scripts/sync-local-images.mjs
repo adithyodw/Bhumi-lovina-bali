@@ -157,7 +157,7 @@ async function main() {
   for (const [slug, jpgs] of Object.entries(villaManifest)) {
     const constName = `VILLA_${exportName(slug)}_GALLERY`;
     villaImagesTs += `export const ${constName} = [\n`;
-    villaImagesTs += jpgs.map((p) => `  "${p}",`).join("\n");
+    villaImagesTs += jpgs.map((p) => `  "${p.replace(/\.jpg$/, ".webp")}",`).join("\n");
     villaImagesTs += `\n] as const;\n\n`;
   }
 
@@ -181,7 +181,7 @@ ${galleryPaths
       i === 0 ? "estate-primary" : i === 1 ? "estate-secondary" : `estate-${String(i + 1).padStart(2, "0")}`;
     return `  {
     slug: "${slug}",
-    src: "${img.jpg}",
+    src: "${img.webp}",
     alt: "Bhumi Lovina Residence & Villa — luxury private pool villa estate in Lovina, North Bali",
     width: ${img.width},
     height: ${img.height},

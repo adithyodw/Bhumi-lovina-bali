@@ -14,15 +14,18 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
-  // Fix workspace-root detection when a parent package-lock.json exists
   outputFileTracingRoot: path.join(__dirname),
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
+  experimental: {
+    optimizePackageImports: ["next-intl"],
+  },
   images: {
     formats: ["image/avif", "image/webp"],
-    deviceSizes: [360, 640, 768, 1024, 1280, 1536, 1920],
+    deviceSizes: [360, 640, 768, 1024, 1280, 1536],
     imageSizes: [64, 96, 128, 256, 384, 512],
+    minimumCacheTTL: 31536000,
     remotePatterns: [
       { protocol: "https", hostname: "images.unsplash.com" },
       { protocol: "https", hostname: "lh3.googleusercontent.com" },
@@ -33,6 +36,10 @@ const nextConfig: NextConfig = {
     { source: "/:path*", headers: securityHeaders },
     {
       source: "/images/:path*",
+      headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
+    },
+    {
+      source: "/_next/static/:path*",
       headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
     },
   ],

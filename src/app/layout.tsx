@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { preload } from "react-dom";
 import { Manrope, Noto_Serif } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
@@ -19,18 +20,23 @@ import "./globals.css";
 
 const manrope = Manrope({
   subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "600"],
+  weight: ["300", "400", "500"],
   variable: "--font-sans",
   display: "swap",
+  preload: true,
 });
 
 const notoSerif = Noto_Serif({
   subsets: ["latin"],
-  weight: ["300", "400", "700"],
+  weight: ["300", "400"],
   style: ["normal", "italic"],
   variable: "--font-serif",
   display: "swap",
+  preload: true,
 });
+
+/** Route server rendering to edge regions closest to Indonesia and major travel markets. */
+export const preferredRegion = ["sin1", "hnd1", "syd1", "iad1", "fra1", "sfo1"];
 
 export const viewport: Viewport = {
   themeColor: "#faf9f5",
@@ -96,10 +102,12 @@ export default async function RootLayout({
   const locale = await getLocale();
   const messages = await getMessages();
 
+  preload(HERO_IMAGE, { as: "image", fetchPriority: "high" });
+
   return (
     <html
       lang={locale}
-      className={`${manrope.variable} ${notoSerif.variable} scroll-smooth`}
+      className={`${manrope.variable} ${notoSerif.variable}`}
     >
       <body className="bg-background text-on-surface">
         <script
